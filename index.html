@@ -30,6 +30,15 @@
       scroll-behavior: smooth;
     }
 
+    /* Respect user's motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .service-card, .stat-item, .award-item, .review-card, .project-card {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
     .container {
       max-width: 1280px;
       margin: 0 auto;
@@ -376,7 +385,7 @@
       margin-top: 10px;
     }
 
-    /* ----- HERO ----- */
+    /* ----- HERO with scroll indicator ----- */
     .hero {
       position: relative;
       width: 100%;
@@ -439,8 +448,44 @@
       flex-wrap: wrap;
     }
 
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      z-index: 10;
+      animation: bounce 2s infinite;
+      background: rgba(0,0,0,0.4);
+      padding: 8px 16px;
+      border-radius: 40px;
+      backdrop-filter: blur(8px);
+    }
+
+    .scroll-indicator span {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .scroll-indicator i {
+      font-size: 1rem;
+      color: #D4AF37;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
     /* ============================================ */
-    /* SERVICES - NO SCROLL ANIMATION (NO LAG) */
+    /* SERVICES WITH SCROLL ANIMATION */
     /* ============================================ */
     .services {
       padding: 100px 0;
@@ -488,7 +533,7 @@
       gap: 48px;
     }
 
-    /* CARDS - NO TRANSFORM ANIMATION, JUST STATIC */
+    /* Glass card with animation */
     .service-card {
       display: flex;
       align-items: center;
@@ -498,6 +543,23 @@
       border-radius: 28px;
       overflow: hidden;
       border: 1px solid rgba(212, 175, 55, 0.2);
+      transition: all 0.3s ease;
+      
+      /* Animation properties - hidden state */
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .service-card.animate-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212, 175, 55, 0.6);
+      background: rgba(40, 45, 65, 0.5);
     }
 
     .service-image-side {
@@ -549,9 +611,7 @@
       flex-direction: row-reverse;
     }
 
-    /* ============================================ */
-    /* STATS SECTION */
-    /* ============================================ */
+    /* STATS SECTION ANIMATION */
     .stats-section {
       background: rgba(255, 255, 255, 0.03);
       padding: 70px 0;
@@ -568,10 +628,10 @@
     .stat-item {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .stat-item.animated {
+    .stat-item.animate-visible {
       opacity: 1;
       transform: translateY(0);
     }
@@ -590,9 +650,7 @@
       font-weight: 500;
     }
 
-    /* ============================================ */
-    /* AWARDS SECTION */
-    /* ============================================ */
+    /* AWARDS SECTION ANIMATION */
     .awards-section {
       background: #353738;
       padding: 70px 0;
@@ -647,6 +705,14 @@
       background: rgba(255, 255, 255, 0.05);
       border-radius: 20px;
       border: 1px solid rgba(212, 175, 55, 0.2);
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .award-item.animate-visible {
+      opacity: 1;
+      transform: scale(1);
     }
 
     .award-img {
@@ -683,9 +749,7 @@
       background: #D4AF37;
     }
 
-    /* ============================================ */
     /* ABOUT SECTION */
-    /* ============================================ */
     .about-section {
       background: rgba(255, 255, 255, 0.03);
       padding: 100px 0;
@@ -711,9 +775,7 @@
       line-height: 1.7;
     }
 
-    /* ============================================ */
-    /* REVIEWS SECTION */
-    /* ============================================ */
+    /* REVIEWS SECTION ANIMATION */
     .media-section {
       background: #353738;
       padding: 100px 0;
@@ -761,10 +823,6 @@
       margin-bottom: 1.2rem;
     }
 
-    .reviews-header h3:after {
-      margin: 8px 0 0 0;
-    }
-
     .reviews-wrapper {
       overflow-x: auto;
       overflow-y: hidden;
@@ -790,11 +848,20 @@
       flex-shrink: 0;
       border: 1px solid rgba(212, 175, 55, 0.2);
       border-radius: 16px;
-      transition: all 0.2s;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .review-card.animate-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .review-card:hover {
       border-color: #D4AF37;
+      transform: translateY(-5px);
     }
 
     .review-stars {
@@ -843,9 +910,7 @@
       background: #D4AF37;
     }
 
-    /* ============================================ */
-    /* PROJECTS SECTION */
-    /* ============================================ */
+    /* PROJECTS SECTION ANIMATION */
     .projects-section {
       padding: 100px 0;
       background: rgba(255, 255, 255, 0.03);
@@ -889,6 +954,14 @@
       cursor: pointer;
       border-radius: 20px;
       border: 1px solid rgba(212, 175, 55, 0.2);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card.animate-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .project-card img {
@@ -951,9 +1024,7 @@
       text-align: center;
     }
 
-    /* ============================================ */
     /* CTA SECTION */
-    /* ============================================ */
     .cta-section {
       background: #2A2C2D;
       padding: 80px 0;
@@ -984,9 +1055,7 @@
       color: #353738;
     }
 
-    /* ============================================ */
     /* FOOTER */
-    /* ============================================ */
     .footer {
       background: #353738;
       padding: 60px 0 32px;
@@ -1025,9 +1094,7 @@
       color: #666670;
     }
 
-    /* ============================================ */
     /* MOBILE RESPONSIVE */
-    /* ============================================ */
     @media (max-width: 900px) {
       .container {
         padding: 0 20px;
@@ -1192,6 +1259,10 @@
         <div class="hero-buttons">
           <a href="#" class="btn-primary hero-cta">Request a Design Session</a>
         </div>
+      </div>
+      <div class="scroll-indicator" id="scrollIndicator">
+        <span>Scroll</span>
+        <i class="fas fa-chevron-down"></i>
       </div>
     </section>
 
@@ -1362,7 +1433,7 @@
         <div class="cta-content">
           <h2>Ready to transform<br>your outdoor space?</h2>
           <p>Let's discuss your vision. Our team is ready to bring your dream landscape to life with award-winning craftsmanship.</p>
-          <a href="#" class="btn-primary cta-btn">Contact Us</a>
+          <a href="#" class="btn-primary portfolio-cta-btn" id="viewPortfolioBtn">View Our Portfolio</a>
         </div>
       </div>
     </section>
@@ -1405,15 +1476,41 @@
 
     // Contact alerts
     function showAlert() { alert("Thank you! A representative will contact you within 24 hours."); }
-    document.querySelectorAll('.hero-cta, .about-cta, .btn-nav, .cta-btn, #contactNavBtn, #mobileContactBtn, .btn-learn').forEach(btn => btn?.addEventListener('click', (e) => { 
+    
+    document.querySelectorAll('.hero-cta, .about-cta, .btn-nav, #contactNavBtn, #mobileContactBtn, .btn-learn').forEach(btn => btn?.addEventListener('click', (e) => { 
       if (btn.classList.contains('btn-learn')) {
         e.preventDefault();
         alert("Learn more about this service!");
-      } else {
+      } else if (!btn.classList.contains('portfolio-cta-btn')) {
         e.preventDefault(); 
         showAlert();
       }
     }));
+    
+    // Portfolio button
+    const portfolioBtn = document.getElementById('viewPortfolioBtn');
+    if (portfolioBtn) {
+      portfolioBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const projectsSection = document.querySelector('.projects-section');
+        if (projectsSection) {
+          projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          projectsSection.style.transition = 'background 0.5s ease';
+          projectsSection.style.backgroundColor = 'rgba(212, 175, 55, 0.05)';
+          setTimeout(() => {
+            projectsSection.style.backgroundColor = '';
+          }, 800);
+        }
+      });
+    }
+    
+    const viewMoreLink = document.querySelector('.btn-bekijk .btn-outline');
+    if (viewMoreLink) {
+      viewMoreLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("Explore our full portfolio gallery (coming soon). For now, enjoy the featured projects above!");
+      });
+    }
 
     // Stats counting animation
     const statItems = document.querySelectorAll('.stat-item');
@@ -1455,6 +1552,64 @@
     }, { threshold: 0.3 });
 
     statItems.forEach(item => statsObserver.observe(item));
+
+    // SCROLL ANIMATION WITH STAGGERED WAVE DELAYS - Intersection Observer
+    const setupScrollAnimations = () => {
+      // Service cards stagger
+      const serviceCards = document.querySelectorAll('.service-card');
+      const statItemsAnim = document.querySelectorAll('.stat-item');
+      const awardItemsAnim = document.querySelectorAll('.award-item');
+      const reviewCardsAnim = document.querySelectorAll('.review-card');
+      const projectCardsAnim = document.querySelectorAll('.project-card');
+      
+      const observeWithStagger = (elements, baseDelay = 0.08, maxDelay = 0.7) => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              if (el.classList.contains('animate-visible')) return;
+              
+              const index = parseInt(el.getAttribute('data-stagger-index') || '0');
+              const delay = Math.min(index * baseDelay, maxDelay);
+              el.style.transitionDelay = `${delay}s`;
+              el.classList.add('animate-visible');
+              
+              const onEnd = () => {
+                el.style.transitionDelay = '';
+                el.removeEventListener('transitionend', onEnd);
+              };
+              el.addEventListener('transitionend', onEnd, { once: true });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
+        
+        elements.forEach((el, idx) => {
+          el.setAttribute('data-stagger-index', idx);
+          observer.observe(el);
+        });
+      };
+      
+      observeWithStagger(serviceCards, 0.08, 0.7);
+      observeWithStagger(statItemsAnim, 0.1, 0.4);
+      observeWithStagger(awardItemsAnim, 0.06, 0.35);
+      observeWithStagger(reviewCardsAnim, 0.07, 0.5);
+      observeWithStagger(projectCardsAnim, 0.07, 0.55);
+    };
+    
+    // Scroll indicator click
+    const scrollIndicator = document.getElementById('scrollIndicator');
+    if (scrollIndicator) {
+      scrollIndicator.addEventListener('click', () => {
+        const servicesSection = document.querySelector('.services');
+        if (servicesSection) {
+          servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
+    
+    // Initialize scroll animations
+    setupScrollAnimations();
 
     // Awards dots
     const awardsWrapper = document.getElementById('awardsWrapper');
@@ -1542,14 +1697,6 @@
         });
       });
     }
-
-    // ============================================
-    // NO SCROLL ANIMATION ON CARDS - COMPLETELY REMOVED
-    // This was causing the lag!
-    // ============================================
-    // The service cards are now static - no transform updates on scroll
-    // This eliminates all lag completely
-    
   </script>
 </body>
 </html>
