@@ -32,7 +32,7 @@
 
     /* Respect user's motion preferences */
     @media (prefers-reduced-motion: reduce) {
-      .service-card, .stat-item, .award-item, .review-card, .project-card {
+      .service-card, .stat-item, .review-card, .project-card {
         transition: none !important;
         opacity: 1 !important;
         transform: none !important;
@@ -112,6 +112,7 @@
       text-decoration: none;
       transition: 0.3s;
       font-size: 0.85rem;
+      cursor: pointer;
     }
 
     .btn-learn:hover {
@@ -393,7 +394,7 @@
       margin-top: 10px;
     }
 
-    /* ----- HERO with scroll indicator ----- */
+    /* ----- HERO ----- */
     .hero {
       position: relative;
       width: 100%;
@@ -620,105 +621,6 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       font-weight: 500;
-    }
-
-    /* AWARDS SECTION ANIMATION */
-    .awards-section {
-      background: #353738;
-      padding: 70px 0;
-      text-align: center;
-      overflow-x: clip;
-    }
-
-    .award-title {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #FFFFFF;
-      margin-bottom: 40px;
-    }
-
-    .award-title:after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 2px;
-      background: #D4AF37;
-      margin: 12px auto 0;
-      border-radius: 2px;
-    }
-
-    .awards-wrapper {
-      overflow-x: auto;
-      overflow-y: hidden;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-
-    .awards-wrapper::-webkit-scrollbar {
-      display: none;
-    }
-
-    .award-grid {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: center;
-      align-items: center;
-      gap: 60px;
-      min-width: min-content;
-    }
-
-    .award-item {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      opacity: 0;
-      transform: scale(0.9);
-      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .award-item.animate-visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .award-img {
-      height: 120px;
-      width: auto;
-      max-width: 200px;
-      object-fit: contain;
-      transition: all 0.3s ease;
-    }
-
-    .award-img:hover {
-      transform: scale(1.08);
-    }
-
-    .awards-dots {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #A0A0A5;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .dot.active {
-      width: 24px;
-      border-radius: 4px;
-      background: #D4AF37;
     }
 
     /* ABOUT SECTION */
@@ -1132,21 +1034,6 @@
         font-size: 2.2rem;
       }
 
-      .award-grid {
-        justify-content: flex-start;
-        gap: 40px;
-        padding: 0 20px;
-      }
-      
-      .award-item {
-        padding: 10px;
-      }
-      
-      .award-img {
-        height: 80px;
-        max-width: 140px;
-      }
-
       .media-grid {
         flex-direction: column;
         gap: 40px;
@@ -1191,7 +1078,7 @@
       <ul class="nav-links">
         <li><a href="#">Services</a>
           <ul class="dropdown-menu">
-            <li><a href="#">Landscaping</a></li>
+            <li><a href="landscaping.html">Landscaping</a></li>
             <li><a href="#">Interlocking</a></li>
             <li><a href="#">Decks & Decking</a></li>
             <li><a href="#">Pools & Water Features</a></li>
@@ -1213,7 +1100,7 @@
     <button class="close-btn" id="closeMenu">&times;</button>
     <a href="#">Services</a>
     <div class="mobile-dropdown">
-      <a href="#">Landscaping</a><a href="#">Interlocking</a><a href="#">Decks & Decking</a>
+      <a href="landscaping.html">Landscaping</a><a href="#">Interlocking</a><a href="#">Decks & Decking</a>
       <a href="#">Pools & Water Features</a><a href="#">Woodworking</a><a href="#">Outdoor Railings</a>
     </div>
     <a href="#">Process</a><a href="#">Portfolio</a>
@@ -1249,7 +1136,7 @@
               <div class="service-category">DESIGN & BUILD</div>
               <h3>Landscaping</h3>
               <p>Award-winning landscaping design & construction guaranteed to transform your backyard into a stunning outdoor living space.</p>
-              <a href="#" class="btn-learn">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+              <a href="landscaping.html" class="btn-learn">LEARN MORE <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
           <div class="service-card">
@@ -1327,22 +1214,6 @@
             <div class="stat-label">INDUSTRY AWARDS</div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="awards-section">
-      <div class="container">
-        <h2 class="award-title">Award Winning Landscaping Design & Construction</h2>
-        <div class="awards-wrapper" id="awardsWrapper">
-          <div class="award-grid" id="awardGrid">
-            <div class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/Three-Best-Rated-Award.png" alt="Three Best Rated Award" class="award-img"></div>
-            <div class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/HomeStars-Verified-2023.png" alt="HomeStars Verified" class="award-img"></div>
-            <div class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/Bigger-size-BOB.png" alt="BOB Award" class="award-img"></div>
-            <div class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/AOEwe.png" alt="AOE Award" class="award-img"></div>
-            <div class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/500x600.png" alt="Top Choice Award" class="award-img"></div>
-          </div>
-        </div>
-        <div class="awards-dots" id="awardsDots"></div>
       </div>
     </section>
 
@@ -1453,8 +1324,17 @@
       showContactAlert();
     }));
     
-    // Handle Learn More buttons
+    // Handle Learn More buttons (except the one that links to landscaping.html)
     document.querySelectorAll('.btn-learn').forEach(btn => btn?.addEventListener('click', (e) => { 
+      const href = btn.getAttribute('href');
+      if (href && href !== '#' && href !== 'landscaping.html') {
+        // Let the link work normally
+        return;
+      }
+      if (href === 'landscaping.html') {
+        // Already handled by link, do nothing extra
+        return;
+      }
       e.preventDefault();
       alert("Learn more about this service! Our team will provide detailed information.");
     }));
@@ -1530,7 +1410,6 @@
     const setupScrollAnimations = () => {
       const serviceCards = document.querySelectorAll('.service-card');
       const statItemsAnim = document.querySelectorAll('.stat-item');
-      const awardItemsAnim = document.querySelectorAll('.award-item');
       const reviewCardsAnim = document.querySelectorAll('.review-card');
       const projectCardsAnim = document.querySelectorAll('.project-card');
       
@@ -1564,42 +1443,12 @@
       
       observeWithStagger(serviceCards, 0.08, 0.7);
       observeWithStagger(statItemsAnim, 0.1, 0.4);
-      observeWithStagger(awardItemsAnim, 0.06, 0.35);
       observeWithStagger(reviewCardsAnim, 0.07, 0.5);
       observeWithStagger(projectCardsAnim, 0.07, 0.55);
     };
     
     // Initialize scroll animations
     setupScrollAnimations();
-
-    // Awards dots
-    const awardsWrapper = document.getElementById('awardsWrapper');
-    const awardsDotsContainer = document.getElementById('awardsDots');
-    const awardItems = document.querySelectorAll('.award-item');
-    
-    if (awardsWrapper && awardsDotsContainer) {
-      awardItems.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => {
-          const scrollAmount = awardsWrapper.clientWidth * index;
-          awardsWrapper.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-        });
-        awardsDotsContainer.appendChild(dot);
-      });
-      
-      awardsWrapper.addEventListener('scroll', () => {
-        const scrollPosition = awardsWrapper.scrollLeft;
-        const itemWidth = awardsWrapper.clientWidth;
-        const activeIndex = Math.round(scrollPosition / itemWidth);
-        const dots = document.querySelectorAll('#awardsDots .dot');
-        dots.forEach((dot, i) => {
-          if (i === activeIndex) dot.classList.add('active');
-          else dot.classList.remove('active');
-        });
-      });
-    }
 
     // Reviews dots
     const reviewsWrapper = document.getElementById('reviewsWrapper');
