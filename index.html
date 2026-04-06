@@ -269,7 +269,6 @@
 
     .nav-phone i {
       color: #D4AF37;
-      font-size: 0.9rem;
     }
 
     .navbar.scrolled .nav-phone {
@@ -278,10 +277,6 @@
 
     .nav-phone:hover {
       color: #D4AF37;
-    }
-
-    .nav-phone:hover i {
-      color: #E8C45A;
     }
 
     .btn-nav {
@@ -294,6 +289,7 @@
       transition: all 0.2s;
       font-size: 0.8rem;
       border: 1px solid rgba(212, 175, 55, 0.3);
+      cursor: pointer;
     }
 
     .navbar.scrolled .btn-nav {
@@ -397,7 +393,7 @@
       margin-top: 10px;
     }
 
-    /* ----- HERO ----- */
+    /* ----- HERO with scroll indicator ----- */
     .hero {
       position: relative;
       width: 100%;
@@ -1222,7 +1218,7 @@
     </div>
     <a href="#">Process</a><a href="#">Portfolio</a>
     <div class="mobile-contact">
-      <a href="tel:4161234567"><i class="fas fa-phone-alt"></i> (416) 123-4567</a>
+      <a href="tel:4161234567">(416) 123-4567</a>
       <a href="#" class="mobile-btn" id="mobileContactBtn">Contact Us</a>
     </div>
   </div>
@@ -1258,7 +1254,7 @@
           </div>
           <div class="service-card">
             <div class="service-image-side">
-              <img src="https://mecontracting.ca/wp-content/uploads/Azek-Decking-Project-by-The-Toronto-Landscaping-Contractors.-2.jpg" alt="Decking">
+              <img src="images/service-2.jpg" alt="Decking">
             </div>
             <div class="service-content">
               <div class="service-category">PVC & COMPOSITE</div>
@@ -1446,12 +1442,12 @@
     // Logo
     document.getElementById('logoLink')?.addEventListener('click', (e) => { e.preventDefault(); window.location.href = 'index.html'; });
 
-    // Contact alerts - all contact buttons work properly
+    // Contact alerts
     function showContactAlert() { 
       alert("Thank you for your interest! A representative will contact you within 24 hours."); 
     }
     
-    // Handle all contact buttons (Contact Us, Inquire, Request Design Session, Read more about us)
+    // Handle all contact buttons
     document.querySelectorAll('.hero-cta, .about-cta, .btn-nav, #contactNavBtn, #mobileContactBtn').forEach(btn => btn?.addEventListener('click', (e) => { 
       e.preventDefault(); 
       showContactAlert();
@@ -1463,7 +1459,7 @@
       alert("Learn more about this service! Our team will provide detailed information.");
     }));
     
-    // Portfolio button - scroll to projects section
+    // Portfolio button
     const portfolioBtn = document.getElementById('viewPortfolioBtn');
     if (portfolioBtn) {
       portfolioBtn.addEventListener('click', (e) => {
@@ -1530,7 +1526,7 @@
 
     statItems.forEach(item => statsObserver.observe(item));
 
-    // SCROLL ANIMATION WITH STAGGERED WAVE DELAYS - Intersection Observer
+    // SCROLL ANIMATION WITH STAGGERED WAVE DELAYS
     const setupScrollAnimations = () => {
       const serviceCards = document.querySelectorAll('.service-card');
       const statItemsAnim = document.querySelectorAll('.stat-item');
