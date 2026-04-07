@@ -7,7 +7,8 @@
     </a>
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
     <ul class="nav-links">
-      <li><a href="#">Services</a>
+      <li><a href="index.html" id="navHome">Home</a></li>
+      <li><a href="#" id="navServices">Services</a>
         <ul class="dropdown-menu">
           <li><a href="landscaping.html">Landscaping</a></li>
           <li><a href="#">Interlocking</a></li>
@@ -18,7 +19,7 @@
         </ul>
       </li>
       <li><a href="#">Process</a></li>
-      <li><a href="#">Portfolio</a></li>
+      <li><a href="portfolio.html" id="navPortfolio">Portfolio</a></li>
     </ul>
     <div class="nav-contact">
       <a href="tel:4161234567" class="nav-phone"><i class="fas fa-phone-alt"></i> (416) 123-4567</a>
@@ -29,8 +30,8 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <button class="close-btn" id="closeMenu">&times;</button>
-  <a href="index.html">Home</a>
-  <a href="#">Services</a>
+  <a href="index.html" id="mobileHome">Home</a>
+  <a href="#" id="mobileServices">Services</a>
   <div class="mobile-dropdown">
     <a href="landscaping.html">Landscaping</a>
     <a href="#">Interlocking</a>
@@ -40,9 +41,44 @@
     <a href="#">Outdoor Railings</a>
   </div>
   <a href="#">Process</a>
-  <a href="#">Portfolio</a>
+  <a href="portfolio.html" id="mobilePortfolio">Portfolio</a>
   <div class="mobile-contact">
     <a href="tel:4161234567">(416) 123-4567</a>
     <a href="#" class="mobile-btn" id="mobileContactBtn">Contact Us</a>
   </div>
 </div>
+
+<script>
+  // Function to set active class based on current page
+  (function setActiveNavigation() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Desktop navigation
+    const homeLink = document.getElementById('navHome');
+    const portfolioLink = document.getElementById('navPortfolio');
+    const servicesLink = document.getElementById('navServices');
+    
+    // Mobile navigation
+    const mobileHomeLink = document.getElementById('mobileHome');
+    const mobilePortfolioLink = document.getElementById('mobilePortfolio');
+    const mobileServicesLink = document.getElementById('mobileServices');
+    
+    // Remove any existing active classes first
+    const allNavLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+    allNavLinks.forEach(link => {
+      link.classList.remove('active');
+    });
+    
+    // Set active class based on current page
+    if (currentPage === 'index.html' || currentPage === '') {
+      if (homeLink) homeLink.classList.add('active');
+      if (mobileHomeLink) mobileHomeLink.classList.add('active');
+    } else if (currentPage === 'portfolio.html') {
+      if (portfolioLink) portfolioLink.classList.add('active');
+      if (mobilePortfolioLink) mobilePortfolioLink.classList.add('active');
+    } else if (currentPage === 'landscaping.html') {
+      if (servicesLink) servicesLink.classList.add('active');
+      if (mobileServicesLink) mobileServicesLink.classList.add('active');
+    }
+  })();
+</script>
