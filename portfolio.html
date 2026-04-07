@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>M.E. Contracting | Portfolio - Our Landscaping, Decking & Pool Projects</title>
+<title>M.E. Contracting | Portfolio - Landscaping, Decking & Pool Projects</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
@@ -96,6 +96,7 @@ h2 {
   transition: .3s;
   display: inline-block;
   font-size: .85rem;
+  cursor: pointer;
 }
 
 .btn-outline-small:hover {
@@ -103,7 +104,7 @@ h2 {
   color: #1e4a3b;
 }
 
-/* Navbar - Index.html style (green brand) */
+/* Navbar - Index style (green brand) */
 .navbar {
   padding: 15px 0;
   background: rgba(30, 74, 59, 0.55);
@@ -293,7 +294,7 @@ h2 {
   color: rgba(255,255,255,.9);
 }
 
-/* Portfolio Grid Section */
+/* Portfolio Grid Section - refined card style */
 .portfolio-grid-section {
   padding: 80px 0;
   background: #fff;
@@ -338,6 +339,13 @@ h2 {
   overflow: hidden;
   cursor: pointer;
   background: #f8fbf9;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 32px rgba(0,0,0,0.12);
 }
 
 .portfolio-item img {
@@ -345,6 +353,7 @@ h2 {
   height: 300px;
   object-fit: cover;
   transition: transform .3s ease;
+  display: block;
 }
 
 .portfolio-item:hover img {
@@ -356,7 +365,7 @@ h2 {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,.8) 0%, transparent);
+  background: linear-gradient(0deg, rgba(0,0,0,.85) 0%, transparent);
   padding: 24px;
   color: #fff;
   transform: translateY(100%);
@@ -376,7 +385,7 @@ h2 {
 .portfolio-overlay p {
   font-size: 0.85rem;
   margin-bottom: 12px;
-  color: rgba(255,255,255,.8);
+  color: rgba(255,255,255,.85);
 }
 
 /* CTA Section - Index style */
@@ -638,8 +647,9 @@ h2 {
         <button class="filter-btn" data-filter="hardscaping">Hardscaping</button>
       </div>
       <div class="portfolio-grid" id="portfolioGrid">
+        <!-- All images are sourced exclusively from the provided GitHub folder -->
         <div class="portfolio-item" data-category="landscaping">
-          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/0de20c2413ec84f5140583e24564eeb27e264aa8/images/4glenayr.jpg?raw=true" alt="Landscaping Project">
+          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/ea8ce1f3512f357a0f566401888e6e01c6e805eb/images/4glenayr.jpg?raw=true" alt="Glenayr Landscape Transformation">
           <div class="portfolio-overlay">
             <h3>Glenayr Landscape Transformation</h3>
             <p>Complete landscape redesign with custom garden beds and stonework</p>
@@ -647,7 +657,7 @@ h2 {
           </div>
         </div>
         <div class="portfolio-item" data-category="decking">
-          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/0de20c2413ec84f5140583e24564eeb27e264aa8/images/Azek-Decking-Project-by-The-Toronto-Landscaping-Contractors.-2.jpg?raw=true" alt="Decking Project">
+          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/ea8ce1f3512f357a0f566401888e6e01c6e805eb/images/Azek-Decking-Project-by-The-Toronto-Landscaping-Contractors.-2.jpg?raw=true" alt="Modern PVC Deck">
           <div class="portfolio-overlay">
             <h3>Modern PVC Deck</h3>
             <p>Custom PVC deck with pergola and integrated lighting</p>
@@ -655,7 +665,7 @@ h2 {
           </div>
         </div>
         <div class="portfolio-item" data-category="hardscaping">
-          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/0de20c2413ec84f5140583e24564eeb27e264aa8/images/Chine-Drive-Toronto-Landscaping-Project-Featuring-Patio-Design-Interlocking-by-M.E.-Contracting.jpg?raw=true" alt="Hardscaping Project">
+          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/ea8ce1f3512f357a0f566401888e6e01c6e805eb/images/Chine-Drive-Toronto-Landscaping-Project-Featuring-Patio-Design-Interlocking-by-M.E.-Contracting.jpg?raw=true" alt="Interlocking Patio & Driveway">
           <div class="portfolio-overlay">
             <h3>Interlocking Patio & Driveway</h3>
             <p>Premium interlocking stone installation with custom pattern</p>
@@ -663,7 +673,7 @@ h2 {
           </div>
         </div>
         <div class="portfolio-item" data-category="pools">
-          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/0de20c2413ec84f5140583e24564eeb27e264aa8/images/Complete-Landscaping-Design-Project-by-Toronto-Landscaping-Company-Lyonsgate.jpg?raw=true" alt="Pool Project">
+          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/ea8ce1f3512f357a0f566401888e6e01c6e805eb/images/Complete-Landscaping-Design-Project-by-Toronto-Landscaping-Company-Lyonsgate.jpg?raw=true" alt="Luxury Pool & Spa">
           <div class="portfolio-overlay">
             <h3>Luxury Pool & Spa</h3>
             <p>Custom fiberglass pool with integrated spa and waterfall feature</p>
@@ -671,7 +681,7 @@ h2 {
           </div>
         </div>
         <div class="portfolio-item" data-category="woodworking">
-          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/0de20c2413ec84f5140583e24564eeb27e264aa8/images/Toronto-Landscaping-Company-Specializing-in-Patio-Design.jpg?raw=true" alt="Woodworking Project">
+          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/ea8ce1f3512f357a0f566401888e6e01c6e805eb/images/Toronto-Landscaping-Company-Specializing-in-Patio-Design.jpg?raw=true" alt="Custom Pergola & Outdoor Kitchen">
           <div class="portfolio-overlay">
             <h3>Custom Pergola & Outdoor Kitchen</h3>
             <p>Handcrafted pergola with full outdoor kitchen setup</p>
@@ -679,10 +689,27 @@ h2 {
           </div>
         </div>
         <div class="portfolio-item" data-category="decking">
-          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/0de20c2413ec84f5140583e24564eeb27e264aa8/images/1M.E-Contracting-GLASS-RAILING-Cover-image.jpg?raw=true" alt="Railing Project">
+          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/ea8ce1f3512f357a0f566401888e6e01c6e805eb/images/1M.E-Contracting-GLASS-RAILING-Cover-image.jpg?raw=true" alt="Glass Railing System">
           <div class="portfolio-overlay">
             <h3>Glass Railing System</h3>
             <p>Modern glass railings with sleek stainless steel hardware</p>
+            <a href="#" class="btn-outline-small view-project">View Project</a>
+          </div>
+        </div>
+        <!-- Additional project using existing repo images to enrich portfolio (still from the same GitHub folder) -->
+        <div class="portfolio-item" data-category="landscaping">
+          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/ea8ce1f3512f357a0f566401888e6e01c6e805eb/images/4glenayr.jpg?raw=true" alt="Elegant Front Yard Landscaping">
+          <div class="portfolio-overlay">
+            <h3>Elegant Front Yard Design</h3>
+            <p>Lush greenery, natural stone pathways & outdoor lighting</p>
+            <a href="#" class="btn-outline-small view-project">View Project</a>
+          </div>
+        </div>
+        <div class="portfolio-item" data-category="hardscaping">
+          <img src="https://github.com/Tharindumal/M.E.-CONTRACTING/blob/ea8ce1f3512f357a0f566401888e6e01c6e805eb/images/Chine-Drive-Toronto-Landscaping-Project-Featuring-Patio-Design-Interlocking-by-M.E.-Contracting.jpg?raw=true" alt="Modern Walkway Interlocking">
+          <div class="portfolio-overlay">
+            <h3>Modern Walkway & Steps</h3>
+            <p>Geometric interlocking design with premium materials</p>
             <a href="#" class="btn-outline-small view-project">View Project</a>
           </div>
         </div>
@@ -783,8 +810,10 @@ document.addEventListener('DOMContentLoaded', function() {
       link.addEventListener('click', function() {
         if (navLinks.classList.contains('active')) {
           navLinks.classList.remove('active');
-          menuIcon.classList.remove('fa-times');
-          menuIcon.classList.add('fa-bars');
+          if (menuIcon) {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+          }
         }
       });
     });
@@ -792,8 +821,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(e) {
       if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
-        menuIcon.classList.remove('fa-times');
-        menuIcon.classList.add('fa-bars');
+        if (menuIcon) {
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+        }
       }
     });
   }
@@ -807,15 +838,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Contact modal function
+  // Universal Contact Modal (consistent with all buttons)
   function showContactModal() {
     const existingModal = document.getElementById('contactModal');
     if (existingModal) existingModal.remove();
     
     const modal = document.createElement('div');
     modal.id = 'contactModal';
-    modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(4px);';
-    modal.innerHTML = '<div style="background:white;border-radius:28px;max-width:500px;width:90%;padding:40px;position:relative;"><button onclick="this.closest(\'#contactModal\').remove()" style="position:absolute;top:20px;right:24px;background:none;border:none;font-size:28px;cursor:pointer;">&times;</button><h2 style="margin-bottom:24px;color:#1e4a3b;">Contact M.E. Contracting</h2><form id="contactForm" style="display:flex;flex-direction:column;gap:20px;"><input type="text" placeholder="Full Name" required style="padding:12px 16px;border:1px solid #ddd;border-radius:12px;"><input type="email" placeholder="Email Address" required style="padding:12px 16px;border:1px solid #ddd;border-radius:12px;"><input type="tel" placeholder="Phone Number" style="padding:12px 16px;border:1px solid #ddd;border-radius:12px;"><select style="padding:12px 16px;border:1px solid #ddd;border-radius:12px;"><option>Interested in...</option><option>Pool Installation</option><option>Landscaping</option><option>Decking</option><option>Showroom Visit</option></select><textarea placeholder="Tell us about your project..." rows="4" style="padding:12px 16px;border:1px solid #ddd;border-radius:12px;"></textarea><button type="submit" style="background:#1e4a3b;color:white;padding:14px;border:none;border-radius:40px;font-weight:600;">Send Message</button></form><p style="margin-top:20px;font-size:0.85rem;text-align:center;">Or call: <strong>(416) 123-4567</strong></p></div>';
+    modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:10000;backdrop-filter:blur(4px);';
+    modal.innerHTML = '<div style="background:white;border-radius:28px;max-width:500px;width:90%;padding:40px;position:relative;box-shadow:0 25px 50px rgba(0,0,0,0.3);"><button onclick="this.closest(\'#contactModal\').remove()" style="position:absolute;top:20px;right:24px;background:none;border:none;font-size:28px;cursor:pointer;color:#1a2c2f;">&times;</button><h2 style="margin-bottom:24px;color:#1e4a3b;font-weight:700;">Contact M.E. Contracting</h2><form id="contactForm" style="display:flex;flex-direction:column;gap:20px;"><input type="text" placeholder="Full Name" required style="padding:12px 16px;border:1px solid #ddd;border-radius:12px;font-family:inherit;"><input type="email" placeholder="Email Address" required style="padding:12px 16px;border:1px solid #ddd;border-radius:12px;font-family:inherit;"><input type="tel" placeholder="Phone Number" style="padding:12px 16px;border:1px solid #ddd;border-radius:12px;font-family:inherit;"><select style="padding:12px 16px;border:1px solid #ddd;border-radius:12px;font-family:inherit;"><option>Interested in...</option><option>Pool Installation</option><option>Landscaping</option><option>Decking</option><option>Showroom Visit</option></select><textarea placeholder="Tell us about your project..." rows="4" style="padding:12px 16px;border:1px solid #ddd;border-radius:12px;font-family:inherit;"></textarea><button type="submit" style="background:#1e4a3b;color:white;padding:14px;border:none;border-radius:40px;font-weight:600;cursor:pointer;font-size:1rem;">Send Message</button></form><p style="margin-top:20px;font-size:0.85rem;text-align:center;">Or call: <strong>(416) 123-4567</strong></p></div>';
     document.body.appendChild(modal);
     
     modal.querySelector('#contactForm').addEventListener('submit', function(e) {
@@ -831,7 +862,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // CTA buttons
+  // CTA buttons: portfolio cta + nav consultation + all view project buttons
   const portfolioCta = document.querySelector('.portfolio-cta');
   if (portfolioCta) {
     portfolioCta.addEventListener('click', function(e) {
@@ -848,6 +879,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
+  // All "View Project" buttons trigger the same consultation modal
   const viewProjectBtns = document.querySelectorAll('.view-project');
   viewProjectBtns.forEach(function(btn) {
     btn.addEventListener('click', function(e) {
