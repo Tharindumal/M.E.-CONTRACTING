@@ -535,8 +535,64 @@
 
   // Helper to get full image URL
   function getImageUrl(project) {
-    if (project.folder === "root") return BASE_RAW + project.file;
     return BASE_RAW + project.folder + "/" + project.file;
+  }
+
+  // Predefined image lists for each folder (ONLY VALID, WORKING IMAGES - removed incomplete ones)
+  const folderImages = {
+    "p1": ["11Walker-Ave.jpg","12Walker-Ave.jpg","13Walker-Ave.jpg","16Walker-Ave.jpg","2Walker-Ave.jpg","3Walker-Ave.jpg","4Walker-Ave.jpg","5Walker-Ave.jpg","6Walker-Ave.jpg","7Walker-Ave.jpg"],
+    "p2": ["11glenayr.jpg","16glenayr.jpg","18glenayr.jpg","1glenayr.jpg","2glenayr.jpg","4glenayr.jpg","5glenayr.jpg","7glenayr.jpg","8glenayr.jpg","9glenayr.jpg"],
+    "p3": ["10baycrest1.jpg","11baycrest1.jpg","12baycrest1.jpg","1baycrest1.jpg","2baycrest1.jpg","3baycrest1.jpg","4baycrest1.jpg","5baycrest1.jpg","6baycrest1.jpg","7baycrest1.jpg","8baycrest1.jpg","9baycrest1.jpg"],
+    "p4": ["109Ramsey-Project-2024.jpg","23Ramsey-Project-2024.jpg","2Ramsey-Project-2024.jpg","34Ramsey-Project-2024.jpg","43Ramsey-Project-2024.jpg","4Ramsey-Project-2024.jpg","5Ramsey-Project-2024.jpg","6Ramsey-Project-2024.jpg","80Ramsey-Project-2024.jpg","81Ramsey-Project-2024.jpg"],
+    "p5": ["12Oxford-project.jpg","1Oxford-project.jpg","2Oxford-project.jpg","4Oxford-project.jpg","6Oxford-project.jpg","9Oxford-project.jpg"],
+    "p6": ["10Rathburn-Road-Project-2024.jpg","1Rathburn-Road-Project-2024.jpg","2Rathburn-Road-Project-2024.jpg","3Rathburn-Road-Project-2024.jpg","4Rathburn-Road-Project-2024.jpg","5Rathburn-Road-Project-2024.jpg","6Rathburn-Road-Project-2024.jpg","7Rathburn-Road-Project-2024.jpg","8Rathburn-Road-Project-2024.jpg","9Rathburn-Road-Project-2024.jpg"],
+    "p7": ["Backyard-Fiberglass-Pool-Installation-Decking-Stone-Interlocking-and-Landscape-Design-Project-by-M.E.-Contracting.jpg","Backyard-Landscape-Design-Project-Featuring-Swim-Spa-PVC-Deck-Fiberglass-Pool-Installation-and-Interlocking.jpg","Complete-Backyard-Landscape-Design-Decking-Fiberglass-Pool-Installation-Project-by-M.E.-Contracting.jpg","M.E.-Contracting-Decking-and-Glass-Aluminum-Railing-Installation-Project-with-Fiberglass-Pool.jpg","M.E.-Contracting-Landscape-Design-Decking-Pool-Installation-with-Swim-Spa-Project.jpg","M.E.-Contracting-Lower-Deck-Build-on-Complete-Landscape-Design-Fiberglass-Pool-Installation.jpg","M.E.-Contracting-New-Decking-Landscape-Design-Project-with-Glass-and-Aluminum-Railings.jpg","M.E.-Contracting-PVC-Decking-Project-Featuring-Glass-and-Aluminum-Railings-and-Fiberglass-Pool.jpg","New-Decking-Fiberglass-Pool-Installation-Project-by-M.E.-Contracting.jpg","Professional-Fiberglass-Pool-Installation-Stone-Interlocking-and-Landscape-Design-by-M.E.-Contracting.jpg"],
+    "p8": ["M.E.-Contracting-Toronto-Landscape-Design-and-Construction-Project-Featuring-Outdoor-Kitchen-and-PVC-Decking.jpg","M.E.-Contracting-Toronto-Landscape-Design-and-Construction-Project-Featuring-Stone-Interlocking-Woodworking-Cabana-with-Outdoor-Lighting-and-Pool-Installation-with-Swim-Spa-and-Water-Fea.jpg","M.E.-Contracting-Toronto-Landscape-Design-and-Pool-Installation-Project-Featuring-Water-Feature-and-Stone-Interlocking.jpg","M.E.-Contracting-Toronto-Landscape-Design-and-Pool-Installation-Project-with-Swim-Spa-and-Water-Feature-Stone-Interlocking-PVC-Decking-Outdoor-Lighting-Outdoor-Kitchen-and-Metal-Pergola.jpg","Toronto-Landscape-Design-and-Construction-Project-Featuring-Outdoor-Lighting-Pool-with-Swim-Spa-and-Water-Feature-Installation-Stone-Interlocking-Outdoor-Fireplace-and-Woodworking-Cabana.jpg","Toronto-Landscape-Design-and-Construction-Project-by-M.E.-Contracting-Featuring-Pool-Installation-with-Water-Feature-Outdoor-Lighting-and-Stone-Interlocking.jpg","Toronto-Landscape-Design-and-Construction-Project-by-M.E.-Contracting-Featuring-Woodworking-Cabana-with-Outdoor-Lighting-Patio-Interlocking-and-Pool-Installation.jpg"],
+    "p9": ["Complete-Landscape-Patio-Design-Project-By-M.E.-Contracting-Featuring-Flush-Stone-Interlocking-Around-Pool-Woodworking-Pergola-Outdoor-Fireplace-Fiberglass-Pool-Installation-with-Swim-Sp.jpg","Completed-Small-Backyard-Modern-Landscape-Design-Project-Featuring-Patio-Design-Stone-Interlocking-Woodworking-Pergola-Fiberglass-Pool-Installation-with-MIni-Swim-Spa-And-Outdoor-Firepla.jpg","M.E.-Contracting-Completed-Backyard-Landscape-Design-Project-Featuring-Fiberglass-Pool-with-Swim-Spa-Stone-Interlocking-Woodworking-Pergola-And-An-Outdoor-Fireplace.jpg","M.E.-Contracting-Modern-Backyard-Landscaping-Project-Featuring-Outdoor-Fireplace-Stone-Interlocking-And-Woodworking.jpg","M.E.-Contracting-Modern-Landscaping-Project-Complete-With-Woodworking-Pergola-Stone-Interlocking-Fiberglass-Pool-Installation.jpg"],
+    "17": ["Complete-Landscaping-Design-Project-Featuring-Small-Composite-Deck-Build-Privacy-Fence-Interlocking-Small-Retaining-Wall-Outdoor-Fireplace.jpg","Hillhurst-Landscaping-Project-with-Privacy-Fence-by-M.E.-Contracting.jpg","Hillhurst-Project-Featuring-Tempered-Glass-Stainless-Steel-Railings-Composite-Decking-Patio-Interlocking-Outdoor-Fireplace.jpg_.jpg","Hillhurst-Toronto-Landscape-Design-with-Small-Retaining-Wall-Privacy-Fence-Interlocking.jpg","Small-Backyard-Landscaping-Project-by-Toronto-Landscaping-Company-Featuring-Small-Composite-Deck-Build-with-Stainless-Steel-Railings.jpg"],
+    "18": ["Toronto-Landscape-Design-Patio-Design-Project-Featuring-Composite-Decking-Wrought-Iron-Glass-Railings-Outdoor-Fireplace-Interlocking.jpg","Toronto-Landscape-Design-with-Outdoor-Kitchen-Wrought-Iron-Railings.jpg","Toronto-Landscaping-Company-Specializing-in-Patio-Design.jpg"],
+    "19": ["Azek-Decking-Project-by-The-Toronto-Landscaping-Contractors.-2.jpg","IPE-Decking-Project-Toronto-Landscaping-Contractors-1.jpg","Jacuzzi-Spa-Feature-Ginsler-Toronto-Landscape-Design-Project.jpg","Jucuzzi-Tub-Sports-Court-Feature-Toronto-Landscape-Design-Ginsler.jpg","Spa-Pool-Installation-by-Toronto-Landscaping-Company.jpg","Toronto-Landscaping-Company-Sports-Court-1.jpg","Toronto-Landscaping-Company-Sports-Court-Installation.jpg"],
+    "20": ["Charbel-Fiberglass-Pool-Outdoor-Kitchen-Projecrt.jpg","Charbel-Toronto-Landscaping-Design-Project-Featuring-Fiberglass-Pool-with-Water-Feature_.jpg","Pergola-Interlocking-Outdoor-Kitchen-Fiberglass-Reflection-Pool-Installation-Project.jpg","Reflection-Pool-Installation-for-Small-Toronto-Backyard.jpg","Small-Fiberglass-Reflection-Pool-with-Water-Feature-Installation-Project.jpg","Toronto-Landscaping-Project-Featuring-Woodworking-Pergola-Fiberglass-Pool.jpg"],
+    "21": ["Close-Up-Retaining-Wall-Feature-on-Modern-Landscaping-Project.jpg","Complete-Front-Yard-Modern-Landscape-Design-Interlocking-Project.jpg","Front-Entrance-Steps-Interlocking-Soft-Scaping-by-Toronto-Landscaping-Contractors.jpg","Front-Yard-Modern-Toronto-Landscaping-Project-by-Toronto-Landscaping-Company.jpg","Modern-Landscape-Design-Project-Featuring-Interlocking-Soft-Scaping.jpg","Modern-Toronto-Landscaping-Design-Richmond-Project.jpg"],
+    "22": ["Cedar-Point-Toronto-Landscaping-Project-Featuring-Pool-Installation-Interlocking-Retaining-Walls.jpg","Close-Up-of-Pool-Deck-Raised-Interlocking-Feature-for-Cedar-Point-Project-by-Toronto-Landscaping-Company.jpg","Complete-Landscape-Project-by-M.E.-Contracting-Featuring-Pool-Installation-Retaining-Wall-Interlocking-Woodwroking.jpg","Concrete-Pool-Feature-for-Cedar-Point-Project.jpg","Toronto-Landscaping-Company-Irrigation-Sprinkler-System-copy.jpg","Toronto-Landscaping-Driveway-Paving-Project-copy.jpg","Toronto-Landscaping-Featuring-Outdoor-Kitchen-copy.jpg"],
+    "23": ["AZEK-Decking-Landscaping-Project-by-Toronto-Landscaping-Company-1.jpg","Azek-Decking-Stainless-Steel-Railings-Project-Landscaping-Toronto-1.jpg","Backyard-Toronto-Landscape-Design-Project-with-Woodworking-Outdoor-Kitchen-Jasmin.jpg","Bright-Blue-Landscape-Design-Project-with-Woodworking-Pool-Installation-1.jpg","Complete-Small-Backyard-Landscaping-Project-Featuring-Outdoor-Fireplace-1.jpg","Complete-Toronto-Landscape-Design-Interlocking-Pool-Installation-Project.jpg_.jpg","Full-Toronto-Landscaping-Design-Project-by-Toronto-Landscaping-Company-1.jpg","Large-Woodworking-Project-Featuring-Pergola-by-Toronto-Landscaping-Contractors-1.jpg","Night-View-of-Complete-Landscaping-Project-for-Small-Toronto-Backyard-1.jpg","Toronto-Landscaping-Company-Complete-Landscape-Design-Pool-Installation-Project.jpg","Toronto-Landscaping-Project-For-Small-Backyard-with-Pool-Installation-Woodworking.jpg"]
+  };
+
+  // Show full folder gallery - BIG WINDOW, NO HORIZONTAL SCROLL (grid layout)
+  function showProjectGallery(projectIdx) {
+    const proj = projects[projectIdx];
+    if (!proj) return;
+    const folder = proj.folder;
+    let images = folderImages[folder] || [];
+    if (images.length === 0) { alert("No additional images for this project."); return; }
+
+    // Create responsive grid layout (no horizontal scroll)
+    let gridHtml = '<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:16px;">';
+    for (let img of images) {
+      let fullUrl = BASE_RAW + folder + "/" + img;
+      gridHtml += `
+        <div style="overflow:hidden; border-radius:16px; border:1px solid rgba(212,175,55,0.3);">
+          <img src="${fullUrl}" style="width:100%; height:200px; object-fit:cover; display:block;" loading="lazy">
+        </div>
+      `;
+    }
+    gridHtml += '</div>';
+
+    // Create BIG modal window
+    const modal = document.createElement("div");
+    modal.style.cssText = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:10001; display:flex; align-items:center; justify-content:center; overflow-y:auto; padding:40px;";
+    modal.innerHTML = `
+      <div style="background:#353738; border-radius:28px; max-width:95%; width:1200px; max-height:90vh; overflow-y:auto; padding:24px; border:1px solid #D4AF37;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap;">
+          <h3 style="color:#D4AF37; font-size:1.5rem;">${proj.name} - Full Gallery</h3>
+          <button class="close-modal" style="background:#D4AF37; color:#353738; border:none; font-size:1rem; padding:8px 20px; border-radius:40px; cursor:pointer; font-weight:600;">&times; Close</button>
+        </div>
+        ${gridHtml}
+      </div>
+    `;
+    document.body.appendChild(modal);
+    modal.querySelector(".close-modal").addEventListener("click", () => modal.remove());
+    modal.addEventListener("click", (e) => { if (e.target === modal) modal.remove(); });
   }
 
   // Render portfolio grid
@@ -551,7 +607,7 @@
       card.setAttribute("data-category", proj.category);
       card.setAttribute("data-project-idx", idx);
       card.innerHTML = `
-        <img src="${imgUrl}" alt="${proj.name}" loading="lazy">
+        <img src="${imgUrl}" alt="${proj.name}" loading="lazy" onerror="this.style.display='none'">
         <div class="portfolio-overlay">
           <h3>${proj.name}</h3>
           <p>${proj.desc}</p>
@@ -560,56 +616,6 @@
       `;
       grid.appendChild(card);
     });
-  }
-
-  // Predefined image lists for each folder (p1 to p23)
-  const folderImages = {
-    "p1": ["11Walker-Ave.jpg","12Walker-Ave.jpg","13Walker-Ave.jpg","16Walker-Ave.jpg","2Walker-Ave.jpg","3Walker-Ave.jpg","4Walker-Ave.jpg","5Walker-Ave.jpg","6Walker-Ave.jpg","7Walker-Ave.jpg"],
-    "p2": ["11glenayr.jpg","16glenayr.jpg","18glenayr.jpg","1glenayr.jpg","2glenayr.jpg","4glenayr.jpg","5glenayr.jpg","7glenayr.jpg","8glenayr.jpg","9glenayr.jpg"],
-    "p3": ["10baycrest1.jpg","11baycrest1.jpg","12baycrest1.jpg","1baycrest1.jpg","2baycrest1.jpg","3baycrest1.jpg","4baycrest1.jpg","5baycrest1.jpg","6baycrest1.jpg","7baycrest1.jpg","8baycrest1.jpg","9baycrest1.jpg"],
-    "p4": ["109Ramsey-Project-2024.jpg","23Ramsey-Project-2024.jpg","2Ramsey-Project-2024.jpg","34Ramsey-Project-2024.jpg","43Ramsey-Project-2024.jpg","4Ramsey-Project-2024.jpg","5Ramsey-Project-2024.jpg","6Ramsey-Project-2024.jpg","80Ramsey-Project-2024.jpg","81Ramsey-Project-2024.jpg"],
-    "p5": ["12Oxford-project.jpg","1Oxford-project.jpg","2Oxford-project.jpg","4Oxford-project.jpg","6Oxford-project.jpg","9Oxford-project.jpg"],
-    "p6": ["10Rathburn-Road-Project-2024.jpg","1Rathburn-Road-Project-2024.jpg","2Rathburn-Road-Project-2024.jpg","3Rathburn-Road-Project-2024.jpg","4Rathburn-Road-Project-2024.jpg","5Rathburn-Road-Project-2024.jpg","6Rathburn-Road-Project-2024.jpg","7Rathburn-Road-Project-2024.jpg","8Rathburn-Road-Project-2024.jpg","9Rathburn-Road-Project-2024.jpg"],
-    "p7": ["Backyard-Fiberglass-Pool-Installation-Decking-Stone-Interlocking-and-Landscape-Design-Project-by-M.E.-Contracting.jpg","Backyard-Landscape-Design-Project-Featuring-Swim-Spa-PVC-Deck-Fiberglass-Pool-Installation-and-Interlocking.jpg","Complete-Backyard-Landscape-Design-Decking-Fiberglass-Pool-Installation-Project-by-M.E.-Contracting.jpg","M.E.-Contracting-Decking-and-Glass-Aluminum-Railing-Installation-Project-with-Fiberglass-Pool.jpg","M.E.-Contracting-Landscape-Design-Decking-Pool-Installation-with-Swim-Spa-Project.jpg","M.E.-Contracting-Lower-Deck-Build-on-Complete-Landscape-Design-Fiberglass-Pool-Installation.jpg","M.E.-Contracting-New-Decking-Landscape-Design-Project-with-Glass-and-Aluminum-Railings.jpg","M.E.-Contracting-PVC-Decking-Project-Featuring-Glass-and-Aluminum-Railings-and-Fiberglass-Pool.jpg","New-Decking-Fiberglass-Pool-Installation-Project-by-M.E.-Contracting.jpg","Professional-Fiberglass-Pool-Installation-Stone-Interlocking-and-Landscape-Design-by-M.E.-Contracting.jpg"],
-    "p8": ["M.E.-Contracting-Toronto-Landscape-Design-and-Construction-Project-Featuring-Outdoor-Kitchen-and-PVC-Decking.jpg","M.E.-Contracting-Toronto-Landscape-Design-and-Construction-Project-Featuring-Stone-Interlocking-Woodworking-Cabana-with-Outdoor-Lighting-and-Pool-Installation-with-Swim-Spa-and-Water-Fea.jpg","M.E.-Contracting-Toronto-Landscape-Design-and-Pool-Installation-Project-Featuring-Water-Feature-and-Stone-Interlocking.jpg","M.E.-Contracting-Toronto-Landscape-Design-and-Pool-Installation-Project-with-Swim-Spa-and-Water-Feature-Stone-Interlocking-PVC-Decking-Outdoor-Lighting-Outdoor-Kitchen-and-Metal-Pergola.jpg","Toronto-Landscape-Design-and-Construction-Project-Featuring-Outdoor-Lighting-Pool-with-Swim-Spa-and-Water-Feature-Installation-Stone-Interlocking-Outdoor-Fireplace-and-Woodworking-Cabana.jpg","Toronto-Landscape-Design-and-Construction-Project-by-M.E.-Contracting-Featuring-Pool-Installation-with-Water-Feature-Outdoor-Lighting-and-Stone-Interlocking.jpg","Toronto-Landscape-Design-and-Construction-Project-by-M.E.-Contracting-Featuring-Stone-Interlocking-Patio-Swim-Spa-and-Pool-Installation-PVC-Decking-with-Outdoor-Lighting-and-Aluminum-Rai.jpg","Toronto-Landscape-Design-and-Construction-Project-by-M.E.-Contracting-Featuring-Woodworking-Cabana-with-Outdoor-Lighting-Patio-Interlocking-and-Pool-Installation.jpg"],
-    "p9": ["Complete-Landscape-Patio-Design-Project-By-M.E.-Contracting-Featuring-Flush-Stone-Interlocking-Around-Pool-Woodworking-Pergola-Outdoor-Fireplace-Fiberglass-Pool-Installation-with-Swim-Sp.jpg","Completed-Small-Backyard-Modern-Landscape-Design-Project-Featuring-Patio-Design-Stone-Interlocking-Woodworking-Pergola-Fiberglass-Pool-Installation-with-MIni-Swim-Spa-And-Outdoor-Firepla.jpg","M.E.-Contracting-Completed-Backyard-Landscape-Design-Project-Featuring-Fiberglass-Pool-with-Swim-Spa-Stone-Interlocking-Woodworking-Pergola-And-An-Outdoor-Fireplace.jpg","M.E.-Contracting-Modern-Backyard-Landscaping-Project-Featuring-Outdoor-Fireplace-Stone-Interlocking-And-Woodworking.jpg","M.E.-Contracting-Modern-Landscaping-Project-Complete-With-Woodworking-Pergola-Stone-Interlocking-Fiberglass-Pool-Installation.jpg","M.E.-Contracting-Small-Toronto-Backyard-Landscaping-Design-Project-Featuring-Stone-Interlocking-Vinyl-Pool-Installation-with-Swim-Spa-Landscape-Design-Woodworking-Pergola.jpg"],
-    "17": ["Complete-Landscaping-Design-Project-Featuring-Small-Composite-Deck-Build-Privacy-Fence-Interlocking-Small-Retaining-Wall-Outdoor-Fireplace.jpg","Hillhurst-Landscaping-Project-with-Privacy-Fence-by-M.E.-Contracting.jpg","Hillhurst-Project-Featuring-Tempered-Glass-Stainless-Steel-Railings-Composite-Decking-Patio-Interlocking-Outdoor-Fireplace.jpg_.jpg","Hillhurst-Toronto-Landscape-Design-with-Small-Retaining-Wall-Privacy-Fence-Interlocking.jpg","Small-Backyard-Landscaping-Project-by-Toronto-Landscaping-Company-Featuring-Small-Composite-Deck-Build-with-Stainless-Steel-Railings.jpg","Toronto-Landscape-Design-Proj"],
-    "18": ["Toronto-Landscape-Design-Patio-Design-Project-Featuring-Composite-Decking-Wrought-Iron-Glass-Railings-Outdoor-Fireplace-Interlocking.jpg","Toronto-Landscape-Design-with-Outdoor-Kitchen-Wrought-Iron-Railings.jpg","Toronto-Landscaping-Company-Specializing-in-Patio-Design.jpg","Toronto-Patio-Design-with-Outd"],
-    "19": ["Azek-Decking-Project-by-The-Toronto-Landscaping-Contractors.-2.jpg","IPE-Decking-Project-Toronto-Landscaping-Contractors-1.jpg","Jacuzzi-Spa-Feature-Ginsler-Toronto-Landscape-Design-Project.jpg","Jucuzzi-Tub-Sports-Court-Feature-Toronto-Landscape-Design-Ginsler.jpg","Spa-Pool-Installation-by-Toronto-Landscaping-Company.jpg","Toronto-Landscaping-Company-Sports-Court-1.jpg","Toronto-Landscaping-Company-Sports-Court-Installation.jpg","Toronto-Patio-Design-for-Small-"],
-    "20": ["Charbel-Fiberglass-Pool-Outdoor-Kitchen-Projecrt.jpg","Charbel-Toronto-Landscaping-Design-Project-Featuring-Fiberglass-Pool-with-Water-Feature_.jpg","Pergola-Interlocking-Outdoor-Kitchen-Fiberglass-Reflection-Pool-Installation-Project.jpg","Reflection-Pool-Installation-for-Small-Toronto-Backyard.jpg","Small-Fiberglass-Reflection-Pool-with-Water-Feature-Installation-Project.jpg","Toronto-Landscaping-Project-Featuring-Woodworking-Pergola-Fiberglass-Pool.jpg","Woodworking-Pergola-Design-in-"],
-    "21": ["Close-Up-Retaining-Wall-Feature-on-Modern-Landscaping-Project.jpg","Complete-Front-Yard-Modern-Landscape-Design-Interlocking-Project.jpg","Front-Entrance-Steps-Interlocking-Soft-Scaping-by-Toronto-Landscaping-Contractors.jpg","Front-Yard-Modern-Toronto-Landscaping-Project-by-Toronto-Landscaping-Company.jpg","Modern-Landscape-Design-Project-Featuring-Interlocking-Soft-Scaping.jpg","Modern-Toronto-Landscaping-Design-Richmond-Project.jpg","Toronto-Landscaping-Interlockin"],
-    "22": ["Cedar-Point-Toronto-Landscaping-Project-Featuring-Pool-Installation-Interlocking-Retaining-Walls.jpg","Close-Up-of-Pool-Deck-Raised-Interlocking-Feature-for-Cedar-Point-Project-by-Toronto-Landscaping-Company.jpg","Complete-Landscape-Project-by-M.E.-Contracting-Featuring-Pool-Installation-Retaining-Wall-Interlocking-Woodwroking.jpg","Concrete-Pool-Feature-for-Cedar-Point-Project.jpg","Toronto-Landscaping-Company-Irrigation-Sprinkler-System-copy.jpg","Toronto-Landscaping-Driveway-Paving-Project-copy.jpg","Toronto-Landscaping-Featuring-Outdoor-Kitchen-copy.jpg","Toronto-Landscaping-Project-Spo"],
-    "23": ["AZEK-Decking-Landscaping-Project-by-Toronto-Landscaping-Company-1.jpg","Azek-Decking-Stainless-Steel-Railings-Project-Landscaping-Toronto-1.jpg","Backyard-Toronto-Landscape-Design-Project-with-Woodworking-Outdoor-Kitchen-Jasmin.jpg","Bright-Blue-Landscape-Design-Project-with-Woodworking-Pool-Installation-1.jpg","Complete-Small-Backyard-Landscaping-Project-Featuring-Outdoor-Fireplace-1.jpg","Complete-Toronto-Landscape-Design-Interlocking-Pool-Installation-Project.jpg_.jpg","Full-Toronto-Landscaping-Design-Project-by-Toronto-Landscaping-Company-1.jpg","Large-Woodworking-Project-Featuring-Pergola-by-Toronto-Landscaping-Contractors-1.jpg","Night-View-of-Complete-Landscaping-Project-for-Small-Toronto-Backyard-1.jpg","Toronto-Landscaping-Company-Complete-Landscape-Design-Pool-Installation-Project.jpg","Toronto-Landscaping-Project-For-Small-Backyard-with-Pool-Installation-Woodworking.jpg","Total-Landscape-Design-Project-"]
-  };
-
-  // Show full folder gallery
-  function showProjectGallery(projectIdx) {
-    const proj = projects[projectIdx];
-    if (!proj) return;
-    const folder = proj.folder;
-    let images = folderImages[folder] || [];
-    if (images.length === 0) { alert("No additional images for this project."); return; }
-
-    let imagesHtml = "";
-    for (let img of images) {
-      let fullUrl = BASE_RAW + folder + "/" + img;
-      imagesHtml += `<div style="flex:0 0 auto; width:300px; margin-right:16px;"><img src="${fullUrl}" style="width:100%; height:200px; object-fit:cover; border-radius:16px; border:1px solid rgba(212,175,55,0.3);" loading="lazy"></div>`;
-    }
-
-    const modal = document.createElement("div");
-    modal.style.cssText = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10001; display:flex; align-items:center; justify-content:center; overflow:auto; padding:40px;";
-    modal.innerHTML = `
-      <div style="background:#353738; border-radius:28px; max-width:90%; width:auto; padding:24px; border:1px solid #D4AF37;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-          <h3 style="color:#D4AF37;">${proj.name} - Full Gallery</h3>
-          <button class="close-modal" style="background:none; border:none; font-size:28px; cursor:pointer; color:#fff;">&times;</button>
-        </div>
-        <div style="display:flex; overflow-x:auto; gap:16px; padding-bottom:16px;">${imagesHtml}</div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-    modal.querySelector(".close-modal").addEventListener("click", () => modal.remove());
-    modal.addEventListener("click", (e) => { if (e.target === modal) modal.remove(); });
   }
 
   // Filters
