@@ -11,14 +11,14 @@
       <li><a href="#" class="nav-link" id="servicesDropdown">Services</a>
         <ul class="dropdown-menu">
           <li><a href="landscaping.html">Landscaping</a></li>
-          <li><a href="#">Interlocking</a></li>
-          <li><a href="#">Decks & Decking</a></li>
-          <li><a href="#">Pools & Water Features</a></li>
-          <li><a href="#">Woodworking</a></li>
-          <li><a href="#">Outdoor Railings</a></li>
+          <li><a href="interlocking.html">Interlocking</a></li>
+          <li><a href="decks.html">Decks & Decking</a></li>
+          <li><a href="pools.html">Pools & Water Features</a></li>
+          <li><a href="woodworking.html">Woodworking</a></li>
+          <li><a href="railings.html">Outdoor Railings</a></li>
         </ul>
       </li>
-      <li><a href="#">Process</a></li>
+      <li><a href="process.html">Process</a></li>
       <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
     </ul>
     <div class="nav-contact">
@@ -34,13 +34,13 @@
   <a href="#">Services</a>
   <div class="mobile-dropdown">
     <a href="landscaping.html">Landscaping</a>
-    <a href="#">Interlocking</a>
-    <a href="#">Decks & Decking</a>
-    <a href="#">Pools & Water Features</a>
-    <a href="#">Woodworking</a>
-    <a href="#">Outdoor Railings</a>
+    <a href="interlocking.html">Interlocking</a>
+    <a href="decks.html">Decks & Decking</a>
+    <a href="pools.html">Pools & Water Features</a>
+    <a href="woodworking.html">Woodworking</a>
+    <a href="railings.html">Outdoor Railings</a>
   </div>
-  <a href="#">Process</a>
+  <a href="process.html">Process</a>
   <a href="portfolio.html">Portfolio</a>
   <div class="mobile-contact">
     <a href="tel:4161234567">(416) 123-4567</a>
@@ -59,12 +59,26 @@
     allNavLinks.forEach(link => {
       const href = link.getAttribute('href');
       if (href && href !== '#' && href !== '') {
-        if (href === currentPage) {
+        // Remove .html extension for comparison if needed
+        let cleanHref = href.replace('.html', '');
+        let cleanCurrent = currentPage.replace('.html', '');
+        
+        if (cleanHref === cleanCurrent) {
           link.classList.add('active');
         } else {
           link.classList.remove('active');
         }
       }
     });
+    
+    // Special handling for Services dropdown - highlight when on any service page
+    const servicePages = ['landscaping.html', 'interlocking.html', 'decks.html', 'pools.html', 'woodworking.html', 'railings.html'];
+    const servicesDropdown = document.getElementById('servicesDropdown');
+    const mobileServicesLink = document.querySelector('.mobile-menu a[href="#"]');
+    
+    if (servicePages.includes(currentPage)) {
+      if (servicesDropdown) servicesDropdown.classList.add('active');
+      if (mobileServicesLink) mobileServicesLink.classList.add('active');
+    }
   })();
 </script>
