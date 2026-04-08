@@ -90,5 +90,13 @@
       if (servicesDesktopLink) servicesDesktopLink.classList.add('active');
       if (servicesMobileLink) servicesMobileLink.classList.add('active');
     }
+    
+    // Special highlight for Contact Us page
+    if (currentPage === 'contact-us.html') {
+      const contactDesktopLink = document.querySelector('.btn-nav');
+      const contactMobileLink = document.querySelector('.mobile-btn');
+      if (contactDesktopLink) contactDesktopLink.classList.add('active');
+      if (contactMobileLink) contactMobileLink.classList.add('active');
+    }
   })();
 </script>
