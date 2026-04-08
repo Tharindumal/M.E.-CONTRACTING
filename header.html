@@ -7,8 +7,9 @@
     </a>
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
     <ul class="nav-links">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="#" class="nav-link" id="servicesDropdown">Services</a>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="#">Services</a>
         <ul class="dropdown-menu">
           <li><a href="landscaping.html">Landscaping</a></li>
           <li><a href="interlocking.html">Interlocking</a></li>
@@ -19,7 +20,7 @@
         </ul>
       </li>
       <li><a href="process.html">Process</a></li>
-      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
     </ul>
     <div class="nav-contact">
       <a href="tel:4161234567" class="nav-phone"><i class="fas fa-phone-alt"></i> (416) 123-4567</a>
@@ -53,32 +54,42 @@
   (function setActiveNavigation() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
-    // Get all navigation links
-    const allNavLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+    // Service pages list
+    const servicePages = ['landscaping.html', 'interlocking.html', 'decks.html', 'pools.html', 'woodworking.html', 'railings.html'];
     
-    allNavLinks.forEach(link => {
+    // Get all navigation links
+    const allDesktopLinks = document.querySelectorAll('.nav-links a');
+    const allMobileLinks = document.querySelectorAll('.mobile-menu a');
+    
+    // Remove active class from all links first
+    allDesktopLinks.forEach(link => link.classList.remove('active'));
+    allMobileLinks.forEach(link => link.classList.remove('active'));
+    
+    // Find and highlight the matching link
+    allDesktopLinks.forEach(link => {
       const href = link.getAttribute('href');
       if (href && href !== '#' && href !== '') {
-        // Remove .html extension for comparison if needed
-        let cleanHref = href.replace('.html', '');
-        let cleanCurrent = currentPage.replace('.html', '');
-        
-        if (cleanHref === cleanCurrent) {
+        if (href === currentPage) {
           link.classList.add('active');
-        } else {
-          link.classList.remove('active');
         }
       }
     });
     
-    // Special handling for Services dropdown - highlight when on any service page
-    const servicePages = ['landscaping.html', 'interlocking.html', 'decks.html', 'pools.html', 'woodworking.html', 'railings.html'];
-    const servicesDropdown = document.getElementById('servicesDropdown');
-    const mobileServicesLink = document.querySelector('.mobile-menu a[href="#"]');
+    allMobileLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href !== '#' && href !== '') {
+        if (href === currentPage) {
+          link.classList.add('active');
+        }
+      }
+    });
     
+    // If current page is a service page, highlight the "Services" dropdown
     if (servicePages.includes(currentPage)) {
-      if (servicesDropdown) servicesDropdown.classList.add('active');
-      if (mobileServicesLink) mobileServicesLink.classList.add('active');
+      const servicesDesktopLink = document.querySelector('.nav-links > li > a[href="#"]');
+      const servicesMobileLink = document.querySelector('.mobile-menu > a[href="#"]');
+      if (servicesDesktopLink) servicesDesktopLink.classList.add('active');
+      if (servicesMobileLink) servicesMobileLink.classList.add('active');
     }
   })();
 </script>
