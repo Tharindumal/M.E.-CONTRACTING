@@ -458,7 +458,7 @@
       color: #FFFFFF;
       font-size: 4rem;
       font-weight: 800;
-      margin-bottom: 1rem;
+      margin-bottom: 0;
       text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
       line-height: 1.2;
       opacity: 0;
@@ -477,32 +477,11 @@
       }
     }
 
-    .hero-subheadline {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.95);
-      max-width: 700px;
-      margin: 0 auto 1.5rem auto;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: revealSubhead 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.2s forwards;
-    }
-
-    @keyframes revealSubhead {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     /* Button Reveal Animation */
     .reveal-btn {
       opacity: 0;
       transform: translateY(20px);
-      animation: revealBtn 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.4s forwards;
+      animation: revealBtn 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.3s forwards;
     }
 
     @keyframes revealBtn {
@@ -948,10 +927,6 @@
         font-size: 1.6rem;
       }
       
-      .hero-subheadline {
-        font-size: 1rem;
-      }
-      
       h2 {
         font-size: 1.8rem;
       }
@@ -1018,10 +993,6 @@
         font-size: 1.3rem;
       }
       
-      .hero-subheadline {
-        font-size: 0.9rem;
-      }
-      
       .experience-section h2 {
         font-size: 1.5rem;
       }
@@ -1055,12 +1026,11 @@
   <div id="header-placeholder"></div>
 
   <main>
-    <!-- Page Hero with Text Reveal Animation -->
+    <!-- Page Hero with Text Reveal Animation - Subheadline Removed -->
     <section class="page-hero">
       <div class="container">
         <h1 class="reveal-text">Premium Interlocking Stone Solutions</h1>
-        <p class="hero-subheadline">Expert interlocking contractors creating stunning driveways, patios, and walkways that elevate your home's curb appeal.</p>
-        <a href="contact-us.html" class="btn-primary hero-cta-btn reveal-btn">Schedule a Consultation</a>
+        <a href="contact-us.html" class="btn-primary hero-cta-btn reveal-btn" style="margin-top: 32px; display: inline-block;">Schedule a Consultation</a>
       </div>
     </section>
 
