@@ -49,10 +49,8 @@
 </div>
 
 <script>
-  // Function to set active class based on current page
   (function setActiveNavigation() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
     const servicePages = ['landscaping.html', 'interlocking.html', 'decks.html', 'pools.html', 'woodworking.html', 'railings.html'];
     
     const allDesktopLinks = document.querySelectorAll('.nav-links a');
@@ -64,18 +62,14 @@
     allDesktopLinks.forEach(link => {
       const href = link.getAttribute('href');
       if (href && href !== '#' && href !== '') {
-        if (href === currentPage) {
-          link.classList.add('active');
-        }
+        if (href === currentPage) link.classList.add('active');
       }
     });
     
     allMobileLinks.forEach(link => {
       const href = link.getAttribute('href');
       if (href && href !== '#' && href !== '') {
-        if (href === currentPage) {
-          link.classList.add('active');
-        }
+        if (href === currentPage) link.classList.add('active');
       }
     });
     
