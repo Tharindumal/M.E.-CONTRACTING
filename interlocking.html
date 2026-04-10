@@ -453,10 +453,10 @@
       z-index: 2;
     }
 
-    /* Text Reveal Animation */
+    /* Text Reveal Animation - MUCH LARGER FONT */
     .reveal-text {
       color: #FFFFFF;
-      font-size: 4rem;
+      font-size: 5.5rem;
       font-weight: 800;
       margin-bottom: 0;
       text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
@@ -555,7 +555,7 @@
       font-size: 1rem;
     }
 
-    /* Service Types - Mobile Friendly */
+    /* Service Types - Mobile Friendly (NO ANIMATIONS) */
     .service-types-section {
       padding: 80px 0;
       background: #353738;
@@ -594,14 +594,9 @@
       scroll-snap-align: start;
       display: flex;
       flex-direction: column;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .service-card.animate-visible {
+      /* NO SCROLL ANIMATION - always visible */
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     .service-card:hover {
@@ -901,7 +896,7 @@
       color: #666670;
     }
 
-    /* Fade In Animation */
+    /* Fade In Animation - only for intro, trust, faq sections */
     .fade-in-up {
       opacity: 0;
       transform: translateY(30px);
@@ -920,7 +915,7 @@
       }
       
       .reveal-text {
-        font-size: 2.5rem;
+        font-size: 3rem;
       }
       
       .typewriter-text {
@@ -986,7 +981,7 @@
 
     @media (max-width: 480px) {
       .reveal-text {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
       
       .typewriter-text {
@@ -1026,7 +1021,7 @@
   <div id="header-placeholder"></div>
 
   <main>
-    <!-- Page Hero with Text Reveal Animation - Subheadline Removed -->
+    <!-- Page Hero with Text Reveal Animation - Subheadline Removed, Larger Font -->
     <section class="page-hero">
       <div class="container">
         <h1 class="reveal-text">Premium Interlocking Stone Solutions</h1>
@@ -1060,7 +1055,7 @@
       </div>
     </section>
 
-    <section class="service-types-section fade-in-up">
+    <section class="service-types-section">
       <div class="container">
         <div class="service-types-wrapper">
           <div class="service-types-grid" id="interlockingScrollContainer">
@@ -1239,7 +1234,7 @@
       });
     });
 
-    // Fade-in observer
+    // Fade-in observer (only for intro, trust, faq sections)
     const fadeElements = document.querySelectorAll('.fade-in-up');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1250,44 +1245,6 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     fadeElements.forEach(el => observer.observe(el));
-
-    // Scroll animations with stagger for service cards
-    const setupScrollAnimations = () => {
-      const serviceCards = document.querySelectorAll('.service-card');
-      
-      const observeWithStagger = (elements, baseDelay = 0.08, maxDelay = 0.7) => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const el = entry.target;
-              if (el.classList.contains('animate-visible')) return;
-              
-              const index = parseInt(el.getAttribute('data-stagger-index') || '0');
-              const delay = Math.min(index * baseDelay, maxDelay);
-              el.style.transitionDelay = `${delay}s`;
-              el.classList.add('animate-visible');
-              
-              const onEnd = () => {
-                el.style.transitionDelay = '';
-                el.removeEventListener('transitionend', onEnd);
-              };
-              el.addEventListener('transitionend', onEnd, { once: true });
-              observer.unobserve(el);
-            }
-          });
-        }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
-        
-        elements.forEach((el, idx) => {
-          el.setAttribute('data-stagger-index', idx);
-          observer.observe(el);
-        });
-      };
-      
-      observeWithStagger(serviceCards, 0.08, 0.7);
-    };
-    
-    // Initialize scroll animations
-    setupScrollAnimations();
 
     // Scroll dots for interlocking cards (mobile only)
     const interlockingContainer = document.getElementById('interlockingScrollContainer');
