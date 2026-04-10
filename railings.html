@@ -42,15 +42,6 @@
       scrollbar-width: none;
     }
 
-    /* Hide scrollbar on mobile menu as well */
-    .mobile-menu::-webkit-scrollbar {
-      display: none;
-    }
-    .mobile-menu {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
     .container {
       max-width: 1280px;
       margin: 0 auto;
@@ -66,7 +57,7 @@
     h1 {
       font-size: 4rem;
       line-height: 1.1;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     h2 {
@@ -95,25 +86,45 @@
       transform: translateY(-2px);
     }
 
-    .btn-hero {
+    .btn-outline {
       display: inline-block;
-      background: #D4AF37;
-      color: #353738;
-      font-weight: 700;
-      padding: 16px 42px;
-      border-radius: 50px;
+      background: transparent;
+      border: 1px solid #D4AF37;
+      color: #D4AF37;
+      font-weight: 500;
+      padding: 12px 32px;
+      border-radius: 40px;
       text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-      cursor: pointer;
-      border: none;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      margin-top: 32px;
+      transition: 0.3s;
+      font-size: 0.85rem;
     }
 
-    .btn-hero:hover {
-      background: #E8C45A;
-      transform: translateY(-2px);
+    .btn-outline:hover {
+      background: #D4AF37;
+      color: #353738;
+    }
+
+    /* Service Button - One Bar Style */
+    .service-btn {
+      display: inline-block;
+      background: transparent;
+      color: #D4AF37;
+      font-weight: 600;
+      padding: 10px 24px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid #D4AF37;
+      border-radius: 40px;
+      cursor: pointer;
+      margin-top: 16px;
+      align-self: flex-start;
+      font-size: 0.85rem;
+    }
+
+    .service-btn:hover {
+      background: #D4AF37;
+      color: #353738;
+      transform: translateX(5px);
     }
 
     /* ----- NAVBAR ----- */
@@ -332,7 +343,6 @@
       overflow-x: hidden;
     }
 
-    /* Hide scrollbar on mobile menu */
     .mobile-menu::-webkit-scrollbar {
       display: none;
     }
@@ -400,7 +410,7 @@
       margin-top: 10px;
     }
 
-    /* Page Hero */
+    /* Page Hero with Text Reveal Animation */
     .page-hero {
       position: relative;
       width: 100%;
@@ -443,17 +453,69 @@
       z-index: 2;
     }
 
-    .page-hero h1 {
+    /* Text Reveal Animation - MUCH LARGER FONT */
+    .reveal-text {
       color: #FFFFFF;
-      font-size: 4rem;
+      font-size: 5.5rem;
+      font-weight: 800;
+      margin-bottom: 0;
       text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+      line-height: 1.2;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: revealText 1s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
     }
 
-    .page-hero p {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.95);
-      max-width: 700px;
+    @keyframes revealText {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Button Reveal Animation */
+    .reveal-btn {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: revealBtn 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.3s forwards;
+    }
+
+    @keyframes revealBtn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Typewriter Effect Section */
+    .experience-section {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .typewriter-container {
+      display: inline-block;
+    }
+
+    .typewriter-text {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      max-width: 900px;
       margin: 0 auto;
+      line-height: 1.3;
+      overflow: hidden;
+      white-space: normal;
+      display: inline-block;
     }
 
     /* Intro Section */
@@ -493,22 +555,7 @@
       font-size: 1rem;
     }
 
-    /* Experience Section */
-    .experience-section {
-      background: rgba(255, 255, 255, 0.03);
-      padding: 100px 0;
-      text-align: center;
-    }
-
-    .experience-section h2 {
-      font-size: 2.5rem;
-      color: #FFFFFF;
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.3;
-    }
-
-    /* Service Types Section */
+    /* Service Types Section - Mobile Friendly (NO ANIMATIONS) */
     .service-types-section {
       padding: 80px 0;
       background: #353738;
@@ -547,6 +594,9 @@
       scroll-snap-align: start;
       display: flex;
       flex-direction: column;
+      /* NO SCROLL ANIMATION - always visible */
+      opacity: 1;
+      transform: none;
     }
 
     .service-card:hover {
@@ -579,10 +629,6 @@
       color: #D4AF37;
     }
 
-    .service-content h3 i {
-      margin-right: 8px;
-    }
-
     .service-content p {
       color: #A0A0A5;
       margin-bottom: 12px;
@@ -592,31 +638,6 @@
 
     .service-content p strong {
       color: #FFFFFF;
-    }
-
-    .service-btn {
-      display: inline-block;
-      background: transparent;
-      color: #D4AF37;
-      font-weight: 600;
-      padding: 10px 0;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      margin-top: 16px;
-      align-self: flex-start;
-      font-size: 0.85rem;
-    }
-
-    .service-btn:hover {
-      color: #E8C45A;
-      transform: translateX(5px);
-    }
-
-    .service-btn i {
-      margin-left: 6px;
-      font-size: 0.7rem;
     }
 
     /* Scroll Dots */
@@ -724,10 +745,6 @@
       color: #D4AF37;
     }
 
-    .faq-item h3 i {
-      margin-right: 12px;
-    }
-
     .faq-item p {
       color: #A0A0A5;
       line-height: 1.6;
@@ -764,7 +781,7 @@
       display: inline-block;
       background: #D4AF37;
       color: #353738;
-      font-weight: 700;
+      font-weight: 600;
       padding: 14px 36px;
       border-radius: 40px;
       text-decoration: none;
@@ -879,7 +896,7 @@
       color: #666670;
     }
 
-    /* Fade In Animation */
+    /* Fade In Animation - only for intro, trust, faq sections */
     .fade-in-up {
       opacity: 0;
       transform: translateY(30px);
@@ -897,8 +914,12 @@
         padding: 0 20px;
       }
       
-      h1, .page-hero h1 {
-        font-size: 2.5rem;
+      .reveal-text {
+        font-size: 3rem;
+      }
+      
+      .typewriter-text {
+        font-size: 1.6rem;
       }
       
       h2 {
@@ -959,8 +980,12 @@
     }
 
     @media (max-width: 480px) {
-      .page-hero h1 {
+      .reveal-text {
         font-size: 2rem;
+      }
+      
+      .typewriter-text {
+        font-size: 1.3rem;
       }
       
       .experience-section h2 {
@@ -996,11 +1021,11 @@
   <div id="header-placeholder"></div>
 
   <main>
+    <!-- Page Hero with Text Reveal Animation - Subheadline Removed, Larger Font -->
     <section class="page-hero">
       <div class="container">
-        <h1>Premium Outdoor Railings</h1>
-        <p>Expert railing contractors creating stunning glass, aluminum, stainless steel, and wrought iron railings that enhance safety and style.</p>
-        <a href="#" class="btn-hero hero-cta-btn">Schedule a Consultation</a>
+        <h1 class="reveal-text">Premium Outdoor Railings</h1>
+        <a href="contact-us.html" class="btn-primary hero-cta-btn reveal-btn" style="margin-top: 32px; display: inline-block;">Schedule a Consultation</a>
       </div>
     </section>
 
@@ -1015,19 +1040,22 @@
             <p>Railings are more than just safety features—they're design elements that define the character of your outdoor space. From sleek frameless glass to durable aluminum and elegant wrought iron, the right railing can elevate your deck, balcony, or staircase.</p>
             <p>At M.E. Contracting, we specialize in creating custom railing solutions that blend safety, durability, and aesthetic appeal. Our skilled craftsmen work with premium materials to bring your vision to life with precision and attention to detail.</p>
             <p>Let us help you create the outdoor living space you've always dreamed of—a place where quality craftsmanship meets timeless design.</p>
-            <a href="#" class="btn-primary services-cta" style="margin-top:16px;display:inline-block;">Schedule a Consultation</a>
+            <a href="contact-us.html" class="btn-primary services-cta" style="margin-top:16px;display:inline-block;">Schedule a Consultation</a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Typewriter Effect Section -->
     <section class="experience-section fade-in-up">
       <div class="container">
-        <h2>At M.E. Contracting, We Make Your Railing Experience as Exceptional as the Results!</h2>
+        <div class="typewriter-container">
+          <div class="typewriter-text" id="typewriterText"></div>
+        </div>
       </div>
     </section>
 
-    <section class="service-types-section fade-in-up">
+    <section class="service-types-section">
       <div class="container">
         <div class="service-types-wrapper">
           <div class="service-types-grid" id="railingScrollContainer">
@@ -1035,57 +1063,57 @@
             <div class="service-card">
               <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/26e4351344ad4066ba2e2db355502793600e33f9/images/railings/Toronto-Landscaping-Company-Featuring-Aluminum-Railings-1600x800%20(1).jpg" alt="Aluminum Railings" loading="lazy">
               <div class="service-content">
-                <h3><i class="fas fa-industry"></i> Aluminum Railings</h3>
+                <h3>Aluminum Railings</h3>
                 <p><strong>Durable & Maintenance-Free</strong><br>Aluminum railings are the perfect way to achieve safety and beauty while taking full advantage of panoramic views. They are stylish and will keep up their appearance without warping, cracking, twisting, or splintering—completely maintenance-free.</p>
                 <p><strong>Why choose Aluminum railings:</strong> Corrosion resistant, Rustproof, Durable, High strength, Lightweight, Noncombustible, Nonmagnetic, Sustainable, 100% recyclable. Available in heights of 36" and 42" with a variety of rail lengths and colors including white, black, grey, cream, beige, and brown.</p>
                 <p><strong>Super Color Retention:</strong> Sun, rain, or snow cannot fade the color. Aluminum railings have an industrial-grade powder coat finish that is UV resistant. No sanding, scraping, or painting required—they keep their color for a lifetime.</p>
-                <a href="#" class="service-btn service-aluminum-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="service-btn service-aluminum-btn">Learn More</a>
               </div>
             </div>
             <!-- Frameless Glass Railings Card -->
             <div class="service-card">
               <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/26e4351344ad4066ba2e2db355502793600e33f9/images/railings/Sekler-Residence-Decking-Railings-Toronto-Landscaping-Project-Featuring-Frameless-Glass-Railings-1600x800.png" alt="Frameless Glass Railings" loading="lazy">
               <div class="service-content">
-                <h3><i class="fas fa-glass-cheers"></i> Frameless Glass Railings</h3>
+                <h3>Frameless Glass Railings</h3>
                 <p><strong>Sleek, Modern & Unobstructed Views</strong><br>For a sleek, modern look that provides greater safety, durability, and beauty, it's hard to beat frameless glass railings. Strong panes of tempered glass act as solid, protective barriers at the edge of your deck.</p>
                 <p><strong>Safety:</strong> Thick, tempered glass stands up to pressure and use like any other railing material. No large open gaps for items or children to fall through. Provides a strong, transparent border along the entire edge.</p>
                 <p><strong>Durability:</strong> Impervious to the elements. Fastenings never weaken. Never rust or become worn out. The only maintenance required is occasional cleaning with glass cleaner.</p>
                 <p><strong>Appearance:</strong> Imagine sitting on your deck looking out without any bars or posts getting in your way—amazing level of safety while seeming almost nonexistent.</p>
-                <a href="#" class="service-btn service-frameless-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="service-btn service-frameless-btn">Learn More</a>
               </div>
             </div>
             <!-- Glass Railings Card -->
             <div class="service-card">
               <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/26e4351344ad4066ba2e2db355502793600e33f9/images/railings/Glass-Railings-By-The-Toronto-Landscaping-Company-1600x800.jpg" alt="Glass Railings" loading="lazy">
               <div class="service-content">
-                <h3><i class="fas fa-window-maximize"></i> Glass Railings</h3>
+                <h3>Glass Railings</h3>
                 <p><strong>Stylish, Durable & Contemporary</strong><br>Glass railings are stylish and durable, providing a contemporary finish and an unobstructed view of your deck. When installing glass railings, ensure the glass is tempered, shatter-resistant, polished, and optionally tinted.</p>
                 <p><strong>Tempered Glass:</strong> Reinforced multiple times to preserve hardness and elasticity, making the glass especially strong and resilient—essential for outdoor exposure.</p>
                 <p><strong>Safety & Style:</strong> Tempered glass must be fitted into like-shaped frames evenly spaced throughout your deck. Our team specializes in glass railing installation with precision and care.</p>
                 <p><strong>Customization:</strong> Choose from clear or tinted options to suit your privacy needs and aesthetic preferences.</p>
-                <a href="#" class="service-btn service-glass-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="service-btn service-glass-btn">Learn More</a>
               </div>
             </div>
             <!-- Stainless Steel Railings Card -->
             <div class="service-card">
               <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/26e4351344ad4066ba2e2db355502793600e33f9/images/railings/1M.E-Contracting-GLASS-RAILING-Cover-image.jpg" alt="Stainless Steel Railings" loading="lazy">
               <div class="service-content">
-                <h3><i class="fas fa-chrome"></i> Stainless Steel Railings</h3>
+                <h3>Stainless Steel Railings</h3>
                 <p><strong>Classic, Fresh & Hygienic</strong><br>Stainless steel railings can take your outdoor landscape from ordinary to extraordinary. Choose the direction and thickness of the rails, as well as other materials they're combined with, such as glass, to add an extra special effect.</p>
                 <p><strong>Why Choose Stainless Steel:</strong> Fresh Look – provides striking look without additional finish or paint. Customizable – horizontal or vertical railings, desired spacing, thickness. Sanitary – non-porous surface prevents germ growth. Durability – non-corrosive nature with fewer repairs required.</p>
                 <p><strong>Long-Term Investment:</strong> Higher upfront cost but proven to last longer than cheaper materials. No need for replacement or upkeep—just lasting beauty and functionality.</p>
-                <a href="#" class="service-btn service-stainless-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="service-btn service-stainless-btn">Learn More</a>
               </div>
             </div>
             <!-- Wrought Iron Railings Card -->
             <div class="service-card">
               <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/26e4351344ad4066ba2e2db355502793600e33f9/images/railings/1M.E-Contracting-GLASS-RAILING-Cover-image.jpg" alt="Wrought Iron Railings" loading="lazy">
               <div class="service-content">
-                <h3><i class="fas fa-fence"></i> Wrought Iron Railings</h3>
+                <h3>Wrought Iron Railings</h3>
                 <p><strong>Timeless Elegance & Strength</strong><br>Wrought iron railings convey a timeless sense of simplicity and elegance, ideal for any setting from back gardens to front steps of urban brownstones.</p>
                 <p><strong>Advantages:</strong> Cost – less expensive than many alternate forms, easy to install, little upkeep required. Durability – extremely strong, the Eiffel Tower is made from wrought iron! Aesthetic Refinement – conveys tranquility, refinement, and effortless style.</p>
                 <p><strong>Customization:</strong> Design, layout, and color are all open to personalization. Tell us your vision and we can make it a reality! Perfect for handrails, fences, and secure entrances to your home.</p>
-                <a href="#" class="service-btn service-wrought-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="service-btn service-wrought-btn">Learn More</a>
               </div>
             </div>
           </div>
@@ -1105,7 +1133,7 @@
             <p>M.E. Contracting is widely recognized as one of the GTA's premier railing installation specialists. Our award-winning craftsmanship and attention to detail set us apart.</p>
             <p>With over 15+ years of excellence serving Toronto and the Greater Toronto Area, our approach is creative, client-focused, and detail-oriented. Our team of expert installers brings your vision to life with precision and artistry.</p>
             <p>We understand that the key to a great railing project is all about the experience, and <strong>we're passionate about making your experience exceptional from start to finish.</strong></p>
-            <a href="#" class="btn-primary services-cta" style="margin-top:16px;display:inline-block;">Schedule a Consultation</a>
+            <a href="contact-us.html" class="btn-primary services-cta" style="margin-top:16px;display:inline-block;">Schedule a Consultation</a>
           </div>
         </div>
       </div>
@@ -1117,15 +1145,15 @@
         <p class="faq-subhead">Got questions about custom railings? We invite you to call and speak to a staff member. Meanwhile, we've put together a few answers to some of our commonly asked questions below.</p>
         <div class="faq-grid">
           <div class="faq-item">
-            <h3><i class="fas fa-home"></i> What are the best materials for outdoor railings?</h3>
+            <h3>What are the best materials for outdoor railings?</h3>
             <p>The best material depends on your needs. Aluminum railings offer durability with minimal maintenance and are resistant to rust and corrosion. Frameless glass railings offer unobstructed views and modern elegance. Stainless steel railings provide a sleek, minimalist look with exceptional durability. Wrought iron offers timeless elegance and strength. Our team can help you choose the best option for your home, budget, and aesthetic preferences.</p>
           </div>
           <div class="faq-item">
-            <h3><i class="fas fa-clock"></i> How long does railing installation take?</h3>
+            <h3>How long does railing installation take?</h3>
             <p>The timeline for railing installation varies based on the complexity and size of your project. A standard deck or balcony railing typically takes 1-3 days, while more complex custom projects may take 1-2 weeks. This includes design, material selection, fabrication, and installation. We provide detailed timelines during your consultation.</p>
           </div>
           <div class="faq-item">
-            <h3><i class="fas fa-calendar-alt"></i> What maintenance is required for different railing types?</h3>
+            <h3>What maintenance is required for different railing types?</h3>
             <p>Aluminum railings are virtually maintenance-free—just occasional washing with soap and water. Glass railings require occasional cleaning to maintain clarity and beauty. Stainless steel railings may need periodic cleaning to maintain their luster. Wrought iron may need occasional touch-up painting to prevent rust. Our team provides detailed care instructions and offers maintenance services to keep your railings looking beautiful for years.</p>
           </div>
         </div>
@@ -1138,7 +1166,7 @@
         <h2>Ready to Enhance Your Home with Custom Railings?</h2>
         <p>Schedule a consultation with our railing experts today.</p>
         <div class="hero-cta-buttons">
-          <a href="#" class="btn-hero-cta final-cta-btn">Schedule a Consultation</a>
+          <a href="contact-us.html" class="btn-hero-cta final-cta-btn">Schedule a Consultation</a>
           <a href="portfolio.html" class="btn-hero-outline">View Our Portfolio</a>
         </div>
       </div>
@@ -1148,6 +1176,34 @@
   <div id="footer-placeholder"></div>
 
   <script>
+    // Typewriter Effect - No Cursor
+    const typewriterText = "At M.E. Contracting, We Make Your Railing Experience as Exceptional as the Results!";
+    const typewriterElement = document.getElementById('typewriterText');
+    let i = 0;
+    
+    function typeWriter() {
+      if (i < typewriterText.length) {
+        typewriterElement.innerHTML += typewriterText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    
+    // Start typewriter when section is visible
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && typewriterElement && typewriterElement.innerHTML === '') {
+          typeWriter();
+          typewriterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    const experienceSection = document.querySelector('.experience-section');
+    if (experienceSection) {
+      typewriterObserver.observe(experienceSection);
+    }
+
     // Function to load HTML components
     async function loadComponent(componentName, placeholderId) {
       try {
@@ -1205,55 +1261,12 @@
       // Re-attach contact button events
       document.querySelectorAll('.hero-cta-btn, .services-cta, .final-cta-btn, .btn-nav, #contactNavBtn, #mobileContactBtn, .service-aluminum-btn, .service-frameless-btn, .service-glass-btn, .service-stainless-btn, .service-wrought-btn').forEach(btn => {
         btn?.addEventListener('click', (e) => {
-          e.preventDefault();
-          showContactModal();
+          // Let the link work normally - navigates to contact-us.html
         });
       });
     });
 
-    // Contact modal function
-    function showContactModal() {
-      const existingModal = document.getElementById('contactModal');
-      if (existingModal) existingModal.remove();
-
-      const modal = document.createElement('div');
-      modal.id = 'contactModal';
-      modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:10000;';
-      modal.innerHTML = `
-        <div style="background:#353738;border-radius:28px;max-width:500px;width:90%;padding:40px;position:relative;border:1px solid rgba(212,175,55,0.3);">
-          <button class="modal-close" style="position:absolute;top:20px;right:24px;background:none;border:none;font-size:28px;cursor:pointer;color:#fff;">&times;</button>
-          <h2 style="margin-bottom:24px;color:#D4AF37;"><i class="fas fa-water"></i> Contact M.E. Contracting</h2>
-          <form id="contactForm" style="display:flex;flex-direction:column;gap:20px;">
-            <input type="text" placeholder="Full Name" required style="padding:12px 16px;border:1px solid rgba(212,175,55,0.3);border-radius:12px;background:rgba(255,255,255,0.05);color:#fff;">
-            <input type="email" placeholder="Email Address" required style="padding:12px 16px;border:1px solid rgba(212,175,55,0.3);border-radius:12px;background:rgba(255,255,255,0.05);color:#fff;">
-            <input type="tel" placeholder="Phone Number" style="padding:12px 16px;border:1px solid rgba(212,175,55,0.3);border-radius:12px;background:rgba(255,255,255,0.05);color:#fff;">
-            <select style="padding:12px 16px;border:1px solid rgba(212,175,55,0.3);border-radius:12px;background:rgba(255,255,255,0.05);color:#fff;">
-              <option>Interested in...</option>
-              <option>Landscaping</option>
-              <option>Interlocking</option>
-              <option>Decks & Decking</option>
-              <option>Pools & Water Features</option>
-              <option>Woodworking</option>
-              <option>Outdoor Railings</option>
-            </select>
-            <textarea placeholder="Tell us about your project..." rows="4" style="padding:12px 16px;border:1px solid rgba(212,175,55,0.3);border-radius:12px;background:rgba(255,255,255,0.05);color:#fff;"></textarea>
-            <button type="submit" style="background:#D4AF37;color:#353738;padding:14px;border:none;border-radius:40px;font-weight:600;cursor:pointer;">Send Message</button>
-          </form>
-          <p style="margin-top:20px;font-size:0.85rem;text-align:center;color:#A0A0A5;">Or call: <strong style="color:#D4AF37;">(416) 123-4567</strong></p>
-        </div>
-      `;
-      document.body.appendChild(modal);
-
-      modal.querySelector('.modal-close')?.addEventListener('click', () => modal.remove());
-      modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
-      modal.querySelector('#contactForm')?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Thank you! We will contact you within 24 hours.');
-        modal.remove();
-      });
-    }
-
-    // Fade-in observer
+    // Fade-in observer (only for intro, trust, faq sections)
     const fadeElements = document.querySelectorAll('.fade-in-up');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
