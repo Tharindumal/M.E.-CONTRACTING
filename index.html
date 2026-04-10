@@ -150,7 +150,6 @@
       z-index: 0;
     }
 
-    /* Semi-transparent dark overlay for better text readability */
     .hero::after {
       content: '';
       position: absolute;
@@ -448,30 +447,56 @@
       background: #D4AF37;
     }
 
-    /* ABOUT SECTION */
+    /* ABOUT SECTION - UPDATED TWO COLUMN LAYOUT */
     .about-section {
       background: rgba(255, 255, 255, 0.03);
       padding: 100px 0;
-      text-align: center;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-content {
+      text-align: left;
     }
 
     .about-quote {
-      font-size: 1.6rem;
-      font-weight: 500;
+      font-size: 2.2rem;
+      font-weight: 700;
       font-style: italic;
-      color: #D4AF37;
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.4;
+      color: #FFFFFF;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
       font-family: 'Playfair Display', serif;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
     .about-text {
       font-size: 1rem;
       color: #A0A0A5;
-      max-width: 700px;
-      margin: 0 auto;
+      margin-bottom: 2rem;
       line-height: 1.7;
+    }
+
+    .about-image {
+      text-align: center;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .about-image img:hover {
+      transform: scale(1.02);
     }
 
     /* REVIEWS SECTION */
@@ -808,6 +833,25 @@
         max-width: 140px;
       }
 
+      /* ABOUT SECTION MOBILE */
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .about-content {
+        text-align: center;
+      }
+      
+      .about-quote {
+        font-size: 1.8rem;
+        text-align: center;
+      }
+      
+      .about-text {
+        text-align: center;
+      }
+
       .media-grid {
         flex-direction: column;
         gap: 40px;
@@ -959,22 +1003,43 @@
         <h2 class="award-title">Award Winning Landscaping Design & Construction</h2>
         <div class="awards-wrapper" id="awardsWrapper">
           <div class="award-grid" id="awardGrid">
-            <a href="https://www.thebestrated.ca/" target="_blank" rel="noopener noreferrer" class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/Three-Best-Rated-Award.png" alt="Three Best Rated Award" class="award-img"></a>
-            <a href="https://homestars.com/" target="_blank" rel="noopener noreferrer" class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/HomeStars-Verified-2023.png" alt="HomeStars Verified" class="award-img"></a>
-            <a href="https://www.bestofburlington.com/" target="_blank" rel="noopener noreferrer" class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/Bigger-size-BOB.png" alt="BOB Award" class="award-img"></a>
-            <a href="https://awards.architecturaldigest.com/" target="_blank" rel="noopener noreferrer" class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/AOEwe.png" alt="AOE Award" class="award-img"></a>
-            <a href="https://www.topchoiceawards.com/" target="_blank" rel="noopener noreferrer" class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/500x600.png" alt="Top Choice Award" class="award-img"></a>
+            <a href="https://threebestrated.ca/landscaping-companies-in-toronto-on" target="_blank" rel="noopener noreferrer" class="award-item">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/98b458b0f568003a818f218dbee974d512cca7f5/images/award/Three-Best-Rated-Award.png" alt="Three Best Rated Award" class="award-img">
+            </a>
+            <a href="https://www.homestars.com/profile/2798073-me-contracting" target="_blank" rel="noopener noreferrer" class="award-item">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/98b458b0f568003a818f218dbee974d512cca7f5/images/award/HomeStars-Verified-2023.png" alt="HomeStars Verified" class="award-img">
+            </a>
+            <a href="https://landscapeontario.com/2026-awards-of-excellence-winners/" target="_blank" rel="noopener noreferrer" class="award-item">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/98b458b0f568003a818f218dbee974d512cca7f5/images/award/AOEwe.png" alt="AOE Award - Landscape Ontario" class="award-img">
+            </a>
+            <a href="https://www.houzz.com/professionals/landscape-contractors/m-e-contracting-pfvwus-pf~1988880124" target="_blank" rel="noopener noreferrer" class="award-item">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/98b458b0f568003a818f218dbee974d512cca7f5/images/award/500x600.png" alt="Houzz Award" class="award-img">
+            </a>
+            <a href="https://www.blogto.com/fashion_style/2022/03/backyard-landscaping-toronto/" target="_blank" rel="noopener noreferrer" class="award-item">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/98b458b0f568003a818f218dbee974d512cca7f5/images/award/BlogTO-600x511.2.png" alt="BlogTO Featured" class="award-img">
+            </a>
+            <a href="https://landscapeontario.com/2026-awards-of-excellence-winners/" target="_blank" rel="noopener noreferrer" class="award-item">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/98b458b0f568003a818f218dbee974d512cca7f5/images/award/500x501.png" alt="Landscape Ontario Award" class="award-img">
+            </a>
           </div>
         </div>
         <div class="awards-dots" id="awardsDots"></div>
       </div>
     </section>
 
+    <!-- ABOUT SECTION - REDESIGNED TWO COLUMN LAYOUT -->
     <section class="about-section">
       <div class="container">
-        <div class="about-quote">"A beautiful garden is a work of art."</div>
-        <div class="about-text">With over 15 years in landscaping, architecture, and construction, M.E. Contracting has the expertise to guide clients through every stage of their project. From design to material selection and building, we help clients create a luxury outdoor living space that complements their unique tastes and lifestyles.</div>
-        <div style="margin-top:2rem;"><a href="portfolio.html" class="btn-outline about-cta">View Our Portfolio</a></div>
+        <div class="about-grid">
+          <div class="about-content">
+            <div class="about-quote">"A beautiful garden is a work of art."</div>
+            <div class="about-text">With over 15 years in landscaping, architecture, and construction, M.E. Contracting has the expertise to guide clients through every stage of their project. From design to material selection and building, we help clients create a luxury outdoor living space that complements their unique tastes and lifestyles.</div>
+            <a href="portfolio.html" class="btn-outline about-cta">View Our Portfolio</a>
+          </div>
+          <div class="about-image">
+            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/8b4f8fcb4edea4b7f4b0f1e626a7511258895420/images/index/Gemini_Generated_Image_2ek5le2ek5le2ek5-removebg-preview.png" alt="Luxury Outdoor Living Design" loading="lazy">
+          </div>
+        </div>
       </div>
     </section>
 
