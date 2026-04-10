@@ -32,13 +32,11 @@
       scroll-behavior: smooth;
     }
 
-    /* Hide scrollbar for Chrome, Safari and Opera */
+    /* COMPLETELY HIDE ALL SCROLLBARS */
     body::-webkit-scrollbar,
     html::-webkit-scrollbar {
       display: none;
     }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
     body, html {
       -ms-overflow-style: none;
       scrollbar-width: none;
@@ -59,7 +57,7 @@
     h1 {
       font-size: 4rem;
       line-height: 1.1;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     h2 {
@@ -104,6 +102,29 @@
     .btn-outline:hover {
       background: #D4AF37;
       color: #353738;
+    }
+
+    /* Service Button - One Bar Style */
+    .service-btn {
+      display: inline-block;
+      background: transparent;
+      color: #D4AF37;
+      font-weight: 600;
+      padding: 10px 24px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid #D4AF37;
+      border-radius: 40px;
+      cursor: pointer;
+      margin-top: 16px;
+      align-self: flex-start;
+      font-size: 0.85rem;
+    }
+
+    .service-btn:hover {
+      background: #D4AF37;
+      color: #353738;
+      transform: translateX(5px);
     }
 
     /* ----- NAVBAR ----- */
@@ -322,7 +343,6 @@
       overflow-x: hidden;
     }
 
-    /* Hide scrollbar for mobile menu */
     .mobile-menu::-webkit-scrollbar {
       display: none;
     }
@@ -390,7 +410,7 @@
       margin-top: 10px;
     }
 
-    /* Page Hero */
+    /* Page Hero with Text Reveal Animation */
     .page-hero {
       position: relative;
       width: 100%;
@@ -410,7 +430,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/f200f230b5aeb4abcc793b364a699fe9d29c08fc/images/Interlocking/Chine-Drive-Toronto-Landscaping-Project-Featuring-Patio-Design-Interlocking-by-M.E.-Contracting.jpg');
+      background-image: url('https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Chine-Drive-Backyard-Landscaping-Project-with-Small-Composite-Deck-Build-Aluminum-Tempered-Glass-Railings.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -433,17 +453,90 @@
       z-index: 2;
     }
 
-    .page-hero h1 {
+    /* Text Reveal Animation */
+    .reveal-text {
       color: #FFFFFF;
       font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
       text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+      line-height: 1.2;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: revealText 1s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
     }
 
-    .page-hero p {
+    @keyframes revealText {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-subheadline {
       font-size: 1.2rem;
       color: rgba(255, 255, 255, 0.95);
       max-width: 700px;
+      margin: 0 auto 1.5rem auto;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: revealSubhead 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.2s forwards;
+    }
+
+    @keyframes revealSubhead {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Button Reveal Animation */
+    .reveal-btn {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: revealBtn 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.4s forwards;
+    }
+
+    @keyframes revealBtn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Typewriter Effect Section */
+    .experience-section {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .typewriter-container {
+      display: inline-block;
+    }
+
+    .typewriter-text {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      max-width: 900px;
       margin: 0 auto;
+      line-height: 1.3;
+      overflow: hidden;
+      white-space: normal;
+      display: inline-block;
     }
 
     /* Intro Section */
@@ -483,31 +576,30 @@
       font-size: 1rem;
     }
 
-    /* Experience Section */
-    .experience-section {
-      background: rgba(255, 255, 255, 0.03);
-      padding: 100px 0;
-      text-align: center;
-    }
-
-    .experience-section h2 {
-      font-size: 2.5rem;
-      color: #FFFFFF;
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.3;
-    }
-
-    /* Service Types */
+    /* Service Types - Mobile Friendly */
     .service-types-section {
       padding: 80px 0;
       background: #353738;
     }
 
+    .service-types-wrapper {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
     .service-types-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 48px;
+      display: flex;
+      gap: 32px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 4px 0 16px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .service-types-grid::-webkit-scrollbar {
+      display: none;
     }
 
     .service-card {
@@ -517,6 +609,20 @@
       overflow: hidden;
       border: 1px solid rgba(212, 175, 55, 0.2);
       transition: all 0.3s ease;
+      flex-shrink: 0;
+      width: calc(50% - 16px);
+      min-width: 400px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .service-card.animate-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .service-card:hover {
@@ -527,7 +633,7 @@
 
     .service-card img {
       width: 100%;
-      height: 320px;
+      height: 260px;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
@@ -537,47 +643,51 @@
     }
 
     .service-content {
-      padding: 32px;
+      padding: 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .service-content h3 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       margin-bottom: 16px;
       color: #D4AF37;
     }
 
-    .service-content h3 i {
-      margin-right: 8px;
-    }
-
     .service-content p {
       color: #A0A0A5;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       line-height: 1.6;
+      font-size: 0.95rem;
     }
 
     .service-content p strong {
       color: #FFFFFF;
     }
 
-    .service-btn {
-      display: inline-block;
-      background: transparent;
-      color: #D4AF37;
-      font-weight: 600;
-      padding: 10px 28px;
-      border-radius: 40px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: 2px solid #D4AF37;
-      cursor: pointer;
-      margin-top: 16px;
+    /* Scroll Dots */
+    .scroll-dots {
+      display: none;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+      padding: 12px 0;
     }
 
-    .service-btn:hover {
+    .scroll-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #A0A0A5;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .scroll-dot.active {
+      width: 24px;
+      border-radius: 4px;
       background: #D4AF37;
-      color: #353738;
-      transform: translateX(5px);
     }
 
     /* Trust Section */
@@ -632,9 +742,7 @@
       color: #A0A0A5;
       margin-bottom: 48px;
       font-size: 1rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      font-weight: 500;
     }
 
     .faq-grid {
@@ -661,10 +769,6 @@
       font-size: 1.3rem;
       margin-bottom: 16px;
       color: #D4AF37;
-    }
-
-    .faq-item h3 i {
-      margin-right: 12px;
     }
 
     .faq-item p {
@@ -818,30 +922,6 @@
       color: #666670;
     }
 
-    /* Scroll Dots - Mobile only */
-    .scroll-dots {
-      display: none;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 20px;
-      padding: 12px 0;
-    }
-
-    .scroll-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #A0A0A5;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .scroll-dot.active {
-      width: 24px;
-      border-radius: 4px;
-      background: #D4AF37;
-    }
-
     /* Fade In Animation */
     .fade-in-up {
       opacity: 0;
@@ -860,8 +940,16 @@
         padding: 0 20px;
       }
       
-      h1, .page-hero h1 {
+      .reveal-text {
         font-size: 2.5rem;
+      }
+      
+      .typewriter-text {
+        font-size: 1.6rem;
+      }
+      
+      .hero-subheadline {
+        font-size: 1rem;
       }
       
       h2 {
@@ -885,23 +973,21 @@
         gap: 40px;
       }
       
-      .service-types-grid {
-        display: flex;
-        overflow-x: auto;
-        gap: 24px;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-      
-      .service-types-grid::-webkit-scrollbar {
-        display: none;
-      }
-      
       .service-types-grid .service-card {
-        min-width: 85%;
-        flex-shrink: 0;
-        scroll-snap-align: start;
+        width: 85%;
+        min-width: 280px;
+      }
+      
+      .service-card img {
+        height: 220px;
+      }
+      
+      .service-content {
+        padding: 20px;
+      }
+      
+      .service-content h3 {
+        font-size: 1.4rem;
       }
       
       .scroll-dots {
@@ -924,24 +1010,37 @@
     }
 
     @media (max-width: 480px) {
-      .page-hero h1 {
-        font-size: 2rem;
+      .reveal-text {
+        font-size: 1.8rem;
+      }
+      
+      .typewriter-text {
+        font-size: 1.3rem;
+      }
+      
+      .hero-subheadline {
+        font-size: 0.9rem;
       }
       
       .experience-section h2 {
         font-size: 1.5rem;
       }
       
+      .service-types-grid .service-card {
+        width: 90%;
+        min-width: 260px;
+      }
+      
       .service-card img {
-        height: 240px;
+        height: 200px;
+      }
+      
+      .service-content {
+        padding: 16px;
       }
       
       .service-content h3 {
-        font-size: 1.5rem;
-      }
-      
-      .service-types-grid .service-card {
-        min-width: 90%;
+        font-size: 1.3rem;
       }
       
       .footer-grid {
@@ -956,11 +1055,12 @@
   <div id="header-placeholder"></div>
 
   <main>
+    <!-- Page Hero with Text Reveal Animation -->
     <section class="page-hero">
       <div class="container">
-        <h1>Premium Interlocking Stone Solutions</h1>
-        <p>Expert interlocking contractors creating stunning driveways, patios, and walkways that elevate your home's curb appeal.</p>
-        <a href="#" class="btn-primary hero-cta-btn" style="margin-top: 32px;">Schedule a Consultation</a>
+        <h1 class="reveal-text">Premium Interlocking Stone Solutions</h1>
+        <p class="hero-subheadline">Expert interlocking contractors creating stunning driveways, patios, and walkways that elevate your home's curb appeal.</p>
+        <a href="contact-us.html" class="btn-primary hero-cta-btn reveal-btn">Schedule a Consultation</a>
       </div>
     </section>
 
@@ -968,58 +1068,63 @@
       <div class="container">
         <div class="intro-grid">
           <div class="intro-image">
-            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/f200f230b5aeb4abcc793b364a699fe9d29c08fc/images/Interlocking/Full-Toronto-Landscaping-Design-Project-by-Toronto-Landscaping-Company-1.jpg" alt="Premium interlocking driveway and patio" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/16Walker-Ave.jpg" alt="Premium interlocking driveway and patio" loading="lazy">
           </div>
           <div class="intro-content">
             <h2>Transform Your Outdoor Spaces with Premium Interlocking Stone</h2>
             <p>Your driveway, patio, and walkways are the first things people notice about your home. They deserve to be as beautiful and durable as the rest of your property.</p>
             <p>At M.E. Contracting, we specialize in creating stunning interlocking stone features that combine aesthetic appeal with exceptional durability. From classic patterns to modern designs, we bring your vision to life.</p>
             <p>You deserve a space that welcomes you home every day with elegance and style. Let us help you create the outdoor spaces you've always dreamed of.</p>
-            <a href="#" class="btn-primary services-cta" style="margin-top:16px;display:inline-block;">Schedule a Consultation</a>
+            <a href="contact-us.html" class="btn-primary services-cta" style="margin-top:16px;display:inline-block;">Schedule a Consultation</a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Typewriter Effect Section -->
     <section class="experience-section fade-in-up">
       <div class="container">
-        <h2>At M.E. Contracting, We Make Your Interlocking Experience as Exceptional as the Results!</h2>
+        <div class="typewriter-container">
+          <div class="typewriter-text" id="typewriterText"></div>
+        </div>
       </div>
     </section>
 
     <section class="service-types-section fade-in-up">
       <div class="container">
-        <div class="service-types-grid">
-          <!-- Heated Driveway Card -->
-          <div class="service-card">
-            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/f200f230b5aeb4abcc793b364a699fe9d29c08fc/images/Interlocking/Landscaping-project-with-heated-driveway-interlocking-and-pool-deck_22.jpg" alt="Heated Driveway Installation" loading="lazy">
-            <div class="service-content">
-              <h3><i class="fas fa-temperature-high"></i> Heated Driveway</h3>
-              <p><strong>Heated Driveway Installation Process</strong><br>M.E. Contracting uses heating cable mats, made of cables woven together in a grid pattern. These mats are embedded beneath the surface of the driveway and when the cables heat up, they transfer heat across the driveway, preventing snow from hardening and turning into ice. Where M.E. Contracting's professionals shine during the installation process with meticulous work and attention to detail.</p>
-              <p>Our crew will first prepare the driveway, lay gravel then lay the cable mats, ensuring they are properly set above the layer of gravel, making sure they have proper "padding" and then connect the system to the home's electrical panel. Once the system is tested to ensure work is done properly, we will pour another layer of gravel, and then add the interlocking bricks, concrete, or asphalt.</p>
-              <p><strong>Toronto's Heated Driveway Builder</strong><br>Driveway heating systems are great to have as they can prevent accidents and injuries as well as save you (and your back) many hours of snow shoveling.</p>
-              <p>Installing a heated driveway system requires professional pavers, electricians, and careful planning. M.E. Contracting has installed dozens of heated driveways and our crews are very familiar with the step-by-step process required.</p>
-              <p><strong>Ditch the shovel & salt with a heated driveway installation by M.E. Contracting!</strong></p>
-              <a href="#" class="service-btn service-heated-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+        <div class="service-types-wrapper">
+          <div class="service-types-grid" id="interlockingScrollContainer">
+            <!-- Heated Driveway Card -->
+            <div class="service-card">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Complete-Toronto-PVC-Decking-Project-M.E.-Contracting.jpg" alt="Heated Driveway Installation" loading="lazy">
+              <div class="service-content">
+                <h3>Heated Driveway</h3>
+                <p><strong>Heated Driveway Installation Process</strong><br>M.E. Contracting uses heating cable mats, made of cables woven together in a grid pattern. These mats are embedded beneath the surface of the driveway and when the cables heat up, they transfer heat across the driveway, preventing snow from hardening and turning into ice. Where M.E. Contracting's professionals shine during the installation process with meticulous work and attention to detail.</p>
+                <p>Our crew will first prepare the driveway, lay gravel then lay the cable mats, ensuring they are properly set above the layer of gravel, making sure they have proper "padding" and then connect the system to the home's electrical panel. Once the system is tested to ensure work is done properly, we will pour another layer of gravel, and then add the interlocking bricks, concrete, or asphalt.</p>
+                <p><strong>Toronto's Heated Driveway Builder</strong><br>Driveway heating systems are great to have as they can prevent accidents and injuries as well as save you (and your back) many hours of snow shoveling.</p>
+                <p>Installing a heated driveway system requires professional pavers, electricians, and careful planning. M.E. Contracting has installed dozens of heated driveways and our crews are very familiar with the step-by-step process required.</p>
+                <p><strong>Ditch the shovel & salt with a heated driveway installation by M.E. Contracting!</strong></p>
+                <a href="#" class="service-btn service-heated-btn">Learn More</a>
+              </div>
+            </div>
+            <!-- Driveway Paving Card -->
+            <div class="service-card">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Chine-Drive-Backyard-Landscaping-Project-with-Small-Composite-Deck-Build-Aluminum-Tempered-Glass-Railings.jpg" alt="Driveway Paving" loading="lazy">
+              <div class="service-content">
+                <h3>Driveway Paving</h3>
+                <p><strong>Toronto Driveway Paving Experts</strong></p>
+                <p>How often have you driven to someone's house and the first thing you noticed was a cracked, weed-infested, or otherwise poorly maintained driveway? Probably more than you care to admit, which means it may be time to consider new driveway paving.</p>
+                <p>M.E. Contracting is Toronto's award-winning deck builder and leader in quality outdoor solutions. We know that your driveway is more than just a portal to your garage; your driveway is an extension of your home.</p>
+                <p><strong>Must-Have Driveway Components</strong><br>There are three main ingredients to a perfectly paved driveway: Superior design, Quality materials, and Top-notch construction.</p>
+                <p><strong>Start With a Superior Design</strong><br>M.E. Contracting's approach to driveway paving centers on three key components: The Base, The Pavement, and The Drainage Pitch. We ensure that the surface on which your driveway is laid is in excellent condition.</p>
+                <p><strong>Move On To Quality Materials</strong><br>We use the highest quality materials in all of our driveway paving to ensure that your project will last for years to come! The proper mix to suit your driveway paving needs is essential for climate and local environmental conditions.</p>
+                <p><strong>Finish With Top-Notch Construction</strong><br>M.E. Contracting is dedicated to making your project a priority, delivering superior results on time, every time! Whatever driveway paving surface you choose, you can be assured that we bring more than a decade of experience to every project.</p>
+                <a href="#" class="service-btn service-driveway-btn">Learn More</a>
+              </div>
             </div>
           </div>
-          <!-- Driveway Paving Card -->
-          <div class="service-card">
-            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/f200f230b5aeb4abcc793b364a699fe9d29c08fc/images/Interlocking/Modern-Toronto-Landscaping-Design-Richmond-Project.jpg" alt="Driveway Paving" loading="lazy">
-            <div class="service-content">
-              <h3><i class="fas fa-road"></i> Driveway</h3>
-              <p><strong>Toronto Driveway Paving Experts</strong></p>
-              <p>How often have you driven to someone's house and the first thing you noticed was a cracked, weed-infested, or otherwise poorly maintained driveway? Probably more than you care to admit, which means it may be time to consider new driveway paving.</p>
-              <p>M.E. Contracting is Toronto's award-winning deck builder and leader in quality outdoor solutions. We know that your driveway is more than just a portal to your garage; your driveway is an extension of your home.</p>
-              <p><strong>Must-Have Driveway Components</strong><br>There are three main ingredients to a perfectly paved driveway: Superior design, Quality materials, and Top-notch construction.</p>
-              <p><strong>Start With a Superior Design</strong><br>M.E. Contracting's approach to driveway paving centers on three key components: The Base, The Pavement, and The Drainage Pitch. We ensure that the surface on which your driveway is laid is in excellent condition.</p>
-              <p><strong>Move On To Quality Materials</strong><br>We use the highest quality materials in all of our driveway paving to ensure that your project will last for years to come! The proper mix to suit your driveway paving needs is essential for climate and local environmental conditions.</p>
-              <p><strong>Finish With Top-Notch Construction</strong><br>M.E. Contracting is dedicated to making your project a priority, delivering superior results on time, every time! Whatever driveway paving surface you choose, you can be assured that we bring more than a decade of experience to every project.</p>
-              <a href="#" class="service-btn service-driveway-btn">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
+          <div class="scroll-dots" id="interlockingDots"></div>
         </div>
-        <div class="scroll-dots" id="serviceDots"></div>
       </div>
     </section>
 
@@ -1027,14 +1132,14 @@
       <div class="container">
         <div class="trust-grid">
           <div class="trust-image">
-            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/f200f230b5aeb4abcc793b364a699fe9d29c08fc/images/Interlocking/Toronto-Landscaping-Interlocking-Company-Modern-Project-Richmond.jpg" alt="Award winning landscaping project" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Toronto-Landscape-Design-and-Construction-Project-by-M.E.-Contracting-Featuring-Stone-Interlocking-Patio-Swim-Spa-and-Pool-Installation-PVC-Decking-with-Outdoor-Lighting-and-Aluminum-Railings.jpg" alt="Award winning landscaping project" loading="lazy">
           </div>
           <div class="trust-content">
             <h2>AWARD WINNING LANDSCAPING DESIGN & CONSTRUCTION</h2>
             <p>M.E. Contracting is widely recognized as one of the GTA's premier landscaping design & deck construction companies and we have the hardware to prove it.</p>
             <p>With over 15+ years of excellence serving Toronto and the Greater Toronto Area, our approach is creative, client-focused, and detail-oriented. Our team of expert craftsmen and designers makes this possible with years of experience in interlocking stone installation and driveway paving.</p>
             <p>We understand that the key to a great driveway or interlocking project is all about the experience, and <strong>we're passionate about making your experience exceptional from start to finish.</strong></p>
-            <a href="#" class="btn-primary services-cta" style="margin-top:16px;display:inline-block;">Schedule a Consultation</a>
+            <a href="contact-us.html" class="btn-primary services-cta" style="margin-top:16px;display:inline-block;">Schedule a Consultation</a>
           </div>
         </div>
       </div>
@@ -1046,12 +1151,12 @@
         <p class="faq-subhead">Got questions about interlocking design & construction? We invite you to call and speak to a staff member. Meanwhile, we've put together a few answers to some of our commonly asked questions about interlocking design and construction below.</p>
         <div class="faq-grid">
           <div class="faq-item">
-            <h3><i class="fas fa-home"></i> Does repaving my driveway increase the value of my home?</h3>
+            <h3>Does repaving my driveway increase the value of my home?</h3>
             <p>Yes! A paved driveway adds value to your home, especially when it follows M.E Contracting's formula for a perfect outcome: Superior design, quality materials, and top-notch construction. Well-maintained, expertly paved driveways add "curb appeal" and make a great first impression.</p>
             <p>Properly maintained driveways can last 20-30 years and are durable and stylish ways to add practical improvements to your home. Designing and paving a driveway for your home can add up to 10% in additional home value.</p>
           </div>
           <div class="faq-item">
-            <h3><i class="fas fa-calendar-alt"></i> When is the best time of year to install a new driveway?</h3>
+            <h3>When is the best time of year to install a new driveway?</h3>
             <p>It might be surprising to know that the temperature matters when considering when to pave your driveway. For the perfect result - a smoothly finished and well-compacted driveway - the ideal seasons are late spring and summer. Thankfully, when working with M.E Contracting, we promise 100% satisfaction. Our technical expertise and experience will ensure you get a clean, durable, and gorgeous driveway.</p>
           </div>
         </div>
@@ -1064,7 +1169,7 @@
         <h2>Ready to Transform Your Property with Interlocking Stone?</h2>
         <p>Schedule a consultation with our interlocking experts today.</p>
         <div class="hero-cta-buttons">
-          <a href="#" class="btn-hero-cta final-cta-btn">Schedule a Consultation</a>
+          <a href="contact-us.html" class="btn-hero-cta final-cta-btn">Schedule a Consultation</a>
           <a href="portfolio.html" class="btn-hero-outline">View Our Portfolio</a>
         </div>
       </div>
@@ -1074,6 +1179,34 @@
   <div id="footer-placeholder"></div>
 
   <script>
+    // Typewriter Effect - No Cursor
+    const typewriterText = "At M.E. Contracting, We Make Your Interlocking Experience as Exceptional as the Results!";
+    const typewriterElement = document.getElementById('typewriterText');
+    let i = 0;
+    
+    function typeWriter() {
+      if (i < typewriterText.length) {
+        typewriterElement.innerHTML += typewriterText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    
+    // Start typewriter when section is visible
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && typewriterElement && typewriterElement.innerHTML === '') {
+          typeWriter();
+          typewriterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    const experienceSection = document.querySelector('.experience-section');
+    if (experienceSection) {
+      typewriterObserver.observe(experienceSection);
+    }
+
     // Function to load HTML components
     async function loadComponent(componentName, placeholderId) {
       try {
@@ -1131,53 +1264,10 @@
       // Re-attach contact button events
       document.querySelectorAll('.hero-cta-btn, .services-cta, .final-cta-btn, .btn-nav, #contactNavBtn, #mobileContactBtn, .service-heated-btn, .service-driveway-btn').forEach(btn => {
         btn?.addEventListener('click', (e) => {
-          e.preventDefault();
-          showContactModal();
+          // Let the link work normally - navigates to contact-us.html
         });
       });
     });
-
-    // Contact modal function
-    function showContactModal() {
-      const existingModal = document.getElementById('contactModal');
-      if (existingModal) existingModal.remove();
-
-      const modal = document.createElement('div');
-      modal.id = 'contactModal';
-      modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:10000;';
-      modal.innerHTML = `
-        <div style="background:#353738;border-radius:28px;max-width:500px;width:90%;padding:40px;position:relative;border:1px solid rgba(212,175,55,0.3);">
-          <button class="modal-close" style="position:absolute;top:20px;right:24px;background:none;border:none;font-size:28px;cursor:pointer;color:#fff;">&times;</button>
-          <h2 style="margin-bottom:24px;color:#D4AF37;"><i class="fas fa-water"></i> Contact M.E. Contracting</h2>
-          <form id="contactForm" style="display:flex;flex-direction:column;gap:20px;">
-            <input type="text" placeholder="Full Name" required style="padding:12px 16px;border:1px solid rgba(212,175,55,0.3);border-radius:12px;background:rgba(255,255,255,0.05);color:#fff;">
-            <input type="email" placeholder="Email Address" required style="padding:12px 16px;border:1px solid rgba(212,175,55,0.3);border-radius:12px;background:rgba(255,255,255,0.05);color:#fff;">
-            <input type="tel" placeholder="Phone Number" style="padding:12px 16px;border:1px solid rgba(212,175,55,0.3);border-radius:12px;background:rgba(255,255,255,0.05);color:#fff;">
-            <select style="padding:12px 16px;border:1px solid rgba(212,175,55,0.3);border-radius:12px;background:rgba(255,255,255,0.05);color:#fff;">
-              <option>Interested in...</option>
-              <option>Landscaping</option>
-              <option>Interlocking</option>
-              <option>Decks & Decking</option>
-              <option>Pools & Water Features</option>
-              <option>Woodworking</option>
-              <option>Outdoor Railings</option>
-            </select>
-            <textarea placeholder="Tell us about your project..." rows="4" style="padding:12px 16px;border:1px solid rgba(212,175,55,0.3);border-radius:12px;background:rgba(255,255,255,0.05);color:#fff;"></textarea>
-            <button type="submit" style="background:#D4AF37;color:#353738;padding:14px;border:none;border-radius:40px;font-weight:600;cursor:pointer;">Send Message</button>
-          </form>
-          <p style="margin-top:20px;font-size:0.85rem;text-align:center;color:#A0A0A5;">Or call: <strong style="color:#D4AF37;">(416) 123-4567</strong></p>
-        </div>
-      `;
-      document.body.appendChild(modal);
-
-      modal.querySelector('.modal-close')?.addEventListener('click', () => modal.remove());
-      modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
-      modal.querySelector('#contactForm')?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Thank you! We will contact you within 24 hours.');
-        modal.remove();
-      });
-    }
 
     // Fade-in observer
     const fadeElements = document.querySelectorAll('.fade-in-up');
@@ -1191,35 +1281,73 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     fadeElements.forEach(el => observer.observe(el));
 
-    // Scroll dots for service cards (mobile only)
-    const serviceContainer = document.querySelector('.service-types-grid');
-    const serviceDotsContainer = document.getElementById('serviceDots');
-    if (serviceContainer && serviceDotsContainer && window.innerWidth <= 900) {
-      const items = serviceContainer.querySelectorAll('.service-card');
+    // Scroll animations with stagger for service cards
+    const setupScrollAnimations = () => {
+      const serviceCards = document.querySelectorAll('.service-card');
+      
+      const observeWithStagger = (elements, baseDelay = 0.08, maxDelay = 0.7) => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              if (el.classList.contains('animate-visible')) return;
+              
+              const index = parseInt(el.getAttribute('data-stagger-index') || '0');
+              const delay = Math.min(index * baseDelay, maxDelay);
+              el.style.transitionDelay = `${delay}s`;
+              el.classList.add('animate-visible');
+              
+              const onEnd = () => {
+                el.style.transitionDelay = '';
+                el.removeEventListener('transitionend', onEnd);
+              };
+              el.addEventListener('transitionend', onEnd, { once: true });
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
+        
+        elements.forEach((el, idx) => {
+          el.setAttribute('data-stagger-index', idx);
+          observer.observe(el);
+        });
+      };
+      
+      observeWithStagger(serviceCards, 0.08, 0.7);
+    };
+    
+    // Initialize scroll animations
+    setupScrollAnimations();
+
+    // Scroll dots for interlocking cards (mobile only)
+    const interlockingContainer = document.getElementById('interlockingScrollContainer');
+    const interlockingDotsContainer = document.getElementById('interlockingDots');
+    if (interlockingContainer && interlockingDotsContainer && window.innerWidth <= 900) {
+      const items = interlockingContainer.querySelectorAll('.service-card');
       if (items.length > 1) {
         items.forEach((_, i) => {
           const dot = document.createElement('div');
           dot.classList.add('scroll-dot');
           if (i === 0) dot.classList.add('active');
           dot.addEventListener('click', () => {
-            serviceContainer.scrollTo({ left: items[i].offsetLeft - 24, behavior: 'smooth' });
+            interlockingContainer.scrollTo({ left: items[i].offsetLeft - 24, behavior: 'smooth' });
           });
-          serviceDotsContainer.appendChild(dot);
+          interlockingDotsContainer.appendChild(dot);
         });
         const updateDots = () => {
-          const scrollPos = serviceContainer.scrollLeft;
+          const scrollPos = interlockingContainer.scrollLeft;
           let activeIndex = 0;
           for (let i = 0; i < items.length; i++) {
-            if (scrollPos + serviceContainer.offsetWidth / 2 >= items[i].offsetLeft) activeIndex = i;
+            if (scrollPos + interlockingContainer.offsetWidth / 2 >= items[i].offsetLeft) activeIndex = i;
           }
-          serviceDotsContainer.querySelectorAll('.scroll-dot').forEach((dot, idx) => {
+          interlockingDotsContainer.querySelectorAll('.scroll-dot').forEach((dot, idx) => {
             idx === activeIndex ? dot.classList.add('active') : dot.classList.remove('active');
           });
         };
-        serviceContainer.addEventListener('scroll', () => requestAnimationFrame(updateDots));
+        interlockingContainer.addEventListener('scroll', () => requestAnimationFrame(updateDots));
         updateDots();
       } else {
-        serviceDotsContainer.style.display = 'none';
+        interlockingDotsContainer.style.display = 'none';
       }
     }
   </script>
