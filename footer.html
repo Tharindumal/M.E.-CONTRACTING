@@ -1,14 +1,81 @@
-<!-- footer.html - Common Footer for all pages -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-logo">M.E.<span style="font-weight:400;"> CONTRACTING</span></div>
-    <div class="footer-contact">
-      <p><i class="fas fa-phone-alt"></i> (416) 123-4567</p>
-      <p><i class="fas fa-envelope"></i> info@mecontracting.ca</p>
-      <p><i class="fas fa-map-marker-alt"></i> Toronto, GTA, Ontario</p>
-    </div>
-    <div class="footer-copyright">
-      <p>© 2026 M.E. Contracting – Luxury Landscaping & Outdoor Living. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+.footer {
+  background: #353738;
+  padding: 60px 0 32px;
+  text-align: center;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  margin-bottom: 48px;
+  text-align: left;
+}
+
+.footer-col h4 {
+  color: #D4AF37;
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: #A0A0A5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.footer-col ul li a:hover {
+  color: #D4AF37;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #D4AF37;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
+}
+
+.footer-tagline {
+  font-size: 0.7rem;
+  color: #A0A0A5;
+  margin-bottom: 24px;
+}
+
+.footer-contact p {
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: #A0A0A5;
+}
+
+.footer-contact i {
+  width: 24px;
+  margin-right: 8px;
+  color: #D4AF37;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 32px;
+  font-size: 0.7rem;
+  color: #666670;
+}
