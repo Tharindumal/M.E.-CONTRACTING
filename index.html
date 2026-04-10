@@ -20,23 +20,26 @@
       color: #FFFFFF;
       line-height: 1.5;
       overflow-x: hidden;
+      overflow-y: auto;
       width: 100%;
       position: relative;
     }
 
     html {
       overflow-x: hidden;
+      overflow-y: auto;
       width: 100%;
       scroll-behavior: smooth;
     }
 
-    /* Respect user's motion preferences */
-    @media (prefers-reduced-motion: reduce) {
-      .service-card, .stat-item, .review-card, .project-card {
-        transition: none !important;
-        opacity: 1 !important;
-        transform: none !important;
-      }
+    /* COMPLETELY HIDE ALL SCROLLBARS */
+    body::-webkit-scrollbar,
+    html::-webkit-scrollbar {
+      display: none;
+    }
+    body, html {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
 
     .container {
@@ -130,270 +133,6 @@
       transform: translateX(4px);
     }
 
-    /* ----- NAVBAR STYLES ----- */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 24px 0;
-      z-index: 1000;
-      transition: all 0.4s ease;
-      background: transparent;
-    }
-
-    .navbar.scrolled {
-      background: rgba(53, 55, 56, 0.98);
-      backdrop-filter: blur(10px);
-      padding: 16px 0;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .logo {
-      text-decoration: none;
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .logo-main {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #FFFFFF;
-      transition: color 0.3s ease;
-    }
-
-    .navbar.scrolled .logo-main {
-      color: #D4AF37;
-    }
-
-    .logo-sub {
-      font-size: 0.7rem;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.7);
-      letter-spacing: 2px;
-      margin-left: 4px;
-      transition: color 0.3s ease;
-    }
-
-    .navbar.scrolled .logo-sub {
-      color: #A0A0A5;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 42px;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 500;
-      color: #FFFFFF;
-      transition: 0.2s;
-      font-size: 0.9rem;
-    }
-
-    .navbar.scrolled .nav-links a {
-      color: #FFFFFF;
-    }
-
-    .nav-links a:hover {
-      color: #D4AF37;
-    }
-
-    .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #353738;
-      border-radius: 12px;
-      padding: 12px 0;
-      min-width: 200px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-10px);
-      transition: all 0.3s;
-      z-index: 1000;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .nav-links > li {
-      position: relative;
-    }
-
-    .nav-links > li:hover .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .dropdown-menu a {
-      display: block;
-      padding: 10px 24px;
-      color: #FFFFFF !important;
-      font-size: 0.85rem;
-    }
-
-    .dropdown-menu a:hover {
-      background: rgba(212, 175, 55, 0.1);
-      color: #D4AF37 !important;
-    }
-
-    .nav-contact {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav-phone {
-      text-decoration: none;
-      font-weight: 500;
-      color: #FFFFFF;
-      font-size: 0.9rem;
-      transition: color 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .nav-phone i {
-      color: #D4AF37;
-    }
-
-    .navbar.scrolled .nav-phone {
-      color: #FFFFFF;
-    }
-
-    .nav-phone:hover {
-      color: #D4AF37;
-    }
-
-    .btn-nav {
-      background: rgba(212, 175, 55, 0.15);
-      color: #D4AF37;
-      font-weight: 500;
-      padding: 8px 28px;
-      border-radius: 40px;
-      text-decoration: none;
-      transition: all 0.2s;
-      font-size: 0.8rem;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      cursor: pointer;
-    }
-
-    .navbar.scrolled .btn-nav {
-      background: #D4AF37;
-      color: #353738;
-      border: none;
-    }
-
-    .btn-nav:hover {
-      background: #D4AF37;
-      color: #353738;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: rgba(212, 175, 55, 0.15);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 12px;
-      padding: 8px 12px;
-      cursor: pointer;
-    }
-
-    .menu-toggle i {
-      font-size: 1.2rem;
-      color: #FFFFFF;
-    }
-
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 80%;
-      max-width: 320px;
-      height: 100vh;
-      background: #353738;
-      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
-      z-index: 1001;
-      transition: right 0.4s ease;
-      padding: 100px 32px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    .mobile-menu.active {
-      right: 0;
-    }
-
-    .mobile-menu .close-btn {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #FFFFFF;
-    }
-
-    .mobile-menu a {
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #FFFFFF;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .mobile-menu .mobile-dropdown {
-      margin-left: 16px;
-      margin-top: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .mobile-menu .mobile-dropdown a {
-      font-size: 0.9rem;
-      border-bottom: none;
-      color: #A0A0A5;
-    }
-
-    .mobile-contact {
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .mobile-contact a {
-      display: block;
-      margin-bottom: 16px;
-      border-bottom: none;
-    }
-
-    .mobile-btn {
-      background: #D4AF37;
-      color: #353738;
-      text-align: center;
-      padding: 12px;
-      border-radius: 40px;
-      margin-top: 10px;
-    }
-
     /* ----- HERO ----- */
     .hero {
       position: relative;
@@ -414,13 +153,14 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://mecontracting.ca/wp-content/uploads/Toronto-Landscaping-Project-on-Pheasant-Drive-Featuring-Concrete-Pool-Installation-with-Lighting-Feature-Privacy-Fence-Interlocking-Gazebo-PVC-Decking-1600x800.jpg');
+      background-image: url('https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/4glenayr.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       z-index: 0;
     }
 
+    /* Semi-transparent dark overlay for better text readability */
     .hero::after {
       content: '';
       position: absolute;
@@ -428,26 +168,32 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(53, 55, 56, 0.6);
+      background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.65) 100%);
       z-index: 0;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
     .hero-content h1 {
       color: #FFFFFF;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
-    .hero-tagline {
-      font-size: 1.1rem;
-      color: #E0E0E0;
-      margin-bottom: 2rem;
+    .hero-subheadline {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
       font-weight: 400;
+      line-height: 1.6;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.2);
     }
 
     .hero-buttons {
@@ -616,6 +362,100 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       font-weight: 500;
+    }
+
+    /* AWARDS SECTION */
+    .awards-section {
+      background: #353738;
+      padding: 70px 0;
+      text-align: center;
+      overflow-x: clip;
+    }
+
+    .award-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 40px;
+    }
+
+    .award-title:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: #D4AF37;
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+
+    .awards-wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .awards-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .award-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      min-width: min-content;
+    }
+
+    .award-item {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .award-item:hover {
+      transform: scale(1.05);
+      border-color: rgba(212, 175, 55, 0.6);
+    }
+
+    .award-img {
+      height: 120px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+      transition: all 0.3s ease;
+    }
+
+    .awards-dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #A0A0A5;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      width: 24px;
+      border-radius: 4px;
+      background: #D4AF37;
     }
 
     /* ABOUT SECTION */
@@ -918,53 +758,30 @@
       color: #353738;
     }
 
-    /* FOOTER STYLES */
-    .footer {
-      background: #353738;
-      padding: 60px 0 32px;
-      text-align: center;
-      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    /* Fade In Animation */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .footer-logo {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #D4AF37;
-      margin-bottom: 16px;
-      font-family: 'Playfair Display', serif;
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .footer-contact {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 32px;
-      margin: 24px 0;
-      color: #A0A0A5;
-      font-size: 0.8rem;
-    }
-
-    .footer-contact p i {
-      margin-right: 8px;
-      color: #D4AF37;
-    }
-
-    .footer-copyright {
-      font-size: 0.65rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding-top: 24px;
-      margin-top: 24px;
-      color: #666670;
-    }
-
-    /* MOBILE RESPONSIVE */
+    /* Responsive */
     @media (max-width: 900px) {
       .container {
         padding: 0 20px;
       }
 
-      h1 {
+      .hero-content h1 {
         font-size: 2.5rem;
+      }
+
+      .hero-subheadline {
+        font-size: 1rem;
       }
 
       .services-large {
@@ -973,18 +790,6 @@
 
       .services-small {
         font-size: 0.7rem;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .nav-contact {
-        display: none;
       }
 
       .service-card {
@@ -1023,6 +828,21 @@
         font-size: 2.2rem;
       }
 
+      .award-grid {
+        justify-content: flex-start;
+        gap: 40px;
+        padding: 0 20px;
+      }
+      
+      .award-item {
+        padding: 10px;
+      }
+      
+      .award-img {
+        height: 80px;
+        max-width: 140px;
+      }
+
       .media-grid {
         flex-direction: column;
         gap: 40px;
@@ -1057,14 +877,15 @@
 </head>
 <body>
 
-  <!-- Header will be loaded here -->
+  <!-- HEADER LOADED FROM header.html -->
   <div id="header-placeholder"></div>
 
   <main>
+    <!-- HERO SECTION WITH NEW TEXT -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Landscaping & Smart<br>Green Solutions</h1>
-        <div class="hero-tagline">A beautiful garden is a work of art.</div>
+        <h1>Crafting Luxury Outdoor Living Spaces</h1>
+        <div class="hero-subheadline">From award-winning landscaping to custom decks, we transform your backyard into a private sanctuary of elegance and comfort.</div>
         <div class="hero-buttons">
           <a href="#" class="btn-primary hero-cta">Request a Design Session</a>
         </div>
@@ -1080,7 +901,7 @@
         <div class="services-stack" id="servicesStack">
           <div class="service-card">
             <div class="service-image-side">
-              <img src="https://mecontracting.ca/wp-content/uploads/4glenayr.jpg" alt="Landscaping">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/4glenayr.jpg" alt="Landscaping">
             </div>
             <div class="service-content">
               <div class="service-category">DESIGN & BUILD</div>
@@ -1091,57 +912,57 @@
           </div>
           <div class="service-card">
             <div class="service-image-side">
-              <img src="images/service-2.jpg" alt="Decking">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/16Walker-Ave.jpg" alt="Decking">
             </div>
             <div class="service-content">
               <div class="service-category">PVC & COMPOSITE</div>
               <h3>Decking</h3>
               <p>Custom decks using expert carpenters & premium materials for lasting beauty and durability.</p>
-              <a href="#" class="btn-learn">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+              <a href="decks.html" class="btn-learn">LEARN MORE <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
           <div class="service-card">
             <div class="service-image-side">
-              <img src="https://mecontracting.ca/wp-content/uploads/Chine-Drive-Toronto-Landscaping-Project-Featuring-Patio-Design-Interlocking-by-M.E.-Contracting.jpg" alt="Interlocking">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Chine-Drive-Backyard-Landscaping-Project-with-Small-Composite-Deck-Build-Aluminum-Tempered-Glass-Railings.jpg" alt="Interlocking">
             </div>
             <div class="service-content">
               <div class="service-category">STONE & PAVERS</div>
               <h3>Interlocking</h3>
               <p>Professional stone installation for driveways, patios, and elegant walkways that last generations.</p>
-              <a href="#" class="btn-learn">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+              <a href="interlocking.html" class="btn-learn">LEARN MORE <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
           <div class="service-card">
             <div class="service-image-side">
-              <img src="https://mecontracting.ca/wp-content/uploads/Complete-Landscaping-Design-Project-by-Toronto-Landscaping-Company-Lyonsgate.jpg" alt="Pools & Water Features">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Toronto-Landscape-Design-and-Construction-Project-by-M.E.-Contracting-Featuring-Stone-Interlocking-Patio-Swim-Spa-and-Pool-Installation-PVC-Decking-with-Outdoor-Lighting-and-Aluminum-Railings.jpg" alt="Pools & Water Features">
             </div>
             <div class="service-content">
               <div class="service-category">WATER FEATURES</div>
               <h3>Pools & Water Features</h3>
               <p>Inground pools & serene water features designed for your lifestyle and relaxation.</p>
-              <a href="#" class="btn-learn">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+              <a href="pools.html" class="btn-learn">LEARN MORE <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
           <div class="service-card">
             <div class="service-image-side">
-              <img src="https://mecontracting.ca/wp-content/uploads/Toronto-Landscaping-Company-Specializing-in-Patio-Design.jpg" alt="Woodworking">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Complete-Toronto-PVC-Decking-Project-M.E.-Contracting.jpg" alt="Woodworking">
             </div>
             <div class="service-content">
               <div class="service-category">CUSTOM CRAFTSMANSHIP</div>
               <h3>Woodworking</h3>
               <p>Custom pergolas, gazebos & outdoor structures crafted with precision and care.</p>
-              <a href="#" class="btn-learn">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+              <a href="woodworking.html" class="btn-learn">LEARN MORE <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
           <div class="service-card">
             <div class="service-image-side">
-              <img src="https://mecontracting.ca/wp-content/uploads/1M.E-Contracting-GLASS-RAILING-Cover-image.jpg" alt="Outdoor Railings">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Chine-Drive-Backyard-Landscaping-Project-with-Small-Composite-Deck-Build-Aluminum-Tempered-Glass-Railings.jpg" alt="Outdoor Railings">
             </div>
             <div class="service-content">
               <div class="service-category">SAFETY & STYLE</div>
               <h3>Outdoor Railings</h3>
               <p>Stylish, durable railings for decks, stairs, and modern outdoor spaces.</p>
-              <a href="#" class="btn-learn">LEARN MORE <i class="fas fa-arrow-right"></i></a>
+              <a href="railings.html" class="btn-learn">LEARN MORE <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1164,6 +985,23 @@
             <div class="stat-label">INDUSTRY AWARDS</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- AWARDS SECTION -->
+    <section class="awards-section">
+      <div class="container">
+        <h2 class="award-title">Award Winning Landscaping Design & Construction</h2>
+        <div class="awards-wrapper" id="awardsWrapper">
+          <div class="award-grid" id="awardGrid">
+            <a href="https://www.thebestrated.ca/" target="_blank" rel="noopener noreferrer" class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/Three-Best-Rated-Award.png" alt="Three Best Rated Award" class="award-img"></a>
+            <a href="https://homestars.com/" target="_blank" rel="noopener noreferrer" class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/HomeStars-Verified-2023.png" alt="HomeStars Verified" class="award-img"></a>
+            <a href="https://www.bestofburlington.com/" target="_blank" rel="noopener noreferrer" class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/Bigger-size-BOB.png" alt="BOB Award" class="award-img"></a>
+            <a href="https://awards.architecturaldigest.com/" target="_blank" rel="noopener noreferrer" class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/AOEwe.png" alt="AOE Award" class="award-img"></a>
+            <a href="https://www.topchoiceawards.com/" target="_blank" rel="noopener noreferrer" class="award-item"><img src="https://mecontracting.ca/wp-content/uploads/500x600.png" alt="Top Choice Award" class="award-img"></a>
+          </div>
+        </div>
+        <div class="awards-dots" id="awardsDots"></div>
       </div>
     </section>
 
@@ -1206,14 +1044,14 @@
         </div>
         <div class="projects-wrapper" id="projectsWrapper">
           <div class="projects-grid" id="projectsGrid">
-            <div class="project-card"><img src="https://mecontracting.ca/wp-content/uploads/Azek-Decking-Project-by-The-Toronto-Landscaping-Contractors.-2.jpg"><div class="project-overlay"><h3>Modern PVC Deck</h3><p>Custom design & premium materials</p></div></div>
-            <div class="project-card"><img src="https://mecontracting.ca/wp-content/uploads/Complete-Landscaping-Design-Project-by-Toronto-Landscaping-Company-Lyonsgate.jpg"><div class="project-overlay"><h3>Serene Poolscape</h3><p>Water features & natural stone</p></div></div>
-            <div class="project-card"><img src="https://mecontracting.ca/wp-content/uploads/Chine-Drive-Toronto-Landscaping-Project-Featuring-Patio-Design-Interlocking-by-M.E.-Contracting.jpg"><div class="project-overlay"><h3>Elegant Patio</h3><p>Interlocking stone walkways</p></div></div>
-            <div class="project-card"><img src="https://mecontracting.ca/wp-content/uploads/4glenayr.jpg"><div class="project-overlay"><h3>Luxury Garden</h3><p>Complete landscape transformation</p></div></div>
+            <div class="project-card"><img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Complete-Toronto-PVC-Decking-Project-M.E.-Contracting.jpg"><div class="project-overlay"><h3>Modern PVC Deck</h3><p>Custom design & premium materials</p></div></div>
+            <div class="project-card"><img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Toronto-Landscape-Design-and-Construction-Project-by-M.E.-Contracting-Featuring-Stone-Interlocking-Patio-Swim-Spa-and-Pool-Installation-PVC-Decking-with-Outdoor-Lighting-and-Aluminum-Railings.jpg"><div class="project-overlay"><h3>Serene Poolscape</h3><p>Water features & natural stone</p></div></div>
+            <div class="project-card"><img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Chine-Drive-Backyard-Landscaping-Project-with-Small-Composite-Deck-Build-Aluminum-Tempered-Glass-Railings.jpg"><div class="project-overlay"><h3>Elegant Patio</h3><p>Interlocking stone walkways</p></div></div>
+            <div class="project-card"><img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/4glenayr.jpg"><div class="project-overlay"><h3>Luxury Garden</h3><p>Complete landscape transformation</p></div></div>
           </div>
         </div>
         <div class="projects-dots" id="projectsDots"></div>
-        <div class="btn-bekijk"><a href="#" class="btn-outline">View More →</a></div>
+        <div class="btn-bekijk"><a href="portfolio.html" class="btn-outline">View More →</a></div>
       </div>
     </section>
 
@@ -1228,11 +1066,11 @@
     </section>
   </main>
 
-  <!-- Footer will be loaded here -->
+  <!-- FOOTER LOADED FROM footer.html -->
   <div id="footer-placeholder"></div>
 
   <script>
-    // Function to load HTML files into placeholders
+    // Function to load HTML components
     async function loadComponent(componentName, placeholderId) {
       try {
         const response = await fetch(`${componentName}.html`);
@@ -1255,14 +1093,12 @@
       loadComponent('header', 'header-placeholder'),
       loadComponent('footer', 'footer-placeholder')
     ]).then(() => {
-      // After header and footer are loaded, re-initialize all JavaScript functionality
-      
       // Navbar scroll effect
       const navbar = document.getElementById('navbar');
       if (navbar) {
-        window.addEventListener('scroll', () => { 
-          if (window.scrollY > 50) navbar.classList.add('scrolled'); 
-          else navbar.classList.remove('scrolled'); 
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) navbar.classList.add('scrolled');
+          else navbar.classList.remove('scrolled');
         });
       }
 
@@ -1270,7 +1106,7 @@
       const menuToggle = document.getElementById('menuToggle');
       const mobileMenu = document.getElementById('mobileMenu');
       const closeMenu = document.getElementById('closeMenu');
-      
+
       if (menuToggle && mobileMenu) {
         menuToggle.addEventListener('click', () => mobileMenu.classList.add('active'));
         if (closeMenu) closeMenu.addEventListener('click', () => mobileMenu.classList.remove('active'));
@@ -1282,68 +1118,60 @@
       // Logo click
       const logoLink = document.getElementById('logoLink');
       if (logoLink) {
-        logoLink.addEventListener('click', (e) => { 
-          e.preventDefault(); 
-          window.location.href = 'index.html'; 
-        });
-      }
-
-      // Contact alert function
-      function showContactAlert() { 
-        alert("Thank you for your interest! A representative will contact you within 24 hours."); 
-      }
-      
-      // Contact buttons
-      document.querySelectorAll('.hero-cta, .about-cta, .btn-nav, #contactNavBtn, #mobileContactBtn').forEach(btn => {
-        if (btn) btn.addEventListener('click', (e) => { 
-          e.preventDefault(); 
-          showContactAlert();
-        });
-      });
-      
-      // Learn More buttons (except landscaping link)
-      document.querySelectorAll('.btn-learn').forEach(btn => {
-        btn.addEventListener('click', (e) => { 
-          const href = btn.getAttribute('href');
-          if (href && href !== '#' && href !== 'landscaping.html') {
-            return;
-          }
-          if (href === 'landscaping.html') {
-            return;
-          }
+        logoLink.addEventListener('click', (e) => {
           e.preventDefault();
-          alert("Learn more about this service! Our team will provide detailed information.");
-        });
-      });
-      
-      // Portfolio button
-      const portfolioBtn = document.getElementById('viewPortfolioBtn');
-      if (portfolioBtn) {
-        portfolioBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const projectsSection = document.querySelector('.projects-section');
-          if (projectsSection) {
-            projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            projectsSection.style.transition = 'background 0.5s ease';
-            projectsSection.style.backgroundColor = 'rgba(212, 175, 55, 0.05)';
-            setTimeout(() => {
-              projectsSection.style.backgroundColor = '';
-            }, 800);
-          }
-        });
-      }
-      
-      // View More link
-      const viewMoreLink = document.querySelector('.btn-bekijk .btn-outline');
-      if (viewMoreLink) {
-        viewMoreLink.addEventListener('click', (e) => {
-          e.preventDefault();
-          alert("Explore our full portfolio gallery. Contact us to see more of our award-winning projects!");
+          window.location.href = 'index.html';
         });
       }
     });
 
-    // Stats counting animation (independent of header/footer)
+    // Contact alerts
+    function showContactAlert() { 
+      alert("Thank you for your interest! A representative will contact you within 24 hours."); 
+    }
+    
+    // Handle all contact buttons
+    document.querySelectorAll('.hero-cta, .about-cta, .btn-nav, #contactNavBtn, #mobileContactBtn').forEach(btn => {
+      if (btn) btn.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        showContactAlert();
+      });
+    });
+    
+    // Handle Learn More buttons (navigation only)
+    document.querySelectorAll('.btn-learn').forEach(btn => {
+      btn.addEventListener('click', (e) => { 
+        // Let the link work normally - it navigates to the service page
+      });
+    });
+    
+    // Portfolio button
+    const portfolioBtn = document.getElementById('viewPortfolioBtn');
+    if (portfolioBtn) {
+      portfolioBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const projectsSection = document.querySelector('.projects-section');
+        if (projectsSection) {
+          projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          projectsSection.style.transition = 'background 0.5s ease';
+          projectsSection.style.backgroundColor = 'rgba(212, 175, 55, 0.05)';
+          setTimeout(() => {
+            projectsSection.style.backgroundColor = '';
+          }, 800);
+        }
+      });
+    }
+    
+    // View More portfolio link
+    const viewMoreLink = document.querySelector('.btn-bekijk .btn-outline');
+    if (viewMoreLink) {
+      viewMoreLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = 'portfolio.html';
+      });
+    }
+
+    // Stats counting animation
     const statItems = document.querySelectorAll('.stat-item');
     const countElements = document.querySelectorAll('.count-num');
     let animated = false;
@@ -1384,10 +1212,11 @@
 
     statItems.forEach(item => statsObserver.observe(item));
 
-    // Scroll animations with stagger
+    // SCROLL ANIMATION WITH STAGGERED WAVE DELAYS
     const setupScrollAnimations = () => {
       const serviceCards = document.querySelectorAll('.service-card');
       const statItemsAnim = document.querySelectorAll('.stat-item');
+      const awardItems = document.querySelectorAll('.award-item');
       const reviewCardsAnim = document.querySelectorAll('.review-card');
       const projectCardsAnim = document.querySelectorAll('.project-card');
       
@@ -1419,17 +1248,43 @@
         });
       };
       
-      if (serviceCards.length) observeWithStagger(serviceCards, 0.08, 0.7);
-      if (statItemsAnim.length) observeWithStagger(statItemsAnim, 0.1, 0.4);
-      if (reviewCardsAnim.length) observeWithStagger(reviewCardsAnim, 0.07, 0.5);
-      if (projectCardsAnim.length) observeWithStagger(projectCardsAnim, 0.07, 0.55);
+      observeWithStagger(serviceCards, 0.08, 0.7);
+      observeWithStagger(statItemsAnim, 0.1, 0.4);
+      observeWithStagger(awardItems, 0.06, 0.35);
+      observeWithStagger(reviewCardsAnim, 0.07, 0.5);
+      observeWithStagger(projectCardsAnim, 0.07, 0.55);
     };
     
-    // Wait for DOM to be ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', setupScrollAnimations);
-    } else {
-      setupScrollAnimations();
+    // Initialize scroll animations
+    setupScrollAnimations();
+
+    // Awards dots
+    const awardsWrapper = document.getElementById('awardsWrapper');
+    const awardsDotsContainer = document.getElementById('awardsDots');
+    const awardItems = document.querySelectorAll('.award-item');
+    
+    if (awardsWrapper && awardsDotsContainer && awardItems.length) {
+      awardItems.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          const scrollAmount = awardsWrapper.clientWidth * index;
+          awardsWrapper.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+        });
+        awardsDotsContainer.appendChild(dot);
+      });
+      
+      awardsWrapper.addEventListener('scroll', () => {
+        const scrollPosition = awardsWrapper.scrollLeft;
+        const itemWidth = awardsWrapper.clientWidth;
+        const activeIndex = Math.round(scrollPosition / itemWidth);
+        const dots = document.querySelectorAll('#awardsDots .dot');
+        dots.forEach((dot, i) => {
+          if (i === activeIndex) dot.classList.add('active');
+          else dot.classList.remove('active');
+        });
+      });
     }
 
     // Reviews dots
