@@ -104,21 +104,48 @@
       color: #353738;
     }
 
+    /* Learn More Button - One Bar Style */
     .btn-learn {
       display: inline-block;
       background: transparent;
       color: #D4AF37;
       font-weight: 600;
-      padding: 0;
+      padding: 10px 24px;
       text-decoration: none;
-      transition: 0.3s;
+      transition: all 0.3s ease;
       font-size: 0.85rem;
       cursor: pointer;
+      border: 1px solid #D4AF37;
+      border-radius: 40px;
     }
 
     .btn-learn:hover {
-      color: #E8C45A;
+      background: #D4AF37;
+      color: #353738;
       transform: translateX(4px);
+    }
+
+    /* Service Button - One Bar Style */
+    .service-btn {
+      display: inline-block;
+      background: transparent;
+      color: #D4AF37;
+      font-weight: 600;
+      padding: 10px 24px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid #D4AF37;
+      border-radius: 40px;
+      cursor: pointer;
+      margin-top: 16px;
+      align-self: flex-start;
+      font-size: 0.85rem;
+    }
+
+    .service-btn:hover {
+      background: #D4AF37;
+      color: #353738;
+      transform: translateX(5px);
     }
 
     /* ----- NAVBAR ----- */
@@ -447,10 +474,10 @@
       z-index: 2;
     }
 
-    /* Text Reveal Animation */
+    /* Text Reveal Animation - MUCH BIGGER FONT */
     .reveal-text {
       color: #FFFFFF;
-      font-size: 4rem;
+      font-size: 6rem;
       font-weight: 800;
       margin-bottom: 0;
       text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
@@ -489,10 +516,27 @@
       }
     }
 
-    .page-hero h1 {
-      font-size: 4rem;
-      font-weight: 800;
-      margin-bottom: 0;
+    /* Typewriter Effect Section */
+    .experience-section {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .typewriter-container {
+      display: inline-block;
+    }
+
+    .typewriter-text {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.3;
+      overflow: hidden;
+      white-space: normal;
+      display: inline-block;
     }
 
     /* Intro Section */
@@ -532,22 +576,7 @@
       font-size: 1rem;
     }
 
-    /* Experience Section */
-    .experience-section {
-      background: rgba(255, 255, 255, 0.03);
-      padding: 100px 0;
-      text-align: center;
-    }
-
-    .experience-section h2 {
-      font-size: 2.5rem;
-      color: #FFFFFF;
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.3;
-    }
-
-    /* Service Types */
+    /* Service Types - No Icons */
     .service-types-section {
       padding: 80px 0;
       background: #353738;
@@ -618,10 +647,6 @@
       color: #D4AF37;
     }
 
-    .service-content h3 i {
-      margin-right: 8px;
-    }
-
     .service-content p {
       color: #A0A0A5;
       margin-bottom: 12px;
@@ -631,31 +656,6 @@
 
     .service-content p strong {
       color: #FFFFFF;
-    }
-
-    .service-btn {
-      display: inline-block;
-      background: transparent;
-      color: #D4AF37;
-      font-weight: 600;
-      padding: 10px 0;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      margin-top: 16px;
-      align-self: flex-start;
-      font-size: 0.85rem;
-    }
-
-    .service-btn:hover {
-      color: #E8C45A;
-      transform: translateX(5px);
-    }
-
-    .service-btn i {
-      margin-left: 6px;
-      font-size: 0.7rem;
     }
 
     /* Scroll Dots */
@@ -761,10 +761,6 @@
       font-size: 1.3rem;
       margin-bottom: 16px;
       color: #D4AF37;
-    }
-
-    .faq-item h3 i {
-      margin-right: 12px;
     }
 
     .faq-item p {
@@ -937,7 +933,11 @@
       }
       
       .reveal-text {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
+      }
+      
+      .typewriter-text {
+        font-size: 1.8rem;
       }
       
       .page-hero h1 {
@@ -1003,7 +1003,11 @@
 
     @media (max-width: 480px) {
       .reveal-text {
-        font-size: 2rem;
+        font-size: 2.2rem;
+      }
+      
+      .typewriter-text {
+        font-size: 1.4rem;
       }
       
       .page-hero h1 {
@@ -1067,9 +1071,12 @@
       </div>
     </section>
 
+    <!-- Typewriter Effect Section - No Cursor -->
     <section class="experience-section fade-in-up">
       <div class="container">
-        <h2>At M.E. Contracting, We Make Your Landscaping Experience as Exceptional as the Results!</h2>
+        <div class="typewriter-container">
+          <div class="typewriter-text" id="typewriterText"></div>
+        </div>
       </div>
     </section>
 
@@ -1080,46 +1087,46 @@
             <div class="service-card">
               <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Complete-Toronto-PVC-Decking-Project-M.E.-Contracting.jpg" alt="Patio Construction" loading="lazy">
               <div class="service-content">
-                <h3><i class="fas fa-umbrella-beach"></i> Patio Construction</h3>
+                <h3>Patio Construction</h3>
                 <p><strong>Toronto Patio Construction Experts</strong> - For active homeowners who do a lot of entertaining, nothing adds more utility and value than a well-thought-out patio design.</p>
                 <p><strong>Flooring Options:</strong> Natural stone, ceramic tiles, decking, and concrete. Natural stone is low maintenance and looks like part of the outdoor environment.</p>
-                <a href="#" class="service-btn service-patio-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="service-btn service-patio-btn">Learn More</a>
               </div>
             </div>
             <div class="service-card">
               <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Toronto-Landscape-Design-and-Construction-Project-by-M.E.-Contracting-Featuring-Stone-Interlocking-Patio-Swim-Spa-and-Pool-Installation-PVC-Decking-with-Outdoor-Lighting-and-Aluminum-Railings.jpg" alt="Outdoor Kitchen" loading="lazy">
               <div class="service-content">
-                <h3><i class="fas fa-utensils"></i> Outdoor Kitchen</h3>
+                <h3>Outdoor Kitchen</h3>
                 <p><strong>Toronto Outdoor Kitchen Design</strong> - With an outdoor kitchen, cooking becomes an outdoor activity where fun begins before food hits the table.</p>
                 <p><strong>Benefits:</strong> Entertain with ease, increase home value, and extend your living space outside for family gatherings.</p>
-                <a href="#" class="service-btn service-kitchen-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="service-btn service-kitchen-btn">Learn More</a>
               </div>
             </div>
             <div class="service-card">
               <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Chine-Drive-Backyard-Landscaping-Project-with-Small-Composite-Deck-Build-Aluminum-Tempered-Glass-Railings.jpg" alt="Sports Court" loading="lazy">
               <div class="service-content">
-                <h3><i class="fas fa-basketball-ball"></i> Sports Court</h3>
+                <h3>Sports Court</h3>
                 <p><strong>Toronto Sports Court Design & Installation</strong> - With the Sport Court™ tile system, we can turn your backyard into a multi-purpose, versatile surface.</p>
                 <p><strong>Benefits:</strong> Adds value to your home, creates functional outdoor space, promotes healthy active play.</p>
-                <a href="#" class="service-btn service-sports-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="service-btn service-sports-btn">Learn More</a>
               </div>
             </div>
             <div class="service-card">
               <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/Complete-Toronto-PVC-Decking-Project-M.E.-Contracting.jpg" alt="Outdoor Fireplaces" loading="lazy">
               <div class="service-content">
-                <h3><i class="fas fa-fire"></i> Fireplaces & Firepits</h3>
+                <h3>Fireplaces & Firepits</h3>
                 <p><strong>Toronto's Outdoor Fireplaces Experts</strong> - An outdoor fireplace adds to your home's appearance and provides a warm center where friends can congregate.</p>
                 <p><strong>Materials:</strong> Concrete, Cast Iron, Copper, Stainless Steel, Cast Aluminum with propane or natural gas options.</p>
-                <a href="#" class="service-btn service-fireplace-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="service-btn service-fireplace-btn">Learn More</a>
               </div>
             </div>
             <div class="service-card">
               <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/16Walker-Ave.jpg" alt="Irrigation Systems" loading="lazy">
               <div class="service-content">
-                <h3><i class="fas fa-tint"></i> Irrigation Systems</h3>
+                <h3>Irrigation Systems</h3>
                 <p><strong>Toronto's Landscape Irrigation Experts</strong> - With a decade of experience designing and installing innovative irrigation systems.</p>
                 <p><strong>Benefits:</strong> Higher efficiency, fully automated operation, less disruption to your landscape, and eco-friendly water conservation.</p>
-                <a href="#" class="service-btn service-irrigation-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="#" class="service-btn service-irrigation-btn">Learn More</a>
               </div>
             </div>
           </div>
@@ -1151,15 +1158,15 @@
         <p class="faq-subhead">Got questions about landscape design & construction? We invite you to call and speak to a staff member. Meanwhile, we've put together a few answers to some of our commonly asked questions below.</p>
         <div class="faq-grid">
           <div class="faq-item">
-            <h3><i class="fas fa-home"></i> How long does a landscaping project take?</h3>
+            <h3>How long does a landscaping project take?</h3>
             <p>The timeline for a landscaping project varies based on the scope and complexity. A simple garden installation may take 1-2 weeks, while a complete property transformation with hardscaping, planting, and lighting can take 4-8 weeks. We provide detailed timelines during your consultation and keep you informed throughout the process.</p>
           </div>
           <div class="faq-item">
-            <h3><i class="fas fa-clock"></i> When is the best time to start a landscaping project?</h3>
+            <h3>When is the best time to start a landscaping project?</h3>
             <p>Spring and fall are ideal seasons for landscaping projects in Toronto. Spring allows plants to establish before summer heat, while fall provides ideal conditions for sod, trees, and perennials to develop strong root systems. However, we work year-round and can start planning your project at any time.</p>
           </div>
           <div class="faq-item">
-            <h3><i class="fas fa-calendar-alt"></i> How much does landscaping cost?</h3>
+            <h3>How much does landscaping cost?</h3>
             <p>The cost of landscaping varies based on project scope, materials selected, property conditions, and design complexity. We provide detailed, transparent quotes after our initial consultation and site assessment. We work with clients to create beautiful landscapes that fit their budget without compromising quality.</p>
           </div>
         </div>
@@ -1181,6 +1188,34 @@
   <div id="footer-placeholder"></div>
 
   <script>
+    // Typewriter Effect - No Cursor
+    const typewriterText = "At M.E. Contracting, We Make Your Landscaping Experience as Exceptional as the Results!";
+    const typewriterElement = document.getElementById('typewriterText');
+    let i = 0;
+    
+    function typeWriter() {
+      if (i < typewriterText.length) {
+        typewriterElement.innerHTML += typewriterText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    
+    // Start typewriter when section is visible
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && typewriterElement.innerHTML === '') {
+          typeWriter();
+          typewriterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    const experienceSection = document.querySelector('.experience-section');
+    if (experienceSection) {
+      typewriterObserver.observe(experienceSection);
+    }
+
     // Function to load HTML components
     async function loadComponent(componentName, placeholderId) {
       try {
@@ -1234,13 +1269,6 @@
           window.location.href = 'index.html';
         });
       }
-
-      // Re-attach contact button events (now all link to contact-us.html)
-      document.querySelectorAll('.hero-cta-btn, .services-cta, .final-cta-btn, .btn-nav, #contactNavBtn, #mobileContactBtn, .service-patio-btn, .service-kitchen-btn, .service-sports-btn, .service-fireplace-btn, .service-irrigation-btn').forEach(btn => {
-        btn?.addEventListener('click', (e) => {
-          // Let the link work normally - navigates to contact-us.html
-        });
-      });
     });
 
     // Fade-in observer
