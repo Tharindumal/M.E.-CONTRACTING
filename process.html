@@ -387,20 +387,18 @@
       margin-top: 10px;
     }
 
-    /* Page Hero */
-    .page-hero {
+    /* Hero Section with Video and Content */
+    .process-hero {
       position: relative;
       width: 100%;
-      min-height: 70vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 160px 24px 100px;
+      padding: 120px 0;
       overflow: hidden;
     }
 
-    .page-hero::before {
+    .process-hero::before {
       content: '';
       position: absolute;
       top: 0;
@@ -414,7 +412,7 @@
       z-index: 0;
     }
 
-    .page-hero::after {
+    .process-hero::after {
       content: '';
       position: absolute;
       top: 0;
@@ -425,24 +423,41 @@
       z-index: 0;
     }
 
-    .page-hero .container {
+    .hero-grid {
       position: relative;
       z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
     }
 
-    .page-hero h1 {
-      color: #FFFFFF;
-      font-size: 4.5rem;
-      font-weight: 700;
+    .hero-video {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .hero-video iframe {
+      width: 100%;
+      height: 350px;
+      display: block;
+      border: 0;
+    }
+
+    .hero-content h2 {
+      font-size: 3rem;
       margin-bottom: 1rem;
-      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+      color: #D4AF37;
     }
 
-    .page-hero p {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.95);
-      max-width: 700px;
-      margin: 0 auto 1.5rem;
+    .hero-content p {
+      color: #A0A0A5;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      font-size: 1rem;
     }
 
     /* Design & Build Section */
@@ -459,7 +474,7 @@
     }
 
     .design-build-content h2 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
@@ -478,7 +493,7 @@
       border: 1px solid rgba(212, 175, 55, 0.2);
     }
 
-    /* Process Steps - Like LiveWell Outdoors */
+    /* Process Steps Section */
     .process-steps-section {
       padding: 80px 0;
       background: rgba(255, 255, 255, 0.03);
@@ -544,38 +559,6 @@
       text-align: right;
     }
 
-    /* 3D Virtual Tour Section */
-    .virtual-tour-section {
-      padding: 80px 0;
-      background: #353738;
-    }
-
-    .virtual-tour-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .virtual-tour-content h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .virtual-tour-content p {
-      color: #A0A0A5;
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-
-    .virtual-tour-image img {
-      width: 100%;
-      border-radius: 28px;
-      object-fit: cover;
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(212, 175, 55, 0.2);
-    }
-
     /* CTA Section */
     .cta-section {
       background: #2A2C2D;
@@ -594,25 +577,6 @@
       max-width: 550px;
       margin: 0 auto 2rem;
       color: #A0A0A5;
-    }
-
-    /* Dream Guide Section */
-    .dream-guide-section {
-      padding: 80px 0;
-      background: rgba(255, 255, 255, 0.03);
-      text-align: center;
-    }
-
-    .dream-guide-section h2 {
-      margin-bottom: 1rem;
-    }
-
-    .dream-guide-section p {
-      color: #A0A0A5;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     /* Footer */
@@ -716,8 +680,17 @@
         padding: 0 20px;
       }
       
-      .page-hero h1 {
-        font-size: 2.5rem;
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+      
+      .hero-video iframe {
+        height: 250px;
       }
       
       h2 {
@@ -736,8 +709,7 @@
         display: none;
       }
       
-      .design-build-grid,
-      .virtual-tour-grid {
+      .design-build-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
@@ -759,8 +731,12 @@
     }
 
     @media (max-width: 480px) {
-      .page-hero h1 {
-        font-size: 2rem;
+      .hero-content h2 {
+        font-size: 1.6rem;
+      }
+      
+      .hero-video iframe {
+        height: 200px;
       }
       
       .design-build-content h2 {
@@ -789,12 +765,20 @@
   <div id="header-placeholder"></div>
 
   <main>
-    <!-- Hero Section -->
-    <section class="page-hero">
+    <!-- Hero Section with Video Left, Content Right -->
+    <section class="process-hero">
       <div class="container">
-        <h1>Design & Build</h1>
-        <p>Your Dream Backyard</p>
-        <a href="contact-us.html" class="btn-primary hero-cta-btn" style="margin-top: 16px;">Schedule a Call</a>
+        <div class="hero-grid">
+          <div class="hero-video">
+            <iframe src="https://www.youtube.com/embed/Nh-Tk3-nIeE" title="M.E. Contracting Portfolio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="hero-content">
+            <h2>Your Dream Backyard</h2>
+            <p>Get expert care and guidance to turn your vision into a luxury outdoor oasis.</p>
+            <p>The possibilities are endless in luxury outdoor living. It's easy to feel overwhelmed or unsure where to even start. That's why we offer a complete design-build experience, where you collaborate with our expert team to create a space tailored to your tastes and lifestyle.</p>
+            <a href="contact-us.html" class="btn-primary">Start Your Journey</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -803,10 +787,10 @@
       <div class="container">
         <div class="design-build-grid">
           <div class="design-build-content">
-            <h2>Your Dream Backyard</h2>
-            <p>Get expert care and guidance to turn your vision into a luxury outdoor oasis.</p>
-            <p>The possibilities are endless in luxury outdoor living. It's easy to feel overwhelmed or unsure where to even start. That's why we offer a complete design-build experience, where you collaborate with our expert team to create a space tailored to your tastes and lifestyle.</p>
-            <a href="contact-us.html" class="btn-primary">Start Your Journey</a>
+            <h2>Our Design-Build Experience</h2>
+            <p>At M.E. Contracting, we believe that a successful project starts with a clear, transparent process. Our proven approach ensures that every detail is handled with care, from the initial consultation to the final walkthrough.</p>
+            <p>We combine creative design with expert craftsmanship to deliver outdoor spaces that exceed expectations. Our team works closely with you at every stage, ensuring your vision becomes reality.</p>
+            <a href="contact-us.html" class="btn-primary">Schedule a Consultation</a>
           </div>
           <div class="design-build-image">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/ffc572c52327765893217c80537dc037e6331c1d/images/decks/Chine-Drive-Backyard-Landscaping-Project-with-Small-Composite-Deck-Build-Aluminum-Tempered-Glass-Railings.jpg" alt="Luxury Backyard Design" loading="lazy">
@@ -815,7 +799,7 @@
       </div>
     </section>
 
-    <!-- Process Steps Section - Like LiveWell Outdoors -->
+    <!-- Process Steps Section -->
     <section class="process-steps-section fade-in-up">
       <div class="container">
         <h2>Our Design-Build Process</h2>
@@ -841,8 +825,8 @@
           <div class="step-item">
             <div class="step-number-large">3</div>
             <div class="step-content">
-              <h3>3D Virtual Tour</h3>
-              <p>Step into a lifelike preview of your future backyard. Our immersive 3D experience lets you see how everything comes together, so you can feel confident before we build. Make any final adjustments or explore new ideas to perfect the plan.</p>
+              <h3>Design & Material Selection</h3>
+              <p>Our designers create detailed renderings and help you select the perfect materials for your project. From natural stone to premium decking, we guide you through every choice to ensure your outdoor space reflects your personal style.</p>
             </div>
           </div>
           <!-- Step 4 -->
@@ -857,23 +841,6 @@
       </div>
     </section>
 
-    <!-- 3D Virtual Tour Section -->
-    <section class="virtual-tour-section fade-in-up">
-      <div class="container">
-        <div class="virtual-tour-grid">
-          <div class="virtual-tour-content">
-            <h2>Step Into a Lifelike Preview</h2>
-            <p>Our immersive 3D experience lets you see how everything comes together, so you can feel confident before we build. Make any final adjustments or explore new ideas. This is your chance to perfect the plan.</p>
-            <p>Once every detail is dialed in, it's time to break ground on your dream outdoor living space. You'll see exactly what your backyard will look like before construction even begins.</p>
-            <a href="portfolio.html" class="btn-primary">View Our Portfolio</a>
-          </div>
-          <div class="virtual-tour-image">
-            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/ffc572c52327765893217c80537dc037e6331c1d/images/decks/Complete-Toronto-PVC-Decking-Project-M.E.-Contracting.jpg" alt="3D Virtual Tour" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="cta-section fade-in-up">
       <div class="container">
@@ -883,14 +850,6 @@
       </div>
     </section>
 
-    <!-- Dream Guide Section -->
-    <section class="dream-guide-section fade-in-up">
-      <div class="container">
-        <h2>Get Inspired!</h2>
-        <p>Check out our free luxury Outdoor Oasis Dream Guide with some amazing ideas for building your luxury experience.</p>
-        <a href="portfolio.html" class="btn-outline">View Our Portfolio</a>
-      </div>
-    </section>
   </main>
 
   <div id="footer-placeholder"></div>
