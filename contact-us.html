@@ -647,7 +647,7 @@
       gap: 20px;
     }
 
-    /* Swiper.js Center Mode Slider - 3D Coverflow Effect */
+    /* Swiper.js Center Mode Slider - 3D Coverflow Effect (NO ARROWS, NO AUTOPLAY) */
     .swiper-section {
       padding: 60px 0 100px;
       background: #353738;
@@ -681,7 +681,6 @@
       width: 380px;
       opacity: 0.5;
       transform: scale(0.85);
-      transition: all 0.3s ease;
     }
 
     .swiper-slide-active {
@@ -695,11 +694,6 @@
     .swiper-slide-next {
       opacity: 0.7;
       transform: scale(0.9);
-    }
-
-    .swiper-slide-duplicate {
-      opacity: 0.4;
-      transform: scale(0.8);
     }
 
     .media-card-content {
@@ -728,29 +722,7 @@
       border: 0;
     }
 
-    /* Custom Swiper Navigation */
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: #D4AF37;
-      background: rgba(0, 0, 0, 0.5);
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      backdrop-filter: blur(5px);
-    }
-
-    .swiper-button-next:after,
-    .swiper-button-prev:after {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .swiper-button-next:hover,
-    .swiper-button-prev:hover {
-      background: #D4AF37;
-      color: #353738;
-    }
-
+    /* Custom Swiper Pagination */
     .swiper-pagination-bullet {
       background: #A0A0A5;
       opacity: 0.5;
@@ -948,7 +920,7 @@
     <section class="page-hero">
       <div class="container">
         <h1 class="reveal-text">Contact Us</h1>
-        <a href="#estimate-form" class="btn-primary hero-cta-link reveal-btn" style="margin-top: 32px; display: inline-block;">Request a Free Estimate</a>
+        <a href="#estimate-form" class="btn-primary hero-cta-link reveal-btn" style="margin-top: 32px; display: inline-block;">Schedule a Consultation</a>
       </div>
     </section>
 
@@ -1044,7 +1016,7 @@
       </div>
     </section>
 
-    <!-- Swiper.js Center Mode Slider - 3D Coverflow Effect -->
+    <!-- Swiper.js Center Mode Slider - 3D Coverflow Effect (NO ARROWS, NO AUTOPLAY) -->
     <section class="swiper-section fade-in-up">
       <div class="container">
         <h2>Explore Our Work</h2>
@@ -1080,10 +1052,7 @@
             </div>
           </div>
         </div>
-        <!-- Navigation Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <!-- Pagination Dots -->
+        <!-- Pagination Dots Only (No Arrows) -->
         <div class="swiper-pagination"></div>
       </div>
     </section>
@@ -1093,7 +1062,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    // Initialize Swiper with Coverflow Effect
+    // Initialize Swiper with Coverflow Effect - NO ARROWS, NO AUTOPLAY
     const swiper = new Swiper('.mySwiper', {
       effect: 'coverflow',
       grabCursor: true,
@@ -1107,14 +1076,8 @@
         slideShadows: false,
       },
       loop: true,
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+      autoplay: false,  // Autoplay disabled
+      navigation: false, // Navigation arrows disabled
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
