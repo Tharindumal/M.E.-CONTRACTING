@@ -2,8 +2,7 @@
 <nav class="navbar" id="navbar">
   <div class="container nav-container">
     <a href="index.html" class="logo" id="logoLink">
-      <span class="logo-main">M.E.</span>
-      <span class="logo-sub">CONTRACTING</span>
+      <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/e020ee09ab5b80ebf902b5dc3500b0a0a0884aac/images/ME-Contracting-Logo-600x200-1-1-1.png" alt="M.E. Contracting Logo" style="height: 45px; width: auto; display: block;">
     </a>
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
     <ul class="nav-links">
@@ -49,8 +48,10 @@
 </div>
 
 <script>
+  // Function to set active class based on current page
   (function setActiveNavigation() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
     const servicePages = ['landscaping.html', 'interlocking.html', 'decks.html', 'pools.html', 'woodworking.html', 'railings.html'];
     
     const allDesktopLinks = document.querySelectorAll('.nav-links a');
@@ -62,14 +63,18 @@
     allDesktopLinks.forEach(link => {
       const href = link.getAttribute('href');
       if (href && href !== '#' && href !== '') {
-        if (href === currentPage) link.classList.add('active');
+        if (href === currentPage) {
+          link.classList.add('active');
+        }
       }
     });
     
     allMobileLinks.forEach(link => {
       const href = link.getAttribute('href');
       if (href && href !== '#' && href !== '') {
-        if (href === currentPage) link.classList.add('active');
+        if (href === currentPage) {
+          link.classList.add('active');
+        }
       }
     });
     
