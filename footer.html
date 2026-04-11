@@ -2,7 +2,7 @@
   <div class="footer-container">
     <div class="footer-grid">
       
-      <div class="footer-col about-col">
+      <div class="footer-col">
         <a href="index.html" class="footer-logo-link">
           <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/e020ee09ab5b80ebf902b5dc3500b0a0a0884aac/images/ME-Contracting-Logo-600x200-1-1-1.png" alt="M.E. Contracting Logo" class="footer-main-logo">
         </a>
@@ -40,27 +40,20 @@
         </ul>
       </div>
 
-      <div class="footer-col">
-        <h4>COMPANY</h4>
-        <ul>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-        </ul>
+      <div class="footer-col logo-column">
+        <h4>ACCREDITATIONS</h4>
+        <div class="side-logos">
+          <a href="https://landscapeontario.com/showcase-of-dreams-visualizing-the-future-with-m-e-contracting/" target="_blank" rel="noopener noreferrer">
+            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/5ac6ce5192a18d29f8bc5937534b204b79e1fd8c/images/Horticulture-200x200.png" alt="Landscape Ontario">
+          </a>
+          <a href="https://www.homestars.com/profile/2798073-me-contracting" target="_blank" rel="noopener noreferrer">
+            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/ff2b9ae3ced5dafacf28dd62c2aadc564a8ebc09/images/homestars-verified-1-1.png" alt="HomeStars">
+          </a>
+          <a href="https://www.houzz.com/professionals/landscape-contractors/m-e-contracting-pfvwus-pf~1988880124" target="_blank" rel="noopener noreferrer">
+            <img src="https://mecontracting.ca/wp-content/uploads/icons8-houzz-80.png" alt="Houzz">
+          </a>
+        </div>
       </div>
-    </div>
-
-    <div class="footer-logos-wrapper">
-      <a href="https://landscapeontario.com/showcase-of-dreams-visualizing-the-future-with-m-e-contracting/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/5ac6ce5192a18d29f8bc5937534b204b79e1fd8c/images/Horticulture-200x200.png" alt="Landscape Ontario Horticulture">
-      </a>
-      <a href="https://www.homestars.com/profile/2798073-me-contracting" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/ff2b9ae3ced5dafacf28dd62c2aadc564a8ebc09/images/homestars-verified-1-1.png" alt="HomeStars Verified">
-      </a>
-      <a href="https://www.houzz.com/professionals/landscape-contractors/m-e-contracting-pfvwus-pf~1988880124" target="_blank" rel="noopener noreferrer">
-        <img src="https://mecontracting.ca/wp-content/uploads/icons8-houzz-80.png" alt="Houzz">
-      </a>
     </div>
 
     <div class="footer-bottom">
@@ -70,13 +63,11 @@
 </footer>
 
 <style>
-  /* Base Footer Styles */
   .footer {
-    background-color: #1a1a1a;
+    background-color: #222; /* පසුබිම් පැහැය */
     color: #ffffff;
     padding: 60px 0 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
+    font-family: Arial, sans-serif;
   }
 
   .footer-container {
@@ -85,32 +76,27 @@
     padding: 0 20px;
   }
 
-  /* Grid Layout for Desktop */
   .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 40px;
+    gap: 30px;
   }
 
   .footer-main-logo {
     height: 60px;
-    width: auto;
-    display: block;
     margin-bottom: 20px;
   }
 
   .footer-col h4 {
     color: #D4AF37;
-    font-size: 1.1rem;
     margin-bottom: 20px;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-size: 1.1rem;
+    font-weight: bold;
   }
 
   .footer-col ul {
     list-style: none;
     padding: 0;
-    margin: 0;
   }
 
   .footer-col ul li {
@@ -118,10 +104,9 @@
   }
 
   .footer-col ul li a {
-    color: #bbb;
+    color: #ccc;
     text-decoration: none;
-    transition: color 0.3s;
-    font-size: 0.95rem;
+    transition: 0.3s;
   }
 
   .footer-col ul li a:hover {
@@ -129,117 +114,69 @@
   }
 
   .footer-contact p {
-    color: #bbb;
-    font-size: 0.95rem;
     margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #ccc;
     display: flex;
     align-items: center;
     gap: 10px;
   }
 
-  .footer-contact i {
-    color: #D4AF37;
-    width: 15px;
-  }
-
-  /* Social Icons */
   .footer-social {
     display: flex;
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 15px;
   }
 
   .footer-social a {
     color: #D4AF37;
     font-size: 1.4rem;
-    transition: all 0.3s ease;
   }
 
-  .footer-social a:hover {
-    transform: translateY(-3px);
-    color: #fff;
-  }
-
-  /* Association Logos */
-  .footer-logos-wrapper {
+  /* Side Logos Styling */
+  .side-logos {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
     flex-wrap: wrap;
-    margin-top: 50px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 15px;
+    align-items: center;
   }
 
-  .footer-logos-wrapper img {
-    height: 50px;
+  .side-logos img {
+    height: 45px;
     width: auto;
-    filter: grayscale(0.2);
-    transition: all 0.3s;
+    transition: 0.3s;
   }
 
-  .footer-logos-wrapper img:hover {
-    filter: grayscale(0);
+  .side-logos img:hover {
     transform: scale(1.1);
   }
 
-  /* Copyright Section */
   .footer-bottom {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #444;
     font-size: 0.85rem;
-    color: #777;
+    color: #888;
   }
 
-  /* ======================================================
-     MOBILE RESPONSIVENESS
-     ====================================================== */
-
-  /* For Tablets (Max 992px) */
+  /* Responsive Design */
   @media (max-width: 992px) {
     .footer-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      grid-template-columns: 1fr 1fr;
     }
   }
 
-  /* For Mobile Phones (Max 600px) */
   @media (max-width: 600px) {
-    .footer {
-      padding: 40px 0 20px;
-    }
-
     .footer-grid {
-      grid-template-columns: 1fr; /* එක් තීරුවක් පමණක් පෙන්වයි */
+      grid-template-columns: 1fr;
       text-align: center;
     }
-
-    .footer-main-logo {
-      margin: 0 auto 20px; /* ලාංඡනය මැදට ගෙන ඒම */
+    .footer-main-logo, .footer-contact p, .footer-social, .side-logos {
+      justify-content: center;
     }
-
-    .footer-contact p, .footer-social {
-      justify-content: center; /* අයිකන සහ විස්තර මැදට ගෙන ඒම */
-    }
-
-    .footer-col h4 {
-      margin-top: 15px;
-      margin-bottom: 15px;
-    }
-
-    .footer-logos-wrapper {
-      gap: 20px;
-    }
-
-    .footer-logos-wrapper img {
-      height: 40px;
-    }
-    
-    .footer-bottom p {
-        padding: 0 10px;
+    .side-logos {
+      margin-top: 10px;
     }
   }
 </style>
