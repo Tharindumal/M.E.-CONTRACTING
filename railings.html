@@ -119,6 +119,7 @@
       margin-top: 16px;
       align-self: flex-start;
       font-size: 0.85rem;
+      white-space: nowrap;
     }
 
     .service-btn:hover {
@@ -914,8 +915,9 @@
         padding: 0 20px;
       }
       
+      /* MOBILE HERO TITLE LARGER */
       .reveal-text {
-        font-size: 3rem;
+        font-size: 3.8rem;
       }
       
       .typewriter-text {
@@ -977,11 +979,15 @@
         flex-direction: column;
         align-items: center;
       }
+
+      .service-btn {
+        white-space: nowrap;
+      }
     }
 
     @media (max-width: 480px) {
       .reveal-text {
-        font-size: 2rem;
+        font-size: 2.8rem;
       }
       
       .typewriter-text {
@@ -1067,7 +1073,7 @@
                 <p><strong>Durable & Maintenance-Free</strong><br>Aluminum railings are the perfect way to achieve safety and beauty while taking full advantage of panoramic views. They are stylish and will keep up their appearance without warping, cracking, twisting, or splintering—completely maintenance-free.</p>
                 <p><strong>Why choose Aluminum railings:</strong> Corrosion resistant, Rustproof, Durable, High strength, Lightweight, Noncombustible, Nonmagnetic, Sustainable, 100% recyclable. Available in heights of 36" and 42" with a variety of rail lengths and colors including white, black, grey, cream, beige, and brown.</p>
                 <p><strong>Super Color Retention:</strong> Sun, rain, or snow cannot fade the color. Aluminum railings have an industrial-grade powder coat finish that is UV resistant. No sanding, scraping, or painting required—they keep their color for a lifetime.</p>
-                <a href="#" class="service-btn service-aluminum-btn">Learn More</a>
+                <a href="contact-us.html" class="service-btn service-aluminum-btn">Learn More</a>
               </div>
             </div>
             <!-- Frameless Glass Railings Card -->
@@ -1079,7 +1085,7 @@
                 <p><strong>Safety:</strong> Thick, tempered glass stands up to pressure and use like any other railing material. No large open gaps for items or children to fall through. Provides a strong, transparent border along the entire edge.</p>
                 <p><strong>Durability:</strong> Impervious to the elements. Fastenings never weaken. Never rust or become worn out. The only maintenance required is occasional cleaning with glass cleaner.</p>
                 <p><strong>Appearance:</strong> Imagine sitting on your deck looking out without any bars or posts getting in your way—amazing level of safety while seeming almost nonexistent.</p>
-                <a href="#" class="service-btn service-frameless-btn">Learn More</a>
+                <a href="contact-us.html" class="service-btn service-frameless-btn">Learn More</a>
               </div>
             </div>
             <!-- Glass Railings Card -->
@@ -1091,7 +1097,7 @@
                 <p><strong>Tempered Glass:</strong> Reinforced multiple times to preserve hardness and elasticity, making the glass especially strong and resilient—essential for outdoor exposure.</p>
                 <p><strong>Safety & Style:</strong> Tempered glass must be fitted into like-shaped frames evenly spaced throughout your deck. Our team specializes in glass railing installation with precision and care.</p>
                 <p><strong>Customization:</strong> Choose from clear or tinted options to suit your privacy needs and aesthetic preferences.</p>
-                <a href="#" class="service-btn service-glass-btn">Learn More</a>
+                <a href="contact-us.html" class="service-btn service-glass-btn">Learn More</a>
               </div>
             </div>
             <!-- Stainless Steel Railings Card -->
@@ -1102,18 +1108,18 @@
                 <p><strong>Classic, Fresh & Hygienic</strong><br>Stainless steel railings can take your outdoor landscape from ordinary to extraordinary. Choose the direction and thickness of the rails, as well as other materials they're combined with, such as glass, to add an extra special effect.</p>
                 <p><strong>Why Choose Stainless Steel:</strong> Fresh Look – provides striking look without additional finish or paint. Customizable – horizontal or vertical railings, desired spacing, thickness. Sanitary – non-porous surface prevents germ growth. Durability – non-corrosive nature with fewer repairs required.</p>
                 <p><strong>Long-Term Investment:</strong> Higher upfront cost but proven to last longer than cheaper materials. No need for replacement or upkeep—just lasting beauty and functionality.</p>
-                <a href="#" class="service-btn service-stainless-btn">Learn More</a>
+                <a href="contact-us.html" class="service-btn service-stainless-btn">Learn More</a>
               </div>
             </div>
-            <!-- Wrought Iron Railings Card -->
+            <!-- Wrought Iron Railings Card - IMAGE CHANGED HERE ONLY -->
             <div class="service-card">
-              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/26e4351344ad4066ba2e2db355502793600e33f9/images/railings/1M.E-Contracting-GLASS-RAILING-Cover-image.jpg" alt="Wrought Iron Railings" loading="lazy">
+              <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/p7/M.E.-Contracting-Decking-and-Glass-Aluminum-Railing-Installation-Project-with-Fiberglass-Pool.jpg" alt="Wrought Iron Railings" loading="lazy">
               <div class="service-content">
                 <h3>Wrought Iron Railings</h3>
                 <p><strong>Timeless Elegance & Strength</strong><br>Wrought iron railings convey a timeless sense of simplicity and elegance, ideal for any setting from back gardens to front steps of urban brownstones.</p>
                 <p><strong>Advantages:</strong> Cost – less expensive than many alternate forms, easy to install, little upkeep required. Durability – extremely strong, the Eiffel Tower is made from wrought iron! Aesthetic Refinement – conveys tranquility, refinement, and effortless style.</p>
                 <p><strong>Customization:</strong> Design, layout, and color are all open to personalization. Tell us your vision and we can make it a reality! Perfect for handrails, fences, and secure entrances to your home.</p>
-                <a href="#" class="service-btn service-wrought-btn">Learn More</a>
+                <a href="contact-us.html" class="service-btn service-wrought-btn">Learn More</a>
               </div>
             </div>
           </div>
@@ -1257,13 +1263,6 @@
           window.location.href = 'index.html';
         });
       }
-
-      // Re-attach contact button events
-      document.querySelectorAll('.hero-cta-btn, .services-cta, .final-cta-btn, .btn-nav, #contactNavBtn, #mobileContactBtn, .service-aluminum-btn, .service-frameless-btn, .service-glass-btn, .service-stainless-btn, .service-wrought-btn').forEach(btn => {
-        btn?.addEventListener('click', (e) => {
-          // Let the link work normally - navigates to contact-us.html
-        });
-      });
     });
 
     // Fade-in observer (only for intro, trust, faq sections)
