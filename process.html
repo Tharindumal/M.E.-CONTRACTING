@@ -387,7 +387,7 @@
       margin-top: 10px;
     }
 
-    /* Hero Section with Video and Content */
+    /* Hero Section with Content Left, Video Right */
     .process-hero {
       position: relative;
       width: 100%;
@@ -432,6 +432,22 @@
       align-items: center;
     }
 
+    /* Your Dream Backyard - WHITE COLOR & LARGER FONT */
+    .hero-content h2 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #FFFFFF;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      color: #A0A0A5;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
     .hero-video {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
@@ -445,19 +461,6 @@
       height: 350px;
       display: block;
       border: 0;
-    }
-
-    .hero-content h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #D4AF37;
-    }
-
-    .hero-content p {
-      color: #A0A0A5;
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-      font-size: 1rem;
     }
 
     /* Design & Build Section */
@@ -685,8 +688,16 @@
         gap: 40px;
       }
       
+      .hero-content {
+        order: 1;
+      }
+      
+      .hero-video {
+        order: 2;
+      }
+      
       .hero-content h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
       
       .hero-video iframe {
@@ -732,7 +743,7 @@
 
     @media (max-width: 480px) {
       .hero-content h2 {
-        font-size: 1.6rem;
+        font-size: 2rem;
       }
       
       .hero-video iframe {
@@ -765,18 +776,18 @@
   <div id="header-placeholder"></div>
 
   <main>
-    <!-- Hero Section with Video Left, Content Right -->
+    <!-- Hero Section with Content Left, Video Right -->
     <section class="process-hero">
       <div class="container">
         <div class="hero-grid">
-          <div class="hero-video">
-            <iframe src="https://www.youtube.com/embed/Nh-Tk3-nIeE" title="M.E. Contracting Portfolio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
           <div class="hero-content">
             <h2>Your Dream Backyard</h2>
             <p>Get expert care and guidance to turn your vision into a luxury outdoor oasis.</p>
             <p>The possibilities are endless in luxury outdoor living. It's easy to feel overwhelmed or unsure where to even start. That's why we offer a complete design-build experience, where you collaborate with our expert team to create a space tailored to your tastes and lifestyle.</p>
             <a href="contact-us.html" class="btn-primary">Start Your Journey</a>
+          </div>
+          <div class="hero-video">
+            <iframe src="https://www.youtube.com/embed/Nh-Tk3-nIeE" title="M.E. Contracting Portfolio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
       </div>
