@@ -104,28 +104,7 @@
       color: #353738;
     }
 
-    /* Learn More Button - One Bar Style */
-    .btn-learn {
-      display: inline-block;
-      background: transparent;
-      color: #D4AF37;
-      font-weight: 600;
-      padding: 10px 24px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 0.85rem;
-      cursor: pointer;
-      border: 1px solid #D4AF37;
-      border-radius: 40px;
-    }
-
-    .btn-learn:hover {
-      background: #D4AF37;
-      color: #353738;
-      transform: translateX(4px);
-    }
-
-    /* Service Button - One Bar Style */
+    /* Learn More Button - One Bar Style - Consistent across all cards */
     .service-btn {
       display: inline-block;
       background: transparent;
@@ -137,9 +116,11 @@
       border: 1px solid #D4AF37;
       border-radius: 40px;
       cursor: pointer;
-      margin-top: 16px;
-      align-self: flex-start;
+      margin-top: auto;      /* Pushes button to bottom of flex column */
+      align-self: flex-start; /* Keep left aligned but still at bottom */
       font-size: 0.85rem;
+      text-align: center;
+      white-space: nowrap;
     }
 
     .service-btn:hover {
@@ -474,7 +455,7 @@
       z-index: 2;
     }
 
-    /* Text Reveal Animation - MUCH BIGGER FONT */
+    /* Text Reveal Animation - BIGGER on mobile & desktop */
     .reveal-text {
       color: #FFFFFF;
       font-size: 6rem;
@@ -576,7 +557,7 @@
       font-size: 1rem;
     }
 
-    /* Service Types - No Icons */
+    /* Service Types - Buttons aligned horizontal bottom line */
     .service-types-section {
       padding: 80px 0;
       background: #353738;
@@ -615,6 +596,7 @@
       scroll-snap-align: start;
       display: flex;
       flex-direction: column;
+      height: 100%;
     }
 
     .service-card:hover {
@@ -639,17 +621,18 @@
       flex: 1;
       display: flex;
       flex-direction: column;
+      gap: 12px;
     }
 
     .service-content h3 {
       font-size: 1.5rem;
-      margin-bottom: 12px;
+      margin-bottom: 4px;
       color: #D4AF37;
     }
 
     .service-content p {
       color: #A0A0A5;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
       line-height: 1.6;
       font-size: 0.9rem;
     }
@@ -926,26 +909,41 @@
       transform: translateY(0);
     }
 
-    /* Responsive */
+    /* ========== RESPONSIVE: MOBILE FONT SIZE BIGGER ========== */
     @media (max-width: 900px) {
       .container, .nav-container, .footer-container {
         padding: 0 20px;
       }
       
+      /* Hero main headline - LARGER on mobile */
       .reveal-text {
-        font-size: 3.5rem;
+        font-size: 3.8rem !important;
       }
       
       .typewriter-text {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
+        line-height: 1.4;
       }
       
       .page-hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
       }
       
       h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
+      }
+      
+      .intro-content p, .trust-content p, .faq-item p {
+        font-size: 1.05rem;
+        line-height: 1.5;
+      }
+      
+      .service-content p {
+        font-size: 0.95rem;
+      }
+      
+      .service-content h3 {
+        font-size: 1.6rem;
       }
       
       .menu-toggle {
@@ -967,19 +965,15 @@
       
       .service-card {
         width: 85%;
-        min-width: 280px;
+        min-width: 300px;
       }
       
       .service-card img {
-        height: 220px;
+        height: 240px;
       }
       
       .service-content {
-        padding: 20px;
-      }
-      
-      .service-content h3 {
-        font-size: 1.4rem;
+        padding: 24px;
       }
       
       .scroll-dots {
@@ -1003,15 +997,19 @@
 
     @media (max-width: 480px) {
       .reveal-text {
-        font-size: 2.2rem;
+        font-size: 2.8rem !important;
       }
       
       .typewriter-text {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
       }
       
       .page-hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       
       .experience-section h2 {
@@ -1019,23 +1017,30 @@
       }
       
       .service-card {
-        min-width: 260px;
+        min-width: 280px;
       }
       
       .service-card img {
-        height: 200px;
+        height: 210px;
       }
       
       .service-content {
-        padding: 16px;
+        padding: 20px;
       }
       
       .service-content h3 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
       }
       
       .footer-grid {
         grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .service-btn {
+        font-size: 0.85rem;
+        padding: 8px 20px;
+        white-space: normal;
         text-align: center;
       }
     }
@@ -1090,7 +1095,7 @@
                 <h3>Patio Construction</h3>
                 <p><strong>Toronto Patio Construction Experts</strong> - For active homeowners who do a lot of entertaining, nothing adds more utility and value than a well-thought-out patio design.</p>
                 <p><strong>Flooring Options:</strong> Natural stone, ceramic tiles, decking, and concrete. Natural stone is low maintenance and looks like part of the outdoor environment.</p>
-                <a href="#" class="service-btn service-patio-btn">Learn More</a>
+                <a href="contact-us.html" class="service-btn service-patio-btn">Learn More</a>
               </div>
             </div>
             <div class="service-card">
@@ -1099,7 +1104,7 @@
                 <h3>Outdoor Kitchen</h3>
                 <p><strong>Toronto Outdoor Kitchen Design</strong> - With an outdoor kitchen, cooking becomes an outdoor activity where fun begins before food hits the table.</p>
                 <p><strong>Benefits:</strong> Entertain with ease, increase home value, and extend your living space outside for family gatherings.</p>
-                <a href="#" class="service-btn service-kitchen-btn">Learn More</a>
+                <a href="contact-us.html" class="service-btn service-kitchen-btn">Learn More</a>
               </div>
             </div>
             <div class="service-card">
@@ -1108,7 +1113,7 @@
                 <h3>Sports Court</h3>
                 <p><strong>Toronto Sports Court Design & Installation</strong> - With the Sport Court™ tile system, we can turn your backyard into a multi-purpose, versatile surface.</p>
                 <p><strong>Benefits:</strong> Adds value to your home, creates functional outdoor space, promotes healthy active play.</p>
-                <a href="#" class="service-btn service-sports-btn">Learn More</a>
+                <a href="contact-us.html" class="service-btn service-sports-btn">Learn More</a>
               </div>
             </div>
             <div class="service-card">
@@ -1117,7 +1122,7 @@
                 <h3>Fireplaces & Firepits</h3>
                 <p><strong>Toronto's Outdoor Fireplaces Experts</strong> - An outdoor fireplace adds to your home's appearance and provides a warm center where friends can congregate.</p>
                 <p><strong>Materials:</strong> Concrete, Cast Iron, Copper, Stainless Steel, Cast Aluminum with propane or natural gas options.</p>
-                <a href="#" class="service-btn service-fireplace-btn">Learn More</a>
+                <a href="contact-us.html" class="service-btn service-fireplace-btn">Learn More</a>
               </div>
             </div>
             <div class="service-card">
@@ -1126,7 +1131,7 @@
                 <h3>Irrigation Systems</h3>
                 <p><strong>Toronto's Landscape Irrigation Experts</strong> - With a decade of experience designing and installing innovative irrigation systems.</p>
                 <p><strong>Benefits:</strong> Higher efficiency, fully automated operation, less disruption to your landscape, and eco-friendly water conservation.</p>
-                <a href="#" class="service-btn service-irrigation-btn">Learn More</a>
+                <a href="contact-us.html" class="service-btn service-irrigation-btn">Learn More</a>
               </div>
             </div>
           </div>
