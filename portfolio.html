@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="M.E. Contracting Portfolio - Award-winning luxury landscaping, interlocking, deck & pool design projects in Toronto.">
-  <title>M.E. Contracting | Portfolio – Luxury Outdoor Transformations</title>
+  <title>M.E. Contracting | Transformations Gallery – Luxury Outdoor Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -435,7 +435,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/4glenayr.jpg');
+      background-image: url('https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/95d54dd75f87ea2f5ad5d63ace0e282c3f296047/images/p9/M.E.-Contracting-Modern-Backyard-Landscaping-Project-Featuring-Outdoor-Fireplace-Stone-Interlocking-And-Woodworking.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -600,6 +600,76 @@
       color: #A0A0A5;
     }
 
+    /* Lightbox Modal Styles */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 10001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 40px;
+    }
+
+    .lightbox-content {
+      background: #353738;
+      border-radius: 28px;
+      max-width: 95%;
+      width: 1200px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 24px;
+      border: 1px solid #D4AF37;
+    }
+
+    .lightbox-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .lightbox-header h3 {
+      color: #D4AF37;
+      font-size: 1.5rem;
+    }
+
+    .lightbox-close {
+      background: #D4AF37;
+      color: #353738;
+      border: none;
+      font-size: 1rem;
+      padding: 8px 20px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .lightbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .lightbox-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox-grid img:hover {
+      transform: scale(1.02);
+    }
+
     /* CTA Section */
     .cta-section {
       background: #2A2C2D;
@@ -751,6 +821,14 @@
         gap: 24px;
       }
       
+      .lightbox-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+      
+      .lightbox-grid img {
+        height: 150px;
+      }
+      
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 32px;
@@ -771,6 +849,14 @@
         font-size: 0.75rem;
       }
       
+      .lightbox-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .lightbox-grid img {
+        height: 200px;
+      }
+      
       .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -783,10 +869,10 @@
   <div id="header-placeholder"></div>
 
   <main>
-    <!-- Page Hero with Text Reveal Animation - Subheadline Removed, Larger Font -->
+    <!-- Page Hero with Text Reveal Animation -->
     <section class="page-hero">
       <div class="container">
-        <h1 class="reveal-text">Our Portfolio</h1>
+        <h1 class="reveal-text">Transformations Gallery</h1>
         <a href="contact-us.html" class="btn-primary hero-cta-btn reveal-btn" style="margin-top: 32px; display: inline-block;">Schedule a Consultation</a>
       </div>
     </section>
@@ -803,7 +889,7 @@
         </div>
         <div class="portfolio-grid" id="portfolioGrid">
           <!-- Project 1 - from p1 -->
-          <div class="portfolio-item" data-category="landscaping">
+          <div class="portfolio-item" data-category="landscaping" data-folder="p1" data-project-name="Walker Ave Modern Landscape">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/p1/4Walker-Ave.jpg" alt="Walker Ave Landscape">
             <div class="portfolio-overlay">
               <h3>Walker Ave Modern Landscape</h3>
@@ -812,7 +898,7 @@
             </div>
           </div>
           <!-- Project 2 - from p2 -->
-          <div class="portfolio-item" data-category="landscaping">
+          <div class="portfolio-item" data-category="landscaping" data-folder="p2" data-project-name="Glenayr Garden Oasis">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/p2/4glenayr.jpg" alt="Glenayr Garden Design">
             <div class="portfolio-overlay">
               <h3>Glenayr Garden Oasis</h3>
@@ -821,7 +907,7 @@
             </div>
           </div>
           <!-- Project 3 - from p3 -->
-          <div class="portfolio-item" data-category="hardscaping">
+          <div class="portfolio-item" data-category="hardscaping" data-folder="p3" data-project-name="Baycrest Stone Patio">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/p3/4baycrest1.jpg" alt="Baycrest Interlocking">
             <div class="portfolio-overlay">
               <h3>Baycrest Stone Patio</h3>
@@ -830,7 +916,7 @@
             </div>
           </div>
           <!-- Project 4 - from p4 -->
-          <div class="portfolio-item" data-category="landscaping">
+          <div class="portfolio-item" data-category="landscaping" data-folder="p4" data-project-name="Ramsey Estate Landscape">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/p4/4Ramsey-Project-2024.jpg" alt="Ramsey Estate">
             <div class="portfolio-overlay">
               <h3>Ramsey Estate Landscape</h3>
@@ -839,7 +925,7 @@
             </div>
           </div>
           <!-- Project 5 - from p5 -->
-          <div class="portfolio-item" data-category="hardscaping">
+          <div class="portfolio-item" data-category="hardscaping" data-folder="p5" data-project-name="Oxford Modern Patio">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/p5/2Oxford-project.jpg" alt="Oxford Patio Design">
             <div class="portfolio-overlay">
               <h3>Oxford Modern Patio</h3>
@@ -848,7 +934,7 @@
             </div>
           </div>
           <!-- Project 6 - from p6 -->
-          <div class="portfolio-item" data-category="pools">
+          <div class="portfolio-item" data-category="pools" data-folder="p6" data-project-name="Rathburn Luxury Pool">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/p6/3Rathburn-Road-Project-2024.jpg" alt="Rathburn Pool Installation">
             <div class="portfolio-overlay">
               <h3>Rathburn Luxury Pool</h3>
@@ -857,7 +943,7 @@
             </div>
           </div>
           <!-- Project 7 - from p7 Decking -->
-          <div class="portfolio-item" data-category="decking">
+          <div class="portfolio-item" data-category="decking" data-folder="p7" data-project-name="Modern PVC Deck">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/p7/M.E.-Contracting-New-Decking-Landscape-Design-Project-with-Glass-and-Aluminum-Railings.jpg" alt="Modern PVC Deck">
             <div class="portfolio-overlay">
               <h3>Modern PVC Deck</h3>
@@ -866,7 +952,7 @@
             </div>
           </div>
           <!-- Project 8 - from p7 Pool -->
-          <div class="portfolio-item" data-category="pools">
+          <div class="portfolio-item" data-category="pools" data-folder="p7" data-project-name="Fiberglass Pool with Spa">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/p7/Professional-Fiberglass-Pool-Installation-Stone-Interlocking-and-Landscape-Design-by-M.E.-Contracting.jpg" alt="Fiberglass Pool Installation">
             <div class="portfolio-overlay">
               <h3>Fiberglass Pool with Spa</h3>
@@ -875,7 +961,7 @@
             </div>
           </div>
           <!-- Project 9 - from p8 -->
-          <div class="portfolio-item" data-category="decking">
+          <div class="portfolio-item" data-category="decking" data-folder="p8" data-project-name="Outdoor Kitchen & Deck">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/p8/M.E.-Contracting-Toronto-Landscape-Design-and-Construction-Project-Featuring-Outdoor-Kitchen-and-PVC-Decking.jpg" alt="Outdoor Kitchen with Deck">
             <div class="portfolio-overlay">
               <h3>Outdoor Kitchen & Deck</h3>
@@ -884,7 +970,7 @@
             </div>
           </div>
           <!-- Project 10 - from p9 -->
-          <div class="portfolio-item" data-category="landscaping">
+          <div class="portfolio-item" data-category="landscaping" data-folder="p9" data-project-name="Complete Backyard Oasis">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/p9/Complete-Landscape-Patio-Design-Project-By-M.E.-Contracting-Featuring-Flush-Stone-Interlocking-Around-Pool-Woodworking-Pergola-Outdoor-Fireplace-Fiberglass-Pool-Installation-with-Swim-Sp.jpg" alt="Complete Backyard Transformation">
             <div class="portfolio-overlay">
               <h3>Complete Backyard Oasis</h3>
@@ -893,7 +979,7 @@
             </div>
           </div>
           <!-- Project 11 - Woodworking -->
-          <div class="portfolio-item" data-category="woodworking">
+          <div class="portfolio-item" data-category="woodworking" data-folder="p8" data-project-name="Custom Woodworking Cabana">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/p8/M.E.-Contracting-Toronto-Landscape-Design-and-Construction-Project-Featuring-Stone-Interlocking-Woodworking-Cabana-with-Outdoor-Lighting-and-Pool-Installation-with-Swim-Spa-and-Water-Fea.jpg" alt="Woodworking Cabana">
             <div class="portfolio-overlay">
               <h3>Custom Woodworking Cabana</h3>
@@ -902,7 +988,7 @@
             </div>
           </div>
           <!-- Project 12 - from root gallery -->
-          <div class="portfolio-item" data-category="hardscaping">
+          <div class="portfolio-item" data-category="hardscaping" data-folder="root" data-project-name="Elegant Stone Walkway">
             <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/gallery-4.jpg" alt="Stone Interlocking Gallery">
             <div class="portfolio-overlay">
               <h3>Elegant Stone Walkway</h3>
@@ -926,6 +1012,57 @@
   <div id="footer-placeholder"></div>
 
   <script>
+    // Predefined image lists for each folder
+    const folderImages = {
+      "p1": ["11Walker-Ave.jpg","12Walker-Ave.jpg","13Walker-Ave.jpg","16Walker-Ave.jpg","2Walker-Ave.jpg","3Walker-Ave.jpg","4Walker-Ave.jpg","5Walker-Ave.jpg","6Walker-Ave.jpg","7Walker-Ave.jpg"],
+      "p2": ["11glenayr.jpg","16glenayr.jpg","18glenayr.jpg","1glenayr.jpg","2glenayr.jpg","4glenayr.jpg","5glenayr.jpg","7glenayr.jpg","8glenayr.jpg","9glenayr.jpg"],
+      "p3": ["10baycrest1.jpg","11baycrest1.jpg","12baycrest1.jpg","1baycrest1.jpg","2baycrest1.jpg","3baycrest1.jpg","4baycrest1.jpg","5baycrest1.jpg","6baycrest1.jpg","7baycrest1.jpg","8baycrest1.jpg","9baycrest1.jpg"],
+      "p4": ["109Ramsey-Project-2024.jpg","23Ramsey-Project-2024.jpg","2Ramsey-Project-2024.jpg","34Ramsey-Project-2024.jpg","43Ramsey-Project-2024.jpg","4Ramsey-Project-2024.jpg","5Ramsey-Project-2024.jpg","6Ramsey-Project-2024.jpg","80Ramsey-Project-2024.jpg","81Ramsey-Project-2024.jpg"],
+      "p5": ["12Oxford-project.jpg","1Oxford-project.jpg","2Oxford-project.jpg","4Oxford-project.jpg","6Oxford-project.jpg","9Oxford-project.jpg"],
+      "p6": ["10Rathburn-Road-Project-2024.jpg","1Rathburn-Road-Project-2024.jpg","2Rathburn-Road-Project-2024.jpg","3Rathburn-Road-Project-2024.jpg","4Rathburn-Road-Project-2024.jpg","5Rathburn-Road-Project-2024.jpg","6Rathburn-Road-Project-2024.jpg","7Rathburn-Road-Project-2024.jpg","8Rathburn-Road-Project-2024.jpg","9Rathburn-Road-Project-2024.jpg"],
+      "p7": ["Backyard-Fiberglass-Pool-Installation-Decking-Stone-Interlocking-and-Landscape-Design-Project-by-M.E.-Contracting.jpg","Backyard-Landscape-Design-Project-Featuring-Swim-Spa-PVC-Deck-Fiberglass-Pool-Installation-and-Interlocking.jpg","Complete-Backyard-Landscape-Design-Decking-Fiberglass-Pool-Installation-Project-by-M.E.-Contracting.jpg","M.E.-Contracting-Decking-and-Glass-Aluminum-Railing-Installation-Project-with-Fiberglass-Pool.jpg","M.E.-Contracting-Landscape-Design-Decking-Pool-Installation-with-Swim-Spa-Project.jpg","M.E.-Contracting-Lower-Deck-Build-on-Complete-Landscape-Design-Fiberglass-Pool-Installation.jpg","M.E.-Contracting-New-Decking-Landscape-Design-Project-with-Glass-and-Aluminum-Railings.jpg","M.E.-Contracting-PVC-Decking-Project-Featuring-Glass-and-Aluminum-Railings-and-Fiberglass-Pool.jpg","New-Decking-Fiberglass-Pool-Installation-Project-by-M.E.-Contracting.jpg","Professional-Fiberglass-Pool-Installation-Stone-Interlocking-and-Landscape-Design-by-M.E.-Contracting.jpg"],
+      "p8": ["M.E.-Contracting-Toronto-Landscape-Design-and-Construction-Project-Featuring-Outdoor-Kitchen-and-PVC-Decking.jpg","M.E.-Contracting-Toronto-Landscape-Design-and-Construction-Project-Featuring-Stone-Interlocking-Woodworking-Cabana-with-Outdoor-Lighting-and-Pool-Installation-with-Swim-Spa-and-Water-Fea.jpg","M.E.-Contracting-Toronto-Landscape-Design-and-Pool-Installation-Project-Featuring-Water-Feature-and-Stone-Interlocking.jpg","M.E.-Contracting-Toronto-Landscape-Design-and-Pool-Installation-Project-with-Swim-Spa-and-Water-Feature-Stone-Interlocking-PVC-Decking-Outdoor-Lighting-Outdoor-Kitchen-and-Metal-Pergola.jpg","Toronto-Landscape-Design-and-Construction-Project-Featuring-Outdoor-Lighting-Pool-with-Swim-Spa-and-Water-Feature-Installation-Stone-Interlocking-Outdoor-Fireplace-and-Woodworking-Cabana.jpg","Toronto-Landscape-Design-and-Construction-Project-by-M.E.-Contracting-Featuring-Pool-Installation-with-Water-Feature-Outdoor-Lighting-and-Stone-Interlocking.jpg","Toronto-Landscape-Design-and-Construction-Project-by-M.E.-Contracting-Featuring-Woodworking-Cabana-with-Outdoor-Lighting-Patio-Interlocking-and-Pool-Installation.jpg"],
+      "p9": ["Complete-Landscape-Patio-Design-Project-By-M.E.-Contracting-Featuring-Flush-Stone-Interlocking-Around-Pool-Woodworking-Pergola-Outdoor-Fireplace-Fiberglass-Pool-Installation-with-Swim-Sp.jpg","Completed-Small-Backyard-Modern-Landscape-Design-Project-Featuring-Patio-Design-Stone-Interlocking-Woodworking-Pergola-Fiberglass-Pool-Installation-with-MIni-Swim-Spa-And-Outdoor-Firepla.jpg","M.E.-Contracting-Completed-Backyard-Landscape-Design-Project-Featuring-Fiberglass-Pool-with-Swim-Spa-Stone-Interlocking-Woodworking-Pergola-And-An-Outdoor-Fireplace.jpg","M.E.-Contracting-Modern-Backyard-Landscaping-Project-Featuring-Outdoor-Fireplace-Stone-Interlocking-And-Woodworking.jpg","M.E.-Contracting-Modern-Landscaping-Project-Complete-With-Woodworking-Pergola-Stone-Interlocking-Fiberglass-Pool-Installation.jpg"],
+      "root": ["gallery-1.jpg","gallery-2.jpg","gallery-3.jpg","gallery-4.jpg","gallery-5.jpg","gallery-6.jpg"]
+    };
+
+    const BASE_RAW = "https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/9abbca70d6ef9c5a429c4868bec266ef7eea965d/images/";
+
+    // Function to show lightbox with all images from the same folder
+    function showProjectGallery(projectItem) {
+      const folder = projectItem.getAttribute('data-folder');
+      const projectName = projectItem.getAttribute('data-project-name');
+      let images = folderImages[folder] || [];
+      
+      if (images.length === 0) {
+        alert("No additional images available for this project.");
+        return;
+      }
+
+      let gridHtml = '<div class="lightbox-grid">';
+      for (let img of images) {
+        let fullUrl = folder === "root" ? BASE_RAW + img : BASE_RAW + folder + "/" + img;
+        gridHtml += `<div><img src="${fullUrl}" alt="Project Image" loading="lazy"></div>`;
+      }
+      gridHtml += '</div>';
+
+      const modal = document.createElement('div');
+      modal.className = 'lightbox-modal';
+      modal.innerHTML = `
+        <div class="lightbox-content">
+          <div class="lightbox-header">
+            <h3>${projectName} - Full Gallery</h3>
+            <button class="lightbox-close">Close</button>
+          </div>
+          ${gridHtml}
+        </div>
+      `;
+      document.body.appendChild(modal);
+      
+      modal.querySelector('.lightbox-close').addEventListener('click', () => modal.remove());
+      modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+    }
+
     // Function to load HTML components
     async function loadComponent(componentName, placeholderId) {
       try {
@@ -980,8 +1117,19 @@
         });
       }
 
+      // Re-attach view project button events
+      document.querySelectorAll('.view-project').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const portfolioItem = btn.closest('.portfolio-item');
+          if (portfolioItem) {
+            showProjectGallery(portfolioItem);
+          }
+        });
+      });
+
       // Re-attach contact button events
-      document.querySelectorAll('.hero-cta-btn, .portfolio-cta, .btn-nav, #contactNavBtn, #mobileContactBtn, .view-project').forEach(btn => {
+      document.querySelectorAll('.hero-cta-btn, .portfolio-cta, .btn-nav, #contactNavBtn, #mobileContactBtn').forEach(btn => {
         btn?.addEventListener('click', (e) => {
           e.preventDefault();
           window.location.href = 'contact-us.html';
@@ -1008,7 +1156,7 @@
       });
     });
 
-    // Fade-in observer (only for sections that need fade-in)
+    // Fade-in observer
     const fadeElements = document.querySelectorAll('.fade-in-up');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
