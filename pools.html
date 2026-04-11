@@ -119,6 +119,7 @@
       margin-top: 16px;
       align-self: flex-start;
       font-size: 0.85rem;
+      white-space: nowrap; /* Keep button on same line */
     }
 
     .pool-btn:hover {
@@ -453,7 +454,7 @@
       z-index: 2;
     }
 
-    /* Text Reveal Animation - MUCH LARGER FONT */
+    /* Text Reveal Animation */
     .reveal-text {
       color: #FFFFFF;
       font-size: 5.5rem;
@@ -555,7 +556,7 @@
       font-size: 1rem;
     }
 
-    /* Pool Types Section - Mobile Friendly (NO ANIMATIONS) */
+    /* Pool Types Section */
     .pool-types-section {
       padding: 80px 0;
       background: #353738;
@@ -594,7 +595,6 @@
       scroll-snap-align: start;
       display: flex;
       flex-direction: column;
-      /* NO SCROLL ANIMATION - always visible */
       opacity: 1;
       transform: none;
     }
@@ -910,8 +910,9 @@
         padding: 0 20px;
       }
       
+      /* Mobile hero title LARGER */
       .reveal-text {
-        font-size: 3rem;
+        font-size: 3.8rem;
       }
       
       .typewriter-text {
@@ -973,11 +974,15 @@
         flex-direction: column;
         align-items: center;
       }
+
+      .pool-btn {
+        white-space: nowrap;
+      }
     }
 
     @media (max-width: 480px) {
       .reveal-text {
-        font-size: 2rem;
+        font-size: 2.8rem;
       }
       
       .typewriter-text {
@@ -1061,7 +1066,7 @@
               <div class="pool-content">
                 <h3>Concrete Pools</h3>
                 <p>Custom-designed concrete pools offer unlimited shape possibilities, superior durability, and timeless elegance. Perfect for creating a unique centerpiece that complements your home's architecture and landscape. Our concrete pools are built to last a lifetime with reinforced gunite construction and premium finishes.</p>
-                <a href="#" class="pool-btn pool-concrete-btn">Learn More</a>
+                <a href="contact-us.html" class="pool-btn pool-concrete-btn">Learn More</a>
               </div>
             </div>
             <!-- Fiberglass Pools Card -->
@@ -1070,7 +1075,7 @@
               <div class="pool-content">
                 <h3>Fiberglass Pools</h3>
                 <p>Quick to install and low-maintenance, fiberglass pools offer exceptional durability with a smooth, non-porous surface that resists algae growth. Available in a variety of shapes and sizes, these pools provide a comfortable, easy-to-care-for swimming experience that stands the test of time.</p>
-                <a href="#" class="pool-btn pool-fiberglass-btn">Learn More</a>
+                <a href="contact-us.html" class="pool-btn pool-fiberglass-btn">Learn More</a>
               </div>
             </div>
           </div>
@@ -1214,13 +1219,6 @@
           window.location.href = 'index.html';
         });
       }
-
-      // Re-attach contact button events
-      document.querySelectorAll('.hero-cta-btn, .services-cta, .final-cta-btn, .btn-nav, #contactNavBtn, #mobileContactBtn, .pool-concrete-btn, .pool-fiberglass-btn').forEach(btn => {
-        btn?.addEventListener('click', (e) => {
-          // Let the link work normally - navigates to contact-us.html
-        });
-      });
     });
 
     // Fade-in observer
