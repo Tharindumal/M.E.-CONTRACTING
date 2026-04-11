@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-  <meta name="description" content="M.E. Contracting Process - Our simple 4-step approach to transforming your outdoor space from vision to reality.">
-  <title>M.E. Contracting | Our Process – From Vision to Reality</title>
+  <meta name="description" content="M.E. Contracting Process - Our simple 4-step design-build approach to transforming your outdoor space from vision to reality.">
+  <title>M.E. Contracting | Design & Build Process – Your Dream Backyard</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -84,6 +84,24 @@
     .btn-primary:hover {
       background: #E8C45A;
       transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid #D4AF37;
+      color: #D4AF37;
+      font-weight: 500;
+      padding: 12px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 0.85rem;
+    }
+
+    .btn-outline:hover {
+      background: #D4AF37;
+      color: #353738;
     }
 
     /* ----- NAVBAR ----- */
@@ -369,11 +387,11 @@
       margin-top: 10px;
     }
 
-    /* Page Hero with Text Reveal Animation */
+    /* Page Hero */
     .page-hero {
       position: relative;
       width: 100%;
-      min-height: 60vh;
+      min-height: 70vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -403,7 +421,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(53, 55, 56, 0.65);
+      background: rgba(53, 55, 56, 0.7);
       z-index: 0;
     }
 
@@ -412,237 +430,150 @@
       z-index: 2;
     }
 
-    /* Text Reveal Animation */
-    .reveal-text {
+    .page-hero h1 {
       color: #FFFFFF;
-      font-size: 5.5rem;
-      font-weight: 800;
-      margin-bottom: 0;
+      font-size: 4.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
       text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-      line-height: 1.2;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: revealText 1s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
     }
 
-    @keyframes revealText {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .page-hero p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
     }
 
-    /* Button Reveal Animation */
-    .reveal-btn {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: revealBtn 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.3s forwards;
-    }
-
-    @keyframes revealBtn {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Typewriter Effect Section */
-    .process-intro-section {
-      background: rgba(255, 255, 255, 0.03);
-      padding: 80px 0;
-      text-align: center;
-    }
-
-    .typewriter-container {
-      display: inline-block;
-    }
-
-    .typewriter-text {
-      font-size: 1.8rem;
-      font-weight: 500;
-      color: #D4AF37;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.4;
-      overflow: hidden;
-      white-space: normal;
-      display: inline-block;
-    }
-
-    /* Process Steps Section */
-    .process-steps-section {
+    /* Design & Build Section */
+    .design-build-section {
       padding: 80px 0;
       background: #353738;
     }
 
-    .steps-grid {
+    .design-build-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      margin-top: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
     }
 
-    .step-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
+    .design-build-content h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .design-build-content p {
+      color: #A0A0A5;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .design-build-image img {
+      width: 100%;
       border-radius: 28px;
-      padding: 40px 28px;
-      text-align: center;
+      object-fit: cover;
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(212, 175, 55, 0.2);
-      transition: all 0.3s ease;
     }
 
-    .step-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(212, 175, 55, 0.5);
-      background: rgba(40, 45, 65, 0.5);
+    /* Process Steps - Like LiveWell Outdoors */
+    .process-steps-section {
+      padding: 80px 0;
+      background: rgba(255, 255, 255, 0.03);
     }
 
-    .step-number {
-      width: 60px;
-      height: 60px;
+    .process-steps-section h2 {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .process-subhead {
+      text-align: center;
+      color: #A0A0A5;
+      margin-bottom: 60px;
+      font-size: 1.1rem;
+    }
+
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .step-number-large {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
       background: #D4AF37;
       color: #353738;
-      font-size: 1.8rem;
+      font-size: 2.5rem;
       font-weight: 700;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 20px auto;
     }
 
-    .step-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-      color: #D4AF37;
+    .step-content {
+      flex: 1;
     }
 
-    .step-card p {
-      color: #A0A0A5;
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-
-    /* Process Details Section */
-    .process-details-section {
-      padding: 80px 0;
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .details-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 60px;
-      align-items: center;
-    }
-
-    .details-image img {
-      width: 100%;
-      border-radius: 28px;
-      object-fit: cover;
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-    }
-
-    .details-image img:hover {
-      transform: scale(1.01);
-    }
-
-    .details-content h2 {
-      color: #FFFFFF;
-      margin-bottom: 24px;
-    }
-
-    .details-content p {
-      color: #A0A0A5;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .details-list {
-      list-style: none;
-      margin-top: 24px;
-    }
-
-    .details-list li {
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #A0A0A5;
-    }
-
-    .details-list li i {
-      color: #D4AF37;
-      font-size: 1.2rem;
-      width: 24px;
-    }
-
-    /* Why Choose Us Section */
-    .why-choose-section {
-      padding: 80px 0;
-      background: #353738;
-    }
-
-    .why-choose-section h2 {
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
-    .why-subhead {
-      text-align: center;
-      color: #A0A0A5;
-      margin-bottom: 48px;
-      font-size: 1rem;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-
-    .feature-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border-radius: 28px;
-      padding: 32px;
-      text-align: center;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(212, 175, 55, 0.5);
-    }
-
-    .feature-icon {
-      font-size: 2.5rem;
-      color: #D4AF37;
-      margin-bottom: 20px;
-    }
-
-    .feature-card h3 {
-      font-size: 1.3rem;
+    .step-content h3 {
+      font-size: 1.8rem;
       margin-bottom: 12px;
       color: #D4AF37;
     }
 
-    .feature-card p {
+    .step-content p {
       color: #A0A0A5;
-      line-height: 1.6;
-      font-size: 0.9rem;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* Alternate layout for even steps */
+    .step-item:nth-child(even) {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+
+    /* 3D Virtual Tour Section */
+    .virtual-tour-section {
+      padding: 80px 0;
+      background: #353738;
+    }
+
+    .virtual-tour-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .virtual-tour-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .virtual-tour-content p {
+      color: #A0A0A5;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .virtual-tour-image img {
+      width: 100%;
+      border-radius: 28px;
+      object-fit: cover;
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(212, 175, 55, 0.2);
     }
 
     /* CTA Section */
@@ -663,6 +594,25 @@
       max-width: 550px;
       margin: 0 auto 2rem;
       color: #A0A0A5;
+    }
+
+    /* Dream Guide Section */
+    .dream-guide-section {
+      padding: 80px 0;
+      background: rgba(255, 255, 255, 0.03);
+      text-align: center;
+    }
+
+    .dream-guide-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    .dream-guide-section p {
+      color: #A0A0A5;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* Footer */
@@ -766,12 +716,8 @@
         padding: 0 20px;
       }
       
-      .reveal-text {
-        font-size: 3rem;
-      }
-      
-      .typewriter-text {
-        font-size: 1.3rem;
+      .page-hero h1 {
+        font-size: 2.5rem;
       }
       
       h2 {
@@ -790,19 +736,20 @@
         display: none;
       }
       
-      .steps-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-      }
-      
-      .details-grid {
+      .design-build-grid,
+      .virtual-tour-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
       
-      .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
+      .step-item {
+        flex-direction: column !important;
+        text-align: center !important;
+        align-items: center;
+      }
+      
+      .step-number-large {
+        margin-bottom: 16px;
       }
       
       .footer-grid {
@@ -812,34 +759,22 @@
     }
 
     @media (max-width: 480px) {
-      .reveal-text {
+      .page-hero h1 {
         font-size: 2rem;
       }
       
-      .typewriter-text {
-        font-size: 1.1rem;
+      .design-build-content h2 {
+        font-size: 1.6rem;
       }
       
-      .steps-grid {
-        grid-template-columns: 1fr;
+      .step-content h3 {
+        font-size: 1.4rem;
       }
       
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .step-card {
-        padding: 28px 20px;
-      }
-      
-      .step-number {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-      }
-      
-      .step-card h3 {
-        font-size: 1.3rem;
+      .step-number-large {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
       }
       
       .footer-grid {
@@ -854,114 +789,86 @@
   <div id="header-placeholder"></div>
 
   <main>
-    <!-- Page Hero with Text Reveal Animation -->
+    <!-- Hero Section -->
     <section class="page-hero">
       <div class="container">
-        <h1 class="reveal-text">Our Process</h1>
-        <a href="contact-us.html" class="btn-primary hero-cta-btn reveal-btn" style="margin-top: 32px; display: inline-block;">Start Your Journey</a>
+        <h1>Design & Build</h1>
+        <p>Your Dream Backyard</p>
+        <a href="contact-us.html" class="btn-primary hero-cta-btn" style="margin-top: 16px;">Schedule a Call</a>
       </div>
     </section>
 
-    <!-- Typewriter Effect Intro -->
-    <section class="process-intro-section fade-in-up">
+    <!-- Design & Build Section -->
+    <section class="design-build-section fade-in-up">
       <div class="container">
-        <div class="typewriter-container">
-          <div class="typewriter-text" id="typewriterText"></div>
+        <div class="design-build-grid">
+          <div class="design-build-content">
+            <h2>Your Dream Backyard</h2>
+            <p>Get expert care and guidance to turn your vision into a luxury outdoor oasis.</p>
+            <p>The possibilities are endless in luxury outdoor living. It's easy to feel overwhelmed or unsure where to even start. That's why we offer a complete design-build experience, where you collaborate with our expert team to create a space tailored to your tastes and lifestyle.</p>
+            <a href="contact-us.html" class="btn-primary">Start Your Journey</a>
+          </div>
+          <div class="design-build-image">
+            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/ffc572c52327765893217c80537dc037e6331c1d/images/decks/Chine-Drive-Backyard-Landscaping-Project-with-Small-Composite-Deck-Build-Aluminum-Tempered-Glass-Railings.jpg" alt="Luxury Backyard Design" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Process Steps -->
+    <!-- Process Steps Section - Like LiveWell Outdoors -->
     <section class="process-steps-section fade-in-up">
       <div class="container">
-        <h2 style="text-align: center;">How We Work</h2>
-        <p style="text-align: center; color: #A0A0A5; margin-bottom: 20px;">A simple, transparent process from concept to completion</p>
-        <div class="steps-grid">
+        <h2>Our Design-Build Process</h2>
+        <p class="process-subhead">A seamless journey from vision to reality — we guide you every step of the way</p>
+        <div class="steps-container">
           <!-- Step 1 -->
-          <div class="step-card">
-            <div class="step-number">1</div>
-            <h3>Discovery Call</h3>
-            <p>We start with a conversation to understand your vision, lifestyle needs, budget, and timeline. This helps us align our approach with your expectations.</p>
+          <div class="step-item">
+            <div class="step-number-large">1</div>
+            <div class="step-content">
+              <h3>Initial Meeting</h3>
+              <p>We'll start by meeting with you right on your property, the perfect place to share your ideas, talk through your goals, and begin envisioning what's possible for your outdoor space. Then, we'll follow up with a consultation to ensure we understand your complete vision.</p>
+            </div>
           </div>
           <!-- Step 2 -->
-          <div class="step-card">
-            <div class="step-number">2</div>
-            <h3>Design & Planning</h3>
-            <p>Our designers create detailed 3D renderings and material selections. We refine the design until it perfectly matches your dream outdoor space.</p>
+          <div class="step-item">
+            <div class="step-number-large">2</div>
+            <div class="step-content">
+              <h3>Site Analysis & Planning</h3>
+              <p>Our team will carefully evaluate your property's unique features, layout, and opportunities to help shape your future outdoor space. We'll turn your vision into a plan tailored to your lifestyle and backyard while handling all the technical details.</p>
+            </div>
           </div>
           <!-- Step 3 -->
-          <div class="step-card">
-            <div class="step-number">3</div>
-            <h3>Construction & Execution</h3>
-            <p>Our expert craftsmen bring the design to life with precision, quality materials, and attention to every detail. We keep you updated throughout.</p>
+          <div class="step-item">
+            <div class="step-number-large">3</div>
+            <div class="step-content">
+              <h3>3D Virtual Tour</h3>
+              <p>Step into a lifelike preview of your future backyard. Our immersive 3D experience lets you see how everything comes together, so you can feel confident before we build. Make any final adjustments or explore new ideas to perfect the plan.</p>
+            </div>
           </div>
           <!-- Step 4 -->
-          <div class="step-card">
-            <div class="step-number">4</div>
-            <h3>Final Reveal</h3>
-            <p>We walk you through the completed project, ensure your satisfaction, and provide care instructions. Your dream outdoor space is now a reality.</p>
+          <div class="step-item">
+            <div class="step-number-large">4</div>
+            <div class="step-content">
+              <h3>Final Execution</h3>
+              <p>Watch your dream come to life, and enjoy it for years to come. We'll kick off with a pre-construction review, then your project manager and crew will lead the build with expert care and clear communication. All you have to do is watch your dream space come to life.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Process Details Section -->
-    <section class="process-details-section fade-in-up">
+    <!-- 3D Virtual Tour Section -->
+    <section class="virtual-tour-section fade-in-up">
       <div class="container">
-        <div class="details-grid">
-          <div class="details-image">
-            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/ffc572c52327765893217c80537dc037e6331c1d/images/decks/Chine-Drive-Backyard-Landscaping-Project-with-Small-Composite-Deck-Build-Aluminum-Tempered-Glass-Railings.jpg" alt="Design Process" loading="lazy">
+        <div class="virtual-tour-grid">
+          <div class="virtual-tour-content">
+            <h2>Step Into a Lifelike Preview</h2>
+            <p>Our immersive 3D experience lets you see how everything comes together, so you can feel confident before we build. Make any final adjustments or explore new ideas. This is your chance to perfect the plan.</p>
+            <p>Once every detail is dialed in, it's time to break ground on your dream outdoor living space. You'll see exactly what your backyard will look like before construction even begins.</p>
+            <a href="portfolio.html" class="btn-primary">View Our Portfolio</a>
           </div>
-          <div class="details-content">
-            <h2>Why Choose Our Process?</h2>
-            <p>At M.E. Contracting, we believe that a successful project starts with a clear, transparent process. Our proven 4-step approach ensures that every detail is handled with care, from the initial consultation to the final walkthrough.</p>
-            <ul class="details-list">
-              <li><i class="fas fa-check-circle"></i> Clear communication at every stage</li>
-              <li><i class="fas fa-check-circle"></i> Detailed 3D renderings before construction</li>
-              <li><i class="fas fa-check-circle"></i> Regular progress updates and photos</li>
-              <li><i class="fas fa-check-circle"></i> Post-completion support and warranty</li>
-            </ul>
-            <a href="contact-us.html" class="btn-primary" style="margin-top: 24px; display: inline-block;">Schedule a Consultation</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-section fade-in-up">
-      <div class="container">
-        <h2>Why Choose M.E. Contracting</h2>
-        <p class="why-subhead">Award-winning craftsmanship and exceptional client experience</p>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-medal"></i></div>
-            <h3>Award Winning</h3>
-            <p>Recognized as one of Toronto's premier landscaping and outdoor living companies with multiple industry awards.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-clock"></i></div>
-            <h3>15+ Years Experience</h3>
-            <p>Over a decade of excellence serving the Greater Toronto Area with thousands of successful projects.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-star"></i></div>
-            <h3>5-Star Service</h3>
-            <p>Hundreds of satisfied clients and 5-star reviews across Google, Homestars, and social media.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-handshake"></i></div>
-            <h3>Licensed & Insured</h3>
-            <p>Fully licensed, insured, and bonded for your peace of mind. All permits handled professionally.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-leaf"></i></div>
-            <h3>Premium Materials</h3>
-            <p>We use only the highest quality materials from trusted brands like Trex, AZEK, and Fiberon.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
-            <h3>On-Time Delivery</h3>
-            <p>We respect your time and budget, delivering projects on schedule with no hidden costs.</p>
+          <div class="virtual-tour-image">
+            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/ffc572c52327765893217c80537dc037e6331c1d/images/decks/Complete-Toronto-PVC-Decking-Project-M.E.-Contracting.jpg" alt="3D Virtual Tour" loading="lazy">
           </div>
         </div>
       </div>
@@ -970,9 +877,18 @@
     <!-- CTA Section -->
     <section class="cta-section fade-in-up">
       <div class="container">
-        <h2>Ready to Start Your Project?</h2>
-        <p>Let's discuss your vision and create something extraordinary together</p>
-        <a href="contact-us.html" class="btn-primary cta-btn">Schedule a Consultation</a>
+        <h2>Don't settle for a backyard that's anything less than extraordinary.</h2>
+        <p>Dream big with M.E. Contracting</p>
+        <a href="contact-us.html" class="btn-primary cta-btn">Schedule a Call</a>
+      </div>
+    </section>
+
+    <!-- Dream Guide Section -->
+    <section class="dream-guide-section fade-in-up">
+      <div class="container">
+        <h2>Get Inspired!</h2>
+        <p>Check out our free luxury Outdoor Oasis Dream Guide with some amazing ideas for building your luxury experience.</p>
+        <a href="portfolio.html" class="btn-outline">View Our Portfolio</a>
       </div>
     </section>
   </main>
@@ -980,34 +896,6 @@
   <div id="footer-placeholder"></div>
 
   <script>
-    // Typewriter Effect - No Cursor
-    const typewriterText = "A seamless journey from vision to reality — we guide you every step of the way.";
-    const typewriterElement = document.getElementById('typewriterText');
-    let i = 0;
-    
-    function typeWriter() {
-      if (i < typewriterText.length) {
-        typewriterElement.innerHTML += typewriterText.charAt(i);
-        i++;
-        setTimeout(typeWriter, 45);
-      }
-    }
-    
-    // Start typewriter when section is visible
-    const typewriterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && typewriterElement && typewriterElement.innerHTML === '') {
-          typeWriter();
-          typewriterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    const introSection = document.querySelector('.process-intro-section');
-    if (introSection) {
-      typewriterObserver.observe(introSection);
-    }
-
     // Function to load HTML components
     async function loadComponent(componentName, placeholderId) {
       try {
