@@ -1,29 +1,23 @@
-<!-- footer.html - Common Footer for all pages -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-grid">
-      <div class="footer-col">
+      
+      <div class="footer-col about-col">
         <a href="index.html" class="footer-logo-link">
-          <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/e020ee09ab5b80ebf902b5dc3500b0a0a0884aac/images/ME-Contracting-Logo-600x200-1-1-1.png" alt="M.E. Contracting Logo" style="height: 60px; width: auto; display: block; margin-bottom: 16px;">
+          <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/e020ee09ab5b80ebf902b5dc3500b0a0a0884aac/images/ME-Contracting-Logo-600x200-1-1-1.png" alt="M.E. Contracting Logo" class="footer-main-logo">
         </a>
         <div class="footer-contact">
           <p><i class="fas fa-phone-alt"></i> (416) 123-4567</p>
           <p><i class="fas fa-envelope"></i> info@mecontracting.ca</p>
           <p><i class="fas fa-map-marker-alt"></i> Toronto, GTA, Ontario</p>
         </div>
-        <!-- Social Media Icons -->
-        <div class="footer-social" style="display: flex; gap: 16px; margin-top: 20px;">
-          <a href="https://www.instagram.com/kerenabu.mecontracting/?hl=en" target="_blank" rel="noopener noreferrer" style="color: #D4AF37; font-size: 1.5rem; transition: color 0.3s;">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.youtube.com/channel/UCYzmWRIAUzONhBR_zyjcQ3Q" target="_blank" rel="noopener noreferrer" style="color: #D4AF37; font-size: 1.5rem; transition: color 0.3s;">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a href="https://www.tiktok.com/@m.e.contracting" target="_blank" rel="noopener noreferrer" style="color: #D4AF37; font-size: 1.5rem; transition: color 0.3s;">
-            <i class="fab fa-tiktok"></i>
-          </a>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/kerenabu.mecontracting/?hl=en" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/channel/UCYzmWRIAUzONhBR_zyjcQ3Q" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@m.e.contracting" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
         </div>
       </div>
+
       <div class="footer-col">
         <h4>SERVICES</h4>
         <ul>
@@ -35,6 +29,7 @@
           <li><a href="railings.html">Outdoor Railings</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h4>QUICK LINKS</h4>
         <ul>
@@ -44,6 +39,7 @@
           <li><a href="https://trustmate.io/en/reviews/mecontracting-ca-1" target="_blank" rel="noopener noreferrer">Reviews</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h4>COMPANY</h4>
         <ul>
@@ -55,16 +51,15 @@
       </div>
     </div>
 
-    <!-- Association Logos Section -->
-    <div class="footer-logos" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 40px 0 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="footer-logos-wrapper">
       <a href="https://landscapeontario.com/showcase-of-dreams-visualizing-the-future-with-m-e-contracting/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/5ac6ce5192a18d29f8bc5937534b204b79e1fd8c/images/Horticulture-200x200.png" alt="Landscape Ontario Horticulture" style="height: 60px; width: auto; transition: transform 0.3s;">
+        <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/5ac6ce5192a18d29f8bc5937534b204b79e1fd8c/images/Horticulture-200x200.png" alt="Landscape Ontario Horticulture">
       </a>
       <a href="https://www.homestars.com/profile/2798073-me-contracting" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/ff2b9ae3ced5dafacf28dd62c2aadc564a8ebc09/images/homestars-verified-1-1.png" alt="HomeStars Verified" style="height: 60px; width: auto; transition: transform 0.3s;">
+        <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/ff2b9ae3ced5dafacf28dd62c2aadc564a8ebc09/images/homestars-verified-1-1.png" alt="HomeStars Verified">
       </a>
       <a href="https://www.houzz.com/professionals/landscape-contractors/m-e-contracting-pfvwus-pf~1988880124" target="_blank" rel="noopener noreferrer">
-        <img src="https://mecontracting.ca/wp-content/uploads/icons8-houzz-80.png" alt="Houzz" style="height: 60px; width: auto; transition: transform 0.3s;">
+        <img src="https://mecontracting.ca/wp-content/uploads/icons8-houzz-80.png" alt="Houzz">
       </a>
     </div>
 
@@ -75,11 +70,176 @@
 </footer>
 
 <style>
-  .footer-social a:hover {
-    color: #E8C45A !important;
-    transform: translateY(-2px);
+  /* Base Footer Styles */
+  .footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 60px 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
   }
-  .footer-logos a:hover img {
-    transform: scale(1.05);
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Grid Layout for Desktop */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-main-logo {
+    height: 60px;
+    width: auto;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .footer-col h4 {
+    color: #D4AF37;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-col ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.95rem;
+  }
+
+  .footer-col ul li a:hover {
+    color: #D4AF37;
+  }
+
+  .footer-contact p {
+    color: #bbb;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-contact i {
+    color: #D4AF37;
+    width: 15px;
+  }
+
+  /* Social Icons */
+  .footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .footer-social a {
+    color: #D4AF37;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+  }
+
+  .footer-social a:hover {
+    transform: translateY(-3px);
+    color: #fff;
+  }
+
+  /* Association Logos */
+  .footer-logos-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-logos-wrapper img {
+    height: 50px;
+    width: auto;
+    filter: grayscale(0.2);
+    transition: all 0.3s;
+  }
+
+  .footer-logos-wrapper img:hover {
+    filter: grayscale(0);
+    transform: scale(1.1);
+  }
+
+  /* Copyright Section */
+  .footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    color: #777;
+  }
+
+  /* ======================================================
+     MOBILE RESPONSIVENESS
+     ====================================================== */
+
+  /* For Tablets (Max 992px) */
+  @media (max-width: 992px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+  }
+
+  /* For Mobile Phones (Max 600px) */
+  @media (max-width: 600px) {
+    .footer {
+      padding: 40px 0 20px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr; /* එක් තීරුවක් පමණක් පෙන්වයි */
+      text-align: center;
+    }
+
+    .footer-main-logo {
+      margin: 0 auto 20px; /* ලාංඡනය මැදට ගෙන ඒම */
+    }
+
+    .footer-contact p, .footer-social {
+      justify-content: center; /* අයිකන සහ විස්තර මැදට ගෙන ඒම */
+    }
+
+    .footer-col h4 {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .footer-logos-wrapper {
+      gap: 20px;
+    }
+
+    .footer-logos-wrapper img {
+      height: 40px;
+    }
+    
+    .footer-bottom p {
+        padding: 0 10px;
+    }
   }
 </style>
