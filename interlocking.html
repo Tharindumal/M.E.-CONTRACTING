@@ -119,6 +119,8 @@
       margin-top: 16px;
       align-self: flex-start;
       font-size: 0.85rem;
+      /* Ensure button stays in same line */
+      white-space: nowrap;
     }
 
     .service-btn:hover {
@@ -453,7 +455,7 @@
       z-index: 2;
     }
 
-    /* Text Reveal Animation - MUCH LARGER FONT */
+    /* Text Reveal Animation - PC size good, mobile larger as requested */
     .reveal-text {
       color: #FFFFFF;
       font-size: 5.5rem;
@@ -555,7 +557,7 @@
       font-size: 1rem;
     }
 
-    /* Service Types - Mobile Friendly (NO ANIMATIONS) */
+    /* Service Types - Mobile Friendly */
     .service-types-section {
       padding: 80px 0;
       background: #353738;
@@ -594,7 +596,6 @@
       scroll-snap-align: start;
       display: flex;
       flex-direction: column;
-      /* NO SCROLL ANIMATION - always visible */
       opacity: 1;
       transform: none;
     }
@@ -914,8 +915,9 @@
         padding: 0 20px;
       }
       
+      /* Mobile hero title LARGER */
       .reveal-text {
-        font-size: 3rem;
+        font-size: 3.8rem;
       }
       
       .typewriter-text {
@@ -977,11 +979,16 @@
         flex-direction: column;
         align-items: center;
       }
+
+      /* keep button in same line even on smaller cards */
+      .service-btn {
+        white-space: nowrap;
+      }
     }
 
     @media (max-width: 480px) {
       .reveal-text {
-        font-size: 2rem;
+        font-size: 2.8rem;
       }
       
       .typewriter-text {
@@ -1069,7 +1076,8 @@
                 <p><strong>Toronto's Heated Driveway Builder</strong><br>Driveway heating systems are great to have as they can prevent accidents and injuries as well as save you (and your back) many hours of snow shoveling.</p>
                 <p>Installing a heated driveway system requires professional pavers, electricians, and careful planning. M.E. Contracting has installed dozens of heated driveways and our crews are very familiar with the step-by-step process required.</p>
                 <p><strong>Ditch the shovel & salt with a heated driveway installation by M.E. Contracting!</strong></p>
-                <a href="#" class="service-btn service-heated-btn">Learn More</a>
+                <!-- Link to contact-us.html -->
+                <a href="contact-us.html" class="service-btn service-heated-btn">Learn More</a>
               </div>
             </div>
             <!-- Driveway Paving Card -->
@@ -1084,7 +1092,8 @@
                 <p><strong>Start With a Superior Design</strong><br>M.E. Contracting's approach to driveway paving centers on three key components: The Base, The Pavement, and The Drainage Pitch. We ensure that the surface on which your driveway is laid is in excellent condition.</p>
                 <p><strong>Move On To Quality Materials</strong><br>We use the highest quality materials in all of our driveway paving to ensure that your project will last for years to come! The proper mix to suit your driveway paving needs is essential for climate and local environmental conditions.</p>
                 <p><strong>Finish With Top-Notch Construction</strong><br>M.E. Contracting is dedicated to making your project a priority, delivering superior results on time, every time! Whatever driveway paving surface you choose, you can be assured that we bring more than a decade of experience to every project.</p>
-                <a href="#" class="service-btn service-driveway-btn">Learn More</a>
+                <!-- Link to contact-us.html -->
+                <a href="contact-us.html" class="service-btn service-driveway-btn">Learn More</a>
               </div>
             </div>
           </div>
@@ -1225,13 +1234,6 @@
           window.location.href = 'index.html';
         });
       }
-
-      // Re-attach contact button events
-      document.querySelectorAll('.hero-cta-btn, .services-cta, .final-cta-btn, .btn-nav, #contactNavBtn, #mobileContactBtn, .service-heated-btn, .service-driveway-btn').forEach(btn => {
-        btn?.addEventListener('click', (e) => {
-          // Let the link work normally - navigates to contact-us.html
-        });
-      });
     });
 
     // Fade-in observer
