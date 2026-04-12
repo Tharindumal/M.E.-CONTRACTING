@@ -454,7 +454,7 @@
       z-index: 2;
     }
 
-    /* Text Reveal Animation - MUCH LARGER FONT */
+    /* Text Reveal Animation */
     .reveal-text {
       color: #FFFFFF;
       font-size: 5.5rem;
@@ -468,17 +468,10 @@
     }
 
     @keyframes revealText {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
-    /* Button Reveal Animation */
     .reveal-btn {
       opacity: 0;
       transform: translateY(20px);
@@ -486,14 +479,8 @@
     }
 
     @keyframes revealBtn {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     /* Typewriter Effect Section */
@@ -541,22 +528,10 @@
       border: 1px solid rgba(212, 175, 55, 0.2);
     }
 
-    .intro-image img:hover {
-      transform: scale(1.01);
-    }
+    .intro-content h2 { color: #FFFFFF; }
+    .intro-content p { color: #A0A0A5; margin-bottom: 20px; line-height: 1.6; font-size: 1rem; }
 
-    .intro-content h2 {
-      color: #FFFFFF;
-    }
-
-    .intro-content p {
-      color: #A0A0A5;
-      margin-bottom: 20px;
-      line-height: 1.6;
-      font-size: 1rem;
-    }
-
-    /* Service Types - Mobile Friendly (NO ANIMATIONS) */
+    /* Service Types */
     .service-types-section {
       padding: 80px 0;
       background: #353738;
@@ -595,7 +570,6 @@
       scroll-snap-align: start;
       display: flex;
       flex-direction: column;
-      /* NO SCROLL ANIMATION - always visible */
       opacity: 1;
       transform: none;
     }
@@ -613,9 +587,7 @@
       transition: transform 0.5s ease;
     }
 
-    .service-card:hover img {
-      transform: scale(1.03);
-    }
+    .service-card:hover img { transform: scale(1.03); }
 
     .service-content {
       padding: 28px;
@@ -624,26 +596,13 @@
       flex-direction: column;
     }
 
-    .service-content h3 {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      color: #D4AF37;
-    }
+    .service-content h3 { font-size: 1.5rem; margin-bottom: 12px; color: #D4AF37; }
+    .service-content p { color: #A0A0A5; margin-bottom: 12px; line-height: 1.6; font-size: 0.9rem; }
+    .service-content p strong { color: #FFFFFF; }
 
-    .service-content p {
-      color: #A0A0A5;
-      margin-bottom: 12px;
-      line-height: 1.6;
-      font-size: 0.9rem;
-    }
-
-    .service-content p strong {
-      color: #FFFFFF;
-    }
-
-    /* Scroll Dots */
+    /* Scroll Dots - SHOW ON BOTH MOBILE AND PC */
     .scroll-dots {
-      display: none;
+      display: flex;
       justify-content: center;
       gap: 12px;
       margin-top: 20px;
@@ -687,19 +646,8 @@
       border: 1px solid rgba(212, 175, 55, 0.2);
     }
 
-    .trust-image img:hover {
-      transform: scale(1.01);
-    }
-
-    .trust-content h2 {
-      color: #FFFFFF;
-    }
-
-    .trust-content p {
-      color: #A0A0A5;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
+    .trust-content h2 { color: #FFFFFF; }
+    .trust-content p { color: #A0A0A5; margin-bottom: 20px; line-height: 1.6; }
 
     /* FAQ Section */
     .faq-section {
@@ -707,10 +655,7 @@
       background: #353738;
     }
 
-    .faq-section h2 {
-      text-align: center;
-      color: #FFFFFF;
-    }
+    .faq-section h2 { text-align: center; color: #FFFFFF; }
 
     .faq-subhead {
       text-align: center;
@@ -735,21 +680,9 @@
       transition: all 0.3s ease;
     }
 
-    .faq-item:hover {
-      transform: translateY(-3px);
-      border-color: rgba(212, 175, 55, 0.5);
-    }
-
-    .faq-item h3 {
-      font-size: 1.3rem;
-      margin-bottom: 16px;
-      color: #D4AF37;
-    }
-
-    .faq-item p {
-      color: #A0A0A5;
-      line-height: 1.6;
-    }
+    .faq-item:hover { transform: translateY(-3px); border-color: rgba(212, 175, 55, 0.5); }
+    .faq-item h3 { font-size: 1.3rem; margin-bottom: 16px; color: #D4AF37; }
+    .faq-item p { color: #A0A0A5; line-height: 1.6; }
 
     /* CTA Section */
     .hero-cta-section {
@@ -760,16 +693,8 @@
       border-bottom: 1px solid rgba(212, 175, 55, 0.3);
     }
 
-    .hero-cta-section h2 {
-      color: #FFFFFF;
-      margin-bottom: 1rem;
-    }
-
-    .hero-cta-section p {
-      max-width: 550px;
-      margin: 0 auto 2rem;
-      color: #A0A0A5;
-    }
+    .hero-cta-section h2 { color: #FFFFFF; margin-bottom: 1rem; }
+    .hero-cta-section p { max-width: 550px; margin: 0 auto 2rem; color: #A0A0A5; }
 
     .hero-cta-buttons {
       display: flex;
@@ -791,10 +716,7 @@
       cursor: pointer;
     }
 
-    .btn-hero-cta:hover {
-      background: #E8C45A;
-      transform: translateY(-2px);
-    }
+    .btn-hero-cta:hover { background: #E8C45A; transform: translateY(-2px); }
 
     .btn-hero-outline {
       display: inline-block;
@@ -809,10 +731,7 @@
       font-size: 0.85rem;
     }
 
-    .btn-hero-outline:hover {
-      background: #D4AF37;
-      color: #353738;
-    }
+    .btn-hero-outline:hover { background: #D4AF37; color: #353738; }
 
     /* Footer */
     .footer {
@@ -836,32 +755,11 @@
       text-align: left;
     }
 
-    .footer-col h4 {
-      color: #D4AF37;
-      margin-bottom: 24px;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-
-    .footer-col ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .footer-col ul li {
-      margin-bottom: 12px;
-    }
-
-    .footer-col ul li a {
-      color: #A0A0A5;
-      text-decoration: none;
-      transition: color 0.2s ease;
-      font-size: 0.85rem;
-    }
-
-    .footer-col ul li a:hover {
-      color: #D4AF37;
-    }
+    .footer-col h4 { color: #D4AF37; margin-bottom: 24px; font-size: 1.1rem; font-weight: 600; }
+    .footer-col ul { list-style: none; padding: 0; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { color: #A0A0A5; text-decoration: none; transition: color 0.2s ease; font-size: 0.85rem; }
+    .footer-col ul li a:hover { color: #D4AF37; }
 
     .footer-logo {
       font-size: 1.5rem;
@@ -871,23 +769,9 @@
       font-family: 'Playfair Display', serif;
     }
 
-    .footer-tagline {
-      font-size: 0.7rem;
-      color: #A0A0A5;
-      margin-bottom: 24px;
-    }
-
-    .footer-contact p {
-      margin-bottom: 12px;
-      font-size: 0.85rem;
-      color: #A0A0A5;
-    }
-
-    .footer-contact i {
-      width: 24px;
-      margin-right: 8px;
-      color: #D4AF37;
-    }
+    .footer-tagline { font-size: 0.7rem; color: #A0A0A5; margin-bottom: 24px; }
+    .footer-contact p { margin-bottom: 12px; font-size: 0.85rem; color: #A0A0A5; }
+    .footer-contact i { width: 24px; margin-right: 8px; color: #D4AF37; }
 
     .footer-bottom {
       text-align: center;
@@ -897,123 +781,43 @@
       color: #666670;
     }
 
-    /* Fade In Animation - only for intro, trust, faq sections */
+    /* Fade In Animation */
     .fade-in-up {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .fade-in-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in-up.visible { opacity: 1; transform: translateY(0); }
 
     /* Responsive */
     @media (max-width: 900px) {
-      .container, .nav-container, .footer-container {
-        padding: 0 20px;
-      }
-      
-      .reveal-text {
-        font-size: 3.8rem;
-      }
-      
-      .typewriter-text {
-        font-size: 1.6rem;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
-      }
-      
-      .menu-toggle {
-        display: flex;
-      }
-      
-      .nav-links {
-        display: none;
-      }
-      
-      .nav-contact {
-        display: none;
-      }
-      
-      .intro-grid, .trust-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      
-      .service-types-grid .service-card {
-        width: 85%;
-        min-width: 280px;
-      }
-      
-      .service-card img {
-        height: 220px;
-      }
-      
-      .service-content {
-        padding: 20px;
-      }
-      
-      .service-content h3 {
-        font-size: 1.4rem;
-      }
-      
-      .scroll-dots {
-        display: flex;
-      }
-      
-      .faq-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px;
-      }
-      
-      .hero-cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
+      .container, .nav-container, .footer-container { padding: 0 20px; }
+      .reveal-text { font-size: 3.8rem; }
+      .typewriter-text { font-size: 1.6rem; }
+      h2 { font-size: 1.8rem; }
+      .menu-toggle { display: flex; }
+      .nav-links { display: none; }
+      .nav-contact { display: none; }
+      .intro-grid, .trust-grid { grid-template-columns: 1fr; gap: 40px; }
+      .service-types-grid .service-card { width: 85%; min-width: 280px; }
+      .service-card img { height: 220px; }
+      .service-content { padding: 20px; }
+      .service-content h3 { font-size: 1.4rem; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .hero-cta-buttons { flex-direction: column; align-items: center; }
     }
 
     @media (max-width: 480px) {
-      .reveal-text {
-        font-size: 2.8rem;
-      }
-      
-      .typewriter-text {
-        font-size: 1.3rem;
-      }
-      
-      .experience-section h2 {
-        font-size: 1.5rem;
-      }
-      
-      .service-types-grid .service-card {
-        width: 90%;
-        min-width: 260px;
-      }
-      
-      .service-card img {
-        height: 200px;
-      }
-      
-      .service-content {
-        padding: 16px;
-      }
-      
-      .service-content h3 {
-        font-size: 1.3rem;
-      }
-      
-      .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
+      .reveal-text { font-size: 2.8rem; }
+      .typewriter-text { font-size: 1.3rem; }
+      .experience-section h2 { font-size: 1.5rem; }
+      .service-types-grid .service-card { width: 90%; min-width: 260px; }
+      .service-card img { height: 200px; }
+      .service-content { padding: 16px; }
+      .service-content h3 { font-size: 1.3rem; }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
     }
   </style>
 </head>
@@ -1022,7 +826,6 @@
   <div id="header-placeholder"></div>
 
   <main>
-    <!-- Page Hero with Text Reveal Animation - Larger Font -->
     <section class="page-hero">
       <div class="container">
         <h1 class="reveal-text">Custom Decks & Decking Solutions</h1>
@@ -1034,7 +837,7 @@
       <div class="container">
         <div class="intro-grid">
           <div class="intro-image">
-            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/M.E.-Contracting-Decking-and-Glass-Aluminum-Railing-Installation-Project-with-Fiberglass-Pool.jpg" alt="Custom deck with glass railings" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/05d65b3dfc6d9beba60a250f1846c03dac3c60b4/images/decks/M.E.-Contracting-Decking-and-Glass-Aluminum-Railing-Installation-Project-with-Fiberglass-Pool.jpg" alt="Custom deck" loading="lazy">
           </div>
           <div class="intro-content">
             <h2>Transform Your Backyard with a Custom Deck</h2>
@@ -1047,7 +850,6 @@
       </div>
     </section>
 
-    <!-- Typewriter Effect Section -->
     <section class="experience-section fade-in-up">
       <div class="container">
         <div class="typewriter-container">
@@ -1182,7 +984,6 @@
           </div>
         </div>
       </div>
-      <div class="scroll-dots" id="faqDots"></div>
     </section>
 
     <section class="hero-cta-section fade-in-up">
@@ -1200,7 +1001,6 @@
   <div id="footer-placeholder"></div>
 
   <script>
-    // Typewriter Effect - No Cursor
     const typewriterText = "At M.E. Contracting, We Make Your Deck-Building Experience as Exceptional as the Results!";
     const typewriterElement = document.getElementById('typewriterText');
     let i = 0;
@@ -1213,7 +1013,6 @@
       }
     }
     
-    // Start typewriter when section is visible
     const typewriterObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && typewriterElement && typewriterElement.innerHTML === '') {
@@ -1224,66 +1023,34 @@
     }, { threshold: 0.5 });
     
     const experienceSection = document.querySelector('.experience-section');
-    if (experienceSection) {
-      typewriterObserver.observe(experienceSection);
-    }
+    if (experienceSection) typewriterObserver.observe(experienceSection);
 
-    // Function to load HTML components
     async function loadComponent(componentName, placeholderId) {
       try {
         const response = await fetch(`${componentName}.html`);
-        if (response.ok) {
-          const html = await response.text();
-          document.getElementById(placeholderId).innerHTML = html;
-          return true;
-        } else {
-          console.error(`Failed to load ${componentName}.html`);
-          return false;
-        }
-      } catch (error) {
-        console.error(`Error loading ${componentName}:`, error);
-        return false;
-      }
+        if (response.ok) document.getElementById(placeholderId).innerHTML = await response.text();
+      } catch (error) {}
     }
 
-    // Load header and footer
     Promise.all([
       loadComponent('header', 'header-placeholder'),
       loadComponent('footer', 'footer-placeholder')
     ]).then(() => {
-      // Navbar scroll effect
       const navbar = document.getElementById('navbar');
-      if (navbar) {
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 50) navbar.classList.add('scrolled');
-          else navbar.classList.remove('scrolled');
-        });
-      }
+      if (navbar) window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
 
-      // Mobile menu functionality
       const menuToggle = document.getElementById('menuToggle');
       const mobileMenu = document.getElementById('mobileMenu');
       const closeMenu = document.getElementById('closeMenu');
-
       if (menuToggle && mobileMenu) {
         menuToggle.addEventListener('click', () => mobileMenu.classList.add('active'));
         if (closeMenu) closeMenu.addEventListener('click', () => mobileMenu.classList.remove('active'));
-        document.querySelectorAll('.mobile-menu a, .mobile-menu .mobile-btn').forEach(link => {
-          link.addEventListener('click', () => mobileMenu.classList.remove('active'));
-        });
       }
 
-      // Logo click
       const logoLink = document.getElementById('logoLink');
-      if (logoLink) {
-        logoLink.addEventListener('click', (e) => {
-          e.preventDefault();
-          window.location.href = 'index.html';
-        });
-      }
+      if (logoLink) logoLink.addEventListener('click', (e) => { e.preventDefault(); window.location.href = 'index.html'; });
     });
 
-    // Fade-in observer (only for intro, trust, faq sections)
     const fadeElements = document.querySelectorAll('.fade-in-up');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1295,11 +1062,13 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     fadeElements.forEach(el => observer.observe(el));
 
-    // Scroll dots for deck cards (mobile only)
+    // Scroll dots for deck cards - WORKS ON BOTH MOBILE AND PC
     const deckContainer = document.getElementById('deckScrollContainer');
     const deckDotsContainer = document.getElementById('deckDots');
-    if (deckContainer && deckDotsContainer && window.innerWidth <= 900) {
+    if (deckContainer && deckDotsContainer) {
       const items = deckContainer.querySelectorAll('.service-card');
+      deckDotsContainer.innerHTML = '';
+      
       if (items.length > 1) {
         items.forEach((_, i) => {
           const dot = document.createElement('div');
@@ -1310,6 +1079,7 @@
           });
           deckDotsContainer.appendChild(dot);
         });
+        
         const updateDots = () => {
           const scrollPos = deckContainer.scrollLeft;
           let activeIndex = 0;
@@ -1320,6 +1090,7 @@
             idx === activeIndex ? dot.classList.add('active') : dot.classList.remove('active');
           });
         };
+        
         deckContainer.addEventListener('scroll', () => requestAnimationFrame(updateDots));
         updateDots();
       } else {
