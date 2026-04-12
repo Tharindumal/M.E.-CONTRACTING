@@ -2,7 +2,7 @@
   <div class="footer-container">
     <div class="footer-grid">
       
-      <div class="footer-col">
+      <div class="footer-col contact-section">
         <a href="index.html" class="footer-logo-link">
           <img src="https://raw.githubusercontent.com/Tharindumal/M.E.-CONTRACTING/e020ee09ab5b80ebf902b5dc3500b0a0a0884aac/images/ME-Contracting-Logo-600x200-1-1-1.png" alt="M.E. Contracting Logo" class="footer-main-logo">
         </a>
@@ -61,124 +61,69 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 M.E. Contracting – Award-Winning Landscaping, Interlocking, Deck & Pool Design & Build. All rights reserved.</p>
+      <p>© 2026 M.E. Contracting – Award-Winning Landscaping Design & Build. All rights reserved.</p>
     </div>
   </div>
 </footer>
 
 <style>
-  .footer {
-    background-color: #222;
-    color: #ffffff;
-    padding: 60px 0 20px;
-    font-family: Arial, sans-serif;
-  }
+  /* Desktop Styles */
+  .footer { background-color: #222; color: #ffffff; padding: 60px 0 20px; font-family: Arial, sans-serif; }
+  .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 30px; }
+  .footer-main-logo { height: 60px; margin-bottom: 20px; }
+  .footer-col h4 { color: #D4AF37; margin-bottom: 20px; font-size: 1.1rem; font-weight: bold; }
+  .footer-col ul { list-style: none; padding: 0; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { color: #ccc; text-decoration: none; transition: 0.3s; }
+  .footer-col ul li a:hover { color: #D4AF37; }
+  .footer-contact p { margin-bottom: 10px; font-size: 0.95rem; color: #ccc; display: flex; align-items: center; gap: 10px; }
+  .footer-social { display: flex; gap: 15px; margin-top: 15px; }
+  .footer-social a { color: #D4AF37; font-size: 1.4rem; }
 
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
+  /* Accreditations - Larger for Desktop Gap */
+  .side-logos { display: flex; flex-direction: column; gap: 20px; }
+  .side-logos img { width: 150px; height: auto; transition: 0.3s; }
+  .side-logos img:hover { transform: scale(1.1); }
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 30px;
-  }
+  .footer-bottom { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #444; font-size: 0.85rem; color: #888; }
 
-  .footer-main-logo {
-    height: 60px;
-    margin-bottom: 20px;
-  }
-
-  .footer-col h4 {
-    color: #D4AF37;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-
-  .footer-col ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .footer-col ul li {
-    margin-bottom: 10px;
-  }
-
-  .footer-col ul li a {
-    color: #ccc;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-
-  .footer-col ul li a:hover {
-    color: #D4AF37;
-  }
-
-  .footer-contact p {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-    color: #ccc;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .footer-social {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-  }
-
-  .footer-social a {
-    color: #D4AF37;
-    font-size: 1.4rem;
-  }
-
-  .side-logos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: center;
-  }
-
-  .side-logos img {
-    height: 45px;
-    width: auto;
-    transition: 0.3s;
-  }
-
-  .side-logos img:hover {
-    transform: scale(1.1);
-  }
-
-  .footer-bottom {
-    text-align: center;
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid #444;
-    font-size: 0.85rem;
-    color: #888;
-  }
-
+  /* Responsive Design */
   @media (max-width: 992px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-    }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
   }
 
   @media (max-width: 600px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
-      text-align: center;
+    .footer-grid { 
+      grid-template-columns: 1fr 1fr; /* මෙතනින් තමයි පේළියට දෙකක් එන්නේ */
+      text-align: center; 
     }
-    .footer-main-logo, .footer-contact p, .footer-social, .side-logos {
-      justify-content: center;
+
+    /* Logo section takes full width */
+    .contact-section { 
+      grid-column: span 2; 
+      margin-bottom: 20px;
     }
-    .side-logos {
-      margin-top: 10px;
+
+    .footer-main-logo, .footer-contact p, .footer-social { justify-content: center; }
+
+    /* Services and Quick links align left/center within their half-width boxes */
+    .footer-col h4 { font-size: 1rem; margin-top: 10px; }
+    .footer-col ul li a { font-size: 0.9rem; }
+
+    /* Accreditations take full width at bottom and show horizontally */
+    .logo-column { 
+      grid-column: span 2; 
+      margin-top: 30px;
     }
+
+    .side-logos { 
+      flex-direction: row; 
+      justify-content: center; 
+      gap: 15px; 
+      flex-wrap: wrap;
+    }
+
+    .side-logos img { width: 90px; } /* Mobile එකේදී ප්‍රමාණය පොඩ්ඩක් අඩු කළා */
   }
 </style>
