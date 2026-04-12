@@ -647,7 +647,7 @@
       gap: 20px;
     }
 
-    /* Swiper.js Slider - FIXED HORIZONTAL SCROLL */
+    /* Swiper.js Slider - FIXED BOTH DIRECTIONS + CENTER CARD LARGER */
     .swiper-section {
       padding: 60px 0 100px;
       background: #353738;
@@ -683,14 +683,25 @@
       border-radius: 28px;
       overflow: hidden;
       border: 1px solid rgba(212, 175, 55, 0.2);
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
       width: 400px;
       height: auto;
+      opacity: 0.6;
+      transform: scale(0.85);
     }
 
     .swiper-slide-active {
+      opacity: 1;
+      transform: scale(1.05);
       border-color: rgba(212, 175, 55, 0.6);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+
+    .swiper-slide-prev,
+    .swiper-slide-next {
+      opacity: 0.7;
+      transform: scale(0.9);
     }
 
     .media-card-content {
@@ -877,6 +888,10 @@
       
       .media-wrapper iframe {
         height: 220px;
+      }
+      
+      .swiper-slide-active {
+        transform: scale(1.03);
       }
       
       .footer-grid {
@@ -1066,13 +1081,20 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    // Initialize Swiper - SIMPLE HORIZONTAL SCROLL WITH PAGINATION DOTS
+    // Initialize Swiper - CENTER MODE WITH LARGE ACTIVE CARD + SMOOTH BOTH DIRECTIONS
     const swiper = new Swiper('.mySwiper', {
       slidesPerView: 'auto',
       centeredSlides: true,
       spaceBetween: 30,
       loop: true,
       grabCursor: true,
+      longSwipes: true,
+      longSwipesRatio: 0.3,
+      shortSwipes: true,
+      resistance: true,
+      resistanceRatio: 0.85,
+      touchRatio: 1,
+      followFinger: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -1087,13 +1109,20 @@
           spaceBetween: 25,
         },
         1024: {
-          slidesPerView: 1.8,
+          slidesPerView: 1.5,
           spaceBetween: 30,
         },
         1280: {
-          slidesPerView: 2.2,
+          slidesPerView: 2,
           spaceBetween: 40,
         }
+      },
+      on: {
+        init: function() {
+          setTimeout(() => {
+            this.update();
+          }, 100);
+        },
       }
     });
 
