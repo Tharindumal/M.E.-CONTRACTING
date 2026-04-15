@@ -7,7 +7,6 @@
   <title>Contact Us | M.E. Contracting – Toronto Landscaping & Pool Company</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     * {
       margin: 0;
@@ -647,61 +646,46 @@
       gap: 20px;
     }
 
-    /* Swiper.js Slider - FIXED BOTH DIRECTIONS + CENTER CARD LARGER */
-    .swiper-section {
+    /* Normal Horizontal Cards - NO SWIPER */
+    .media-section {
       padding: 60px 0 100px;
       background: #353738;
-      overflow: hidden;
     }
 
-    .swiper-section h2 {
+    .media-section h2 {
       text-align: center;
       margin-bottom: 16px;
     }
 
-    .swiper-subhead {
+    .media-subhead {
       text-align: center;
       color: #A0A0A5;
       margin-bottom: 50px;
       font-size: 1rem;
     }
 
-    .swiper {
-      width: 100%;
-      padding: 20px 0 60px;
-      overflow: visible;
-    }
-
-    .swiper-wrapper {
+    .media-grid-horizontal {
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
     }
 
-    .swiper-slide {
+    .media-card {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
       border-radius: 28px;
       overflow: hidden;
       border: 1px solid rgba(212, 175, 55, 0.2);
-      transition: all 0.4s ease;
-      width: 400px;
-      height: auto;
-      opacity: 0.6;
-      transform: scale(0.85);
+      transition: all 0.3s ease;
+      width: 380px;
+      flex-shrink: 0;
     }
 
-    .swiper-slide-active {
-      opacity: 1;
-      transform: scale(1.05);
+    .media-card:hover {
+      transform: translateY(-8px);
       border-color: rgba(212, 175, 55, 0.6);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      z-index: 2;
-    }
-
-    .swiper-slide-prev,
-    .swiper-slide-next {
-      opacity: 0.7;
-      transform: scale(0.9);
     }
 
     .media-card-content {
@@ -725,31 +709,9 @@
 
     .media-wrapper iframe {
       width: 100%;
-      height: 280px;
+      height: 250px;
       display: block;
       border: 0;
-    }
-
-    /* Custom Swiper Pagination */
-    .swiper-pagination {
-      position: relative;
-      bottom: 0 !important;
-      margin-top: 30px;
-    }
-
-    .swiper-pagination-bullet {
-      background: #A0A0A5;
-      opacity: 0.5;
-      width: 8px;
-      height: 8px;
-      transition: all 0.3s ease;
-    }
-
-    .swiper-pagination-bullet-active {
-      background: #D4AF37;
-      opacity: 1;
-      width: 24px;
-      border-radius: 4px;
     }
 
     /* Footer */
@@ -882,16 +844,14 @@
         grid-template-columns: 1fr;
       }
       
-      .swiper-slide {
-        width: 320px;
+      .media-grid-horizontal {
+        flex-direction: column;
+        align-items: center;
       }
       
-      .media-wrapper iframe {
-        height: 220px;
-      }
-      
-      .swiper-slide-active {
-        transform: scale(1.03);
+      .media-card {
+        width: 100%;
+        max-width: 400px;
       }
       
       .footer-grid {
@@ -915,8 +875,8 @@
         font-size: 1rem;
       }
       
-      .swiper-slide {
-        width: 280px;
+      .media-card {
+        max-width: 320px;
       }
       
       .media-wrapper iframe {
@@ -1035,16 +995,16 @@
       </div>
     </section>
 
-    <!-- Swiper.js Horizontal Scroll Slider - FIXED -->
-    <section class="swiper-section fade-in-up">
+    <!-- Normal Horizontal Cards - NO SWIPER -->
+    <section class="media-section fade-in-up">
       <div class="container">
         <h2>Explore Our Work</h2>
-        <p class="swiper-subhead">Swipe to discover our showroom, location, and portfolio in action</p>
+        <p class="media-subhead">Discover our showroom, location, and portfolio in action</p>
       </div>
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
+      <div class="container">
+        <div class="media-grid-horizontal">
           <!-- Find Us Card -->
-          <div class="swiper-slide">
+          <div class="media-card">
             <div class="media-card-content">
               <h3>Find Us</h3>
               <div class="media-wrapper">
@@ -1053,7 +1013,7 @@
             </div>
           </div>
           <!-- Showroom 360° View Card -->
-          <div class="swiper-slide">
+          <div class="media-card">
             <div class="media-card-content">
               <h3>Showroom 360° View</h3>
               <div class="media-wrapper">
@@ -1062,70 +1022,22 @@
             </div>
           </div>
           <!-- YouTube Video Card -->
-          <div class="swiper-slide">
+          <div class="media-card">
             <div class="media-card-content">
               <h3>See Our Work in Action</h3>
               <div class="media-wrapper">
-                <iframe src="https://www.youtube.com/embed/Nh-Tk3-nIeE" title="M.E. Contracting Portfolio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/Nh-Tk3-nIeE" title="M.E. Contracting Portfolio" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
               </div>
             </div>
           </div>
         </div>
-        <!-- Pagination Dots -->
-        <div class="swiper-pagination"></div>
       </div>
     </section>
   </main>
 
   <div id="footer-placeholder"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    // Initialize Swiper - CENTER MODE WITH LARGE ACTIVE CARD + SMOOTH BOTH DIRECTIONS
-    const swiper = new Swiper('.mySwiper', {
-      slidesPerView: 'auto',
-      centeredSlides: true,
-      spaceBetween: 30,
-      loop: true,
-      grabCursor: true,
-      longSwipes: true,
-      longSwipesRatio: 0.3,
-      shortSwipes: true,
-      resistance: true,
-      resistanceRatio: 0.85,
-      touchRatio: 1,
-      followFinger: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        320: {
-          slidesPerView: 1.1,
-          spaceBetween: 20,
-        },
-        640: {
-          slidesPerView: 1.3,
-          spaceBetween: 25,
-        },
-        1024: {
-          slidesPerView: 1.5,
-          spaceBetween: 30,
-        },
-        1280: {
-          slidesPerView: 2,
-          spaceBetween: 40,
-        }
-      },
-      on: {
-        init: function() {
-          setTimeout(() => {
-            this.update();
-          }, 100);
-        },
-      }
-    });
-
     // Function to load HTML components
     async function loadComponent(componentName, placeholderId) {
       try {
